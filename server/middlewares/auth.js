@@ -7,10 +7,12 @@ const authMiddleware = (req, res, next) => {
             const user = validateToken(token);
             req.user = {
                 'email': user.email,
+                'username': user.username,
                 '_id': user._id,
                 token
             }
         } catch (error) {
+            res.json(error)
             console.log(error)
         }
     }

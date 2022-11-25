@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt');
 const server = require('../environment')
 const User = require('../models/User')
 const validateToken = (token) => {
@@ -31,7 +32,20 @@ const register = async (username, email, password) => {
     const user = await User.create({username, email, password})
     return createAccessToken(user)
 }
+const login = async (email, password) => {
+    const user = await User.findOne({email});
+    if(!user){
+        throw new Error('Invalid email or password!')
+    }
+    const isUser = await bcrypt.compare(password, user.password)
+    if(isUser){
+        return createAccessToken(user)
+    }else {
+        throw new Error('Invalid email or password!')
+    }
+}
 module.exports = {
+    login,
     register,
     createAccessToken,
     validateToken
