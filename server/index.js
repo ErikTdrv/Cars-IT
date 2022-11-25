@@ -5,14 +5,12 @@ const cors = require('./configs/cors');
 const server = require('./environment');
 const initDatabase = require('./configs/database');
 const routes = require('./routes');
-const cookieParser = require('cookie-parser');
 const { authMiddleware } = require('./middlewares/auth');
 
 app.use(cors());
 app.use(express.json())
-app.use(routes)
-app.use(cookieParser())
 app.use(authMiddleware)
+app.use(routes)
 //Initializing database
 initDatabase()
 .then(() => {
