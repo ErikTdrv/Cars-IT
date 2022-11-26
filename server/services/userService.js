@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
 const server = require('../environment')
 const User = require('../models/User')
+
 const validateToken = (token) => {
     try {
         const data = jwt.verify(token, server.SECRET_KEY)
@@ -43,6 +44,9 @@ const login = async (email, password) => {
     }else {
         throw new Error('Invalid email or password!')
     }
+}
+const logout = (token) => {
+    blacklist.add(token)
 }
 module.exports = {
     login,
