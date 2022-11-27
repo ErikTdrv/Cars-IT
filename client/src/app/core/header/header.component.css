@@ -3,12 +3,12 @@
     align-items: center;
     justify-content: space-between;
     background-color: rgb(32, 32, 32);
-    height: 2.5%;
+    height: 3rem;
 }
 h2 {
     color: white;
     font-weight: bold;
-    font-size: 100%;
+    font-size: 1rem;
     padding: 0 10px;
     cursor: pointer;
 }
@@ -18,13 +18,13 @@ span{
 ul li {
     list-style-type: none;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 0.5rem 1.4rem;
 }
 ul li a{
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 80%;
+    font-size: 1rem;
 }
 ul li::after{
     content: '';
