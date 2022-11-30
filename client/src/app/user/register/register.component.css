@@ -53,12 +53,16 @@ input[type="submit"] {
     font-size: 1.2rem;
     font-weight: bold;
 }
-span { 
-    position: absolute;
+.error { 
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+    padding-left: 1rem;
+    top: 10px;
 }
 p {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 8px;
     font-size: 15px;
     font-weight: bold;
 
