@@ -1,12 +1,9 @@
 div {
-    position:absolute;
-    top: 45px;
-    bottom: 0px;
-    background-image: url(../../../assets/BMW-M4-MAIN-BANNER.jpg);
+    background-image:url(../../../assets/BMW-M4-MAIN-BANNER.jpg);
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 5rem);
 }
 h2 {
     position: absolute;
