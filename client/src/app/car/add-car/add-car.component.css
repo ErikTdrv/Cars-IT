@@ -15,7 +15,7 @@
     transform: translate(-50%, -50%);
     background-color: rgb(32, 32, 32);
     width: 360px;
-    height: 600px;
+    /* height: 600px; */
     color: white;
     box-shadow: 15px 15px 25px rgb(32, 32, 32);
 }
@@ -64,6 +64,7 @@ p.error {
     text-align: left;
     color: red;
     padding-left: 10px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: bold;
 }
 
