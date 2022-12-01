@@ -53,12 +53,12 @@ input[type="submit"] {
     font-size: 1.2rem;
     font-weight: bold;
 }
-.error { 
+p.error {
+    text-align: left;
     color: red;
+    padding-left: 10px;
+    font-size: 0.9rem;
     font-weight: bold;
-    font-style: italic;
-    padding-left: 1rem;
-    top: 10px;
 }
 p {
     text-align: center;
