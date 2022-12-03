@@ -27,6 +27,7 @@ article {
     background-color: white;
     width: 300px;
     height: 300px;
+    border-radius: 15px;
 
 }
 .image {
@@ -68,4 +69,5 @@ button {
     border-radius: 10px;
     font-size: 1rem;
     font-weight: bold;
+    cursor: pointer;
 }
