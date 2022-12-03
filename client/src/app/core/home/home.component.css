@@ -31,6 +31,10 @@
     padding: 5px 5px;
     margin: 20px;
     margin-bottom: 80px;
+    cursor: pointer;
+}
+.container button:hover {
+    color: white;
 }
 .top {
     width: 100%;
