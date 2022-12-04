@@ -14,15 +14,15 @@ export class RegisterComponent {
   errors: string | undefined = undefined;
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.form = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(4)]],
+      username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
       email: ['', [Validators.required, emailValidator]],
-      password: ['', [Validators.required, Validators.minLength(4)]],
-      rePassword: ['', [Validators.required, passwordValidator]]
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
+      rePass: ['', [Validators.required, passwordValidator]]
     });
   }
 
-  register(form: NgForm): void{
-    console.log(form)
+  register(): void{
+    console.log(this.form)
   }
 
 }

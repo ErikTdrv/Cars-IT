@@ -15,7 +15,7 @@
     transform: translate(-50%, -50%);
     background-color: rgb(32, 32, 32);
     width: 360px;
-    height: 500px;
+    /* height: 500px; */
     color: white;
     box-shadow: 15px 15px 25px rgb(32, 32, 32);
 }
@@ -52,17 +52,19 @@ input[type="submit"] {
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
+    text-align: center;
 }
 p.error {
     text-align: left;
     color: red;
+    padding-top: 5px;
     padding-left: 10px;
     font-size: 0.9rem;
     font-weight: bold;
 }
-p {
+p.text {
     text-align: center;
-    padding-top: 8px;
+    padding-bottom: 15px;
     font-size: 15px;
     font-weight: bold;
 
@@ -70,4 +72,9 @@ p {
 p>a {
     font-weight:lighter ;
     color: #49c1a2;
+}
+input:disabled {
+    border: 1px solid #999999;
+  background-color: #cccccc;
+  /* color: #666666; */
 }

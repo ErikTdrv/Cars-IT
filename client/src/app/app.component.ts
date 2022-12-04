@@ -6,14 +6,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   constructor(private http: HttpClient){}
-  ngOnInit(): void {
-    this.http.get('http://localhost:3030').subscribe({
-      next: (value) => {
-        console.log(value)
-      }
-    })
-  }
+
   title = 'client';
 }
