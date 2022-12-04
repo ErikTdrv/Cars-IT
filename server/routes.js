@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const authController = require('./controllers/authController')
+const carController = require('./controllers/carController');
 
 router.get('/', (req, res) => {
     // req.headers['X-Authorization'] = 'asdjpoiasdqi9h402rjpm'
@@ -7,6 +8,7 @@ router.get('/', (req, res) => {
     res.json(token)
     // res.end()
 })
+router.use('/car', carController)
 router.use(authController)
     
 module.exports = router;
