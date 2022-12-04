@@ -10,13 +10,20 @@ const routes: Routes = [
         component: AddCarComponent,
     },
     {
-        path: 'all-cars',
-        component: AllCarsComponent,
+        path: 'cars',
+        children: [
+            {
+                path: '',
+                pathMatch: 'full',
+                component: AllCarsComponent,
+            },
+            {
+                path: ':id',
+                component: CarDetailsComponent,
+            }
+        ]
     },
-    {
-        path: ':id',
-        component: CarDetailsComponent
-    }
+
 ]
 
 @NgModule({

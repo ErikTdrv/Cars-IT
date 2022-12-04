@@ -7,8 +7,8 @@ const initDatabase = require('./configs/database');
 const routes = require('./routes');
 const { authMiddleware } = require('./middlewares/auth');
 
-// app.use(cors())
-app.use(manualCors());
+app.use(cors({credentials: true, origin: 'http://localhost:4200', allowedHeaders: ['Content-Type, X-Authorization']}))
+// app.use(manualCors());
 app.use(express.json())
 app.use(authMiddleware)
 app.use(routes)
