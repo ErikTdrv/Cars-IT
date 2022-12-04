@@ -4,6 +4,7 @@ import { Route, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { IUser } from '../shared/interfaces/user';
 import {environment} from '../../environments/environment'
+import { ICar } from '../shared/interfaces/car';
 const API_URL = environment.apiUrl
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,8 @@ export class UserService {
         this.user = user;
       })
     )
+  }
+  getProfileCars(){
+    return this.http.get<ICar[]>(`${API_URL}/cars/mycars`)
   }
 }

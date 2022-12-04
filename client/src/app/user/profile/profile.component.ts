@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ICar } from 'src/app/shared/interfaces/car';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
+  cars: ICar[] | undefined;
+  constructor(private userService: UserService){
+    this.getMyCars()
+  }
+  getMyCars(){
+    this.userService.getProfileCars().subscribe({
+      next: (value) => this.cars = value,
+      error: (err) => console.log(err)
+    })
+  }
 
 }

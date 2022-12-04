@@ -10,7 +10,6 @@ import { UserService } from './user/user.service';
 export class AppComponent{
   constructor(private http: HttpClient, private userService: UserService){
     if(localStorage.getItem('token')){
-      console.log('here')
       userService.getProfileData().subscribe()
     }
   }

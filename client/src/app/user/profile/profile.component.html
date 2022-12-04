@@ -8,16 +8,18 @@
             <h1>My Profile</h1>
         </div>
     </div> -->
-    <section>
-        <article>
-            <p>20.000$</p>
-            <div class="image">
-                <img src="../../../assets/mercedes-amg-e-63-s-4matic-final-edition-2022-5k-5120x3225-8195.jpg" alt="no-img">
-            </div>
-            <div class="info">
-                <h1>Mercedes-AMG E 63 S 4MATIC+</h1>
-                <button>Details</button>
-            </div>
-        </article>
+    <section *ngIf="cars">
+        <ng-container *ngFor="let car of cars">
+            <article>
+                <p>{{car.price}}$</p>
+                <div class="image">
+                    <img src={{car.imageUrl}} alt="no-img">
+                </div>
+                <div class="info">
+                    <h1>{{car.make}} {{car.model}}</h1>
+                    <button [routerLink]="['/cars', car._id]">Details</button>
+                </div>
+            </article>
+        </ng-container>
     </section>
 </div>

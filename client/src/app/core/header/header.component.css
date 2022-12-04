@@ -15,16 +15,16 @@ h2 {
 span{
     color: red;
 }
-ul li {
-    list-style-type: none;
-    display: inline-block;
-    padding: 0.5rem 1.4rem;
-}
 ul li a{
     text-decoration: none;
     color: white;
     font-weight: bold;
     font-size: 1rem;
+}
+ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0.5rem 1.4rem;
 }
 ul li::after{
     content: '';

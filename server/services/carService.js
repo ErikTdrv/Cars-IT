@@ -13,7 +13,11 @@ const getAllCars = async () => {
 const getOneCar = async (id) => {
     return await Car.findById(id)
 }
+const getProfileCars = async (name) => {
+    return await Car.find({owner: name})
+}
 module.exports = {
+    getProfileCars,
     getOneCar,
     getAllCars,
     addCar,
