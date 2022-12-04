@@ -60,7 +60,15 @@ p.error {
     font-size: 0.9rem;
     font-weight: bold;
 }
-p {
+p.mainerror {
+    text-align: center;
+    color: red;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+p.text {
     text-align: center;
     padding-top: 8px;
     font-size: 15px;
@@ -70,4 +78,9 @@ p {
 p>a {
     font-weight:lighter ;
     color: #49c1a2;
+}
+input:disabled {
+    border: 1px solid #999999;
+  background-color: #cccccc;
+  /* color: #666666; */
 }
