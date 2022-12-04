@@ -23,7 +23,11 @@ const editCar = async (id, data) => {
         return error
     }
 }
+const deleteACar = async (id) => {
+    await Car.findByIdAndDelete(id)
+}
 module.exports = {
+    deleteACar,
     editCar,
     getProfileCars,
     getOneCar,

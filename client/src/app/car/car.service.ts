@@ -21,4 +21,7 @@ export class CarService {
   editCar(id: string | undefined, data: {}){
     return this.http.put<ICar>(`${API_URL}/cars/${id}`, data)
   }
+  deleteCar(id: string | undefined){
+    return this.http.delete(`${API_URL}/cars/${id}`)
+  }
 }

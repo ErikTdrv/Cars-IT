@@ -1,4 +1,4 @@
-const { addCar, getAllCars, getOneCar, getProfileCars, editCar } = require('../services/carService');
+const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar } = require('../services/carService');
 
 const router = require('express').Router();
 
@@ -37,5 +37,10 @@ router.put('/:id', async (req, res) => {
     } catch (error) {
         res.status(400).json({error:error.message})
     }
+})
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id;
+    await deleteACar(id)
+    res.status(200).json('Deleted!')
 })
 module.exports = router;
