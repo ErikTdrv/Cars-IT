@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AddCarComponent } from './add-car/add-car.component';
 import { CarRoutingModule } from './car-routing.module';
 import { AllCarsComponent } from './all-cars/all-cars.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,6 +17,7 @@ import { AllCarsComponent } from './all-cars/all-cars.component';
     CommonModule,
     CarRoutingModule,
     RouterModule,
+    FormsModule,
   ]
 })
 export class CarModule { }
