@@ -7,6 +7,10 @@ const addCar = async (car) => {
         return error
     }
 }
+const getAllCars = async () => {
+    return await Car.find({})
+}
 module.exports = {
+    getAllCars,
     addCar,
 }
