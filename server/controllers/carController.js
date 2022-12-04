@@ -5,6 +5,7 @@ const router = require('express').Router();
 router.post('/', async (req, res) => {
     const data = req.body;
     try {
+        data.owner = req.user.username;
         const car = await addCar(data)
         res.status(201).json(car)
     } catch (error) {

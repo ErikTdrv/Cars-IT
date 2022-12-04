@@ -6,4 +6,5 @@ export interface ICar {
     description: string,
     price: string,
     _id: string,
+    owner: string,
 }
