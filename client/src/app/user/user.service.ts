@@ -32,4 +32,11 @@ export class UserService {
     this.user = null;
     return localStorage.removeItem('token')
   }
+  getProfileData(){
+    return this.http.get<IUser>(`${API_URL}/user`).pipe(
+      tap((user) => {
+        this.user = user;
+      })
+    )
+  }
 }

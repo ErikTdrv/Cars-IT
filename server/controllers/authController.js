@@ -29,4 +29,10 @@ router.get('/logout', (req, res) => {
     // api.logout(req.user.token);
     res.status(204).end();
 });
+router.get('/user', (req, res) => {
+    const user = req.user;
+    if(user){
+        res.status(200).json(user)
+    }
+})
 module.exports = router;
