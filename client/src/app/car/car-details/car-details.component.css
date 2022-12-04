@@ -42,8 +42,8 @@
 }
 
 img {
-    max-width: 500px;
-    /* height: 190px; */
+    width: 500px;
+    height: 281.25px;
 }
 article h1 {
     font-size: 1.5rem;

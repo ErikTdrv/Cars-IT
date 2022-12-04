@@ -18,7 +18,7 @@
                 <div class="buttons">
                     <ng-container *ngIf="isAuthor">
                         <button (click)="inEditMode = true">Edit</button>
-                        <button>Delete</button>
+                        <button (click)="delete()">Delete</button>
                     </ng-container>
                     <ng-container *ngIf="!isAuthor">
                         <button>Add to favourite</button>

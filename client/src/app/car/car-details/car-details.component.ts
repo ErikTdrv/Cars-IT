@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ICar } from 'src/app/shared/interfaces/car';
 import { UserService } from 'src/app/user/user.service';
 import { CarService } from '../car.service';
@@ -20,7 +20,7 @@ export class CarDetailsComponent {
       return false;
     }
   }
-  constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private userService: UserService) {
+  constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getCar()
   }
 
@@ -36,6 +36,13 @@ export class CarDetailsComponent {
         this.car = car
         this.inEditMode = false;
       },
+      error: (err) => console.log(err)
+    })
+  }
+  delete(){
+    const id = this.car?._id;
+    this.carService.deleteCar(id).subscribe({
+      next: () => this.router.navigate(['/']),
       error: (err) => console.log(err)
     })
   }
