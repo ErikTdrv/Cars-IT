@@ -19,8 +19,8 @@
             <input type="password" placeholder="Password..." name="password" formControlName="password">
             <ng-container *ngIf="form.get('password')?.touched">
                 <p class="error" *ngIf="form.get('password')?.errors?.['required']">Password is required!</p>
-                <p class="error" *ngIf="form.get('password')?.errors?.['minlength']">Password should have 6 characters!</p>
-                <p class="error" *ngIf="form.get('password')?.errors?.['maxlength']">Password should have 12 characters!</p>
+                <p class="error" *ngIf="form.get('password')?.errors?.['minlength']">Password should have more than 6 characters!</p>
+                <p class="error" *ngIf="form.get('password')?.errors?.['maxlength']">Password should have less 12 characters!</p>
             </ng-container>
             <label>Confirm Password</label>
             <input type="password" placeholder="Repeat Password..." name="rePass" formControlName="rePass">

@@ -62,7 +62,7 @@ p.error {
     font-size: 0.9rem;
     font-weight: bold;
 }
-P.mainerror {
+p.mainerror {
         text-align: center;
         color: red;
         padding-top: 5px;

@@ -23,10 +23,8 @@ export class RegisterComponent {
 
   register(): void{
     this.userService.register(this.form.value).subscribe({
-      next: () => {
-        this.router.navigate(['/'])
-      },
-      error: (err: any) => {
+      next: () => this.router.navigate(['/']),
+      error: (err) => {
         this.errors = err.error.error
       }
     })
