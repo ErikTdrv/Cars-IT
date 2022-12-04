@@ -28,8 +28,8 @@
                 <p class="error" *ngIf="form.get('rePass')?.errors?.['required']">Repeat-password is required!</p>
                 <p class="error" *ngIf="form.get('rePass')?.errors?.['invalidPasswords']">Passwords must be equal!</p>
             </ng-container>
+            <input [disabled]="form.invalid" type="submit" value="Register" class="btn">
         </form>
-        <input [disabled]="form.invalid" type="submit" value="Register" class="btn">
         <p class="text">Already have an account? <a href="/login">Login here</a></p>
     </div>
 </div>

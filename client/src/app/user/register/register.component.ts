@@ -22,7 +22,11 @@ export class RegisterComponent {
   }
 
   register(): void{
-    console.log(this.form)
+    this.userService.register(this.form.value).subscribe({
+      next: () => {
+        this.router.navigate(['/'])
+      }
+    })
   }
 
 }
