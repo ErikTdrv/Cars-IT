@@ -25,6 +25,9 @@ export class RegisterComponent {
     this.userService.register(this.form.value).subscribe({
       next: () => {
         this.router.navigate(['/'])
+      },
+      error: (err: any) => {
+        this.errors = err.error.error
       }
     })
   }
