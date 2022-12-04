@@ -4,15 +4,21 @@
         <ul>
             <li><a routerLink="/">Home</a></li>
             <li><a routerLink="/all-cars">All Cars</a></li>
-            <li><a routerLink="/add">Add Car</a></li>
-            <li><a routerLink="/profile">My Profile</a></li>
+            <ng-container *ngIf="isLogged">
+                <li><a routerLink="/add">Add Car</a></li>
+                <li><a routerLink="/profile">My Profile</a></li>
+            </ng-container>
         </ul>
     </div>
     <div class="auth">
         <ul>
-            <li><a routerLink="/login">Login</a></li>
-            <li><a routerLink="/register">Register</a></li>
-            <li><a routerLink="/logout">Logout</a></li>
+            <ng-container *ngIf="!isLogged">
+                <li><a routerLink="/login">Login</a></li>
+                <li><a routerLink="/register">Register</a></li>
+            </ng-container>
+            <ng-container *ngIf="isLogged">
+                <li><a (click)="logout()">Logout</a></li>
+            </ng-container>
         </ul>
     </div>
 </div>

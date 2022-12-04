@@ -38,3 +38,6 @@ ul li::after{
 ul li:hover::after{
     width: 100%;
 }
+.auth a {
+    cursor: pointer;
+}
