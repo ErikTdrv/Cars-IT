@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ICar } from 'src/app/shared/interfaces/car';
 import { UserService } from 'src/app/user/user.service';
@@ -11,8 +12,8 @@ import { CarService } from '../car.service';
 })
 export class CarDetailsComponent {
   car: ICar | undefined;
-
-  constructor(private carService: CarService, private activatedRoute: ActivatedRoute){
+  inEditMode: boolean = false;
+  constructor(private carService: CarService, private activatedRoute: ActivatedRoute) {
     this.getCar()
   }
 
@@ -20,5 +21,15 @@ export class CarDetailsComponent {
     this.car = undefined;
     const id = this.activatedRoute.snapshot.params['id'];
     this.carService.getOneCar(id).subscribe(car => this.car = car)
+  }
+  editCar(form: NgForm) {
+    const id = this.car?._id;
+    this.carService.editCar(id, form.value).subscribe({
+      next: (car) => {
+        this.car = car
+        this.inEditMode = false;
+      },
+      error: (err) => console.log(err)
+    })
   }
 }

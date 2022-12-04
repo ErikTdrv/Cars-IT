@@ -1,61 +1,76 @@
 <!-- {{car | json}} -->
 <div class="container">
-    <div class="title">
-        <h1>Details Page</h1>
-    </div>
-    <article class="car">
-        <p>{{car?.price}}$</p>
-        <div class="image">
-            <img src={{car?.imageUrl}} alt="no-img">
+    <ng-container *ngIf="!inEditMode">
+        <div class="title">
+            <h1>Details Page</h1>
         </div>
-        <div class="info">
-            <h1>{{car?.make}} <span>{{car?.model}}</span></h1>
-            <hr>
-            <h3>Year: <span>{{car?.year}}</span></h3>
-            <h3>Description: <span>{{car?.description}}</span></h3>
-            <h3>Owner: <span>{{car?.owner}}</span></h3>
-            <div class="buttons">
-                <button>Edit</button>
-                <button>Delete</button>
-                <button>Add to favourite</button>
+        <article class="car">
+            <p class="price">{{car?.price}}$</p>
+            <div class="image">
+                <img src={{car?.imageUrl}} alt="no-img">
             </div>
+            <div class="info">
+                <h1>{{car?.make}} <span>{{car?.model}}</span></h1>
+                <hr>
+                <h3>Year: <span>{{car?.year}}</span></h3>
+                <h3>Description: <span>{{car?.description}}</span></h3>
+                <h3>Owner: <span>{{car?.owner}}</span></h3>
+                <div class="buttons">
+                    <button (click)="inEditMode = true">Edit</button>
+                    <button>Delete</button>
+                    <button>Add to favourite</button>
+                </div>
+            </div>
+        </article>
+    </ng-container>
+
+    
+    <ng-container *ngIf="inEditMode">
+        <div class="title">
+            <h1>Edit Car</h1>
         </div>
-    </article>
+        <div class="form">
+            <h1 class="h1">Edit Car</h1>
+            <form #form="ngForm" (ngSubmit)="editCar(form)">
+                <label>Make</label>
+                <input #make="ngModel" ngModel type="text" name="make" required minlength="3" [ngModel]="car?.make">
+                <ng-container *ngIf="make.touched">
+                    <p class="error" *ngIf="make.errors?.['required']">Make is required!</p>
+                    <p class="error" *ngIf="make.errors?.['minlength']">You should have at least 3 characters!</p>
+                </ng-container>
+                <label>Model</label>
+                <input #model="ngModel" ngModel type="text" name="model" required minlength="2" [ngModel]="car?.model">
+                <ng-container *ngIf="model.touched">
+                    <p class="error" *ngIf="model.errors?.['required']">Model is required!</p>
+                    <p class="error" *ngIf="model.errors?.['minlength']">You should have at last 2 characters!</p>
+                </ng-container>
+                <label>ImageUrl</label>
+                <input #imageUrl="ngModel" ngModel type="text" name="imageUrl" required [ngModel]="car?.imageUrl">
+                <ng-container *ngIf="imageUrl.touched">
+                    <p class="error" *ngIf="imageUrl.errors?.['required']">ImageUrl is required!</p>
+                </ng-container>
+                <label>Year</label>
+                <input #year="ngModel" ngModel type="text" name="year" required min="1950" max="2022" [ngModel]="car?.year">
+                <ng-container *ngIf="year.touched">
+                    <p class="error" *ngIf="year.errors?.['required']">Year is required!</p>
+                    <p class="error" *ngIf="year.errors?.['min']">Car year should be newer than 1950's!</p>
+                    <p class="error" *ngIf="year.errors?.['max']">Car year cannot be in the future!</p>
+                </ng-container>
+                <label>Description</label>
+                <input #description="ngModel" ngModel type="text" name="description" required minlength="10" maxlength="100" [ngModel]="car?.description">
+                <ng-container *ngIf="description.touched">
+                    <p class="error" *ngIf="description.errors?.['required']">Description is required!</p>
+                    <p class="error" *ngIf="description.errors?.['minlength']">Description should have at least 10 characters!</p>
+                    <p class="error" *ngIf="description.errors?.['maxlength']">Description shouldn't have more than 100 characters!</p>
+                </ng-container>
+                <label>Price</label>
+                <input #price="ngModel" ngModel type="text" name="price" required min="500" [ngModel]="car?.price">
+                <ng-container *ngIf="price.touched">
+                    <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>
+                    <p class="error" *ngIf="price.errors?.['min']">Car should be more expensive than 500$!</p>
+                </ng-container>
+                <input [disabled]="form.invalid" type="submit" value="Edit Car">
+            </form>
+        </div>
+    </ng-container>
 </div>
-<!-- 
-<div class="form">
-    <h1>Register</h1>
-    <form [formGroup]="form" method="post" (ngSubmit)="register()">
-        <label>Username</label>
-        <input type="text" placeholder="Username..." name="username" formControlName="username">
-        <ng-container *ngIf="form.get('username')?.touched">
-            <p class="error" *ngIf="form.get('username')?.errors?.['required']">Username is required!</p>
-            <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">Username should have 4 characters!</p>
-            <p class="error" *ngIf="form.get('username')?.errors?.['maxlength']">Username shouldn't have more than 10 characters!</p>
-        </ng-container>
-        <label>Email</label>
-        <input type="text" placeholder="Email..." name="email" formControlName="email">
-        <ng-container *ngIf="form.get('email')?.touched">
-            <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required!</p>
-            <p class="error" *ngIf="form.get('email')?.errors?.['invalidEmail']">Email should be valid!</p>
-        </ng-container>
-        <label>Password</label>
-        <input type="password" placeholder="Password..." name="password" formControlName="password">
-        <ng-container *ngIf="form.get('password')?.touched">
-            <p class="error" *ngIf="form.get('password')?.errors?.['required']">Password is required!</p>
-            <p class="error" *ngIf="form.get('password')?.errors?.['minlength']">Password should have more than 6 characters!</p>
-            <p class="error" *ngIf="form.get('password')?.errors?.['maxlength']">Password should have less 12 characters!</p>
-        </ng-container>
-        <label>Confirm Password</label>
-        <input type="password" placeholder="Repeat Password..." name="rePass" formControlName="rePass">
-        <ng-container *ngIf="form.get('rePass')?.touched">
-            <p class="error" *ngIf="form.get('rePass')?.errors?.['required']">Repeat-password is required!</p>
-            <p class="error" *ngIf="form.get('rePass')?.errors?.['invalidPasswords']">Passwords must be equal!</p>
-        </ng-container>
-        <ng-container *ngIf="errors">
-            <p class="mainerror">{{errors}}</p>
-        </ng-container>
-        <input [disabled]="form.invalid" type="submit" value="Register" class="btn">
-    </form>
-    <p class="text">Already have an account? <a routerLink="/login">Login here</a></p>
-</div> -->

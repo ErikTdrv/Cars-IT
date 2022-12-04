@@ -18,4 +18,7 @@ export class CarService {
   getOneCar(id: string){
     return this.http.get<ICar>(`${API_URL}/cars/${id}`, {withCredentials: true})
   }
+  editCar(id: string | undefined, data: {}){
+    return this.http.put<ICar>(`${API_URL}/cars/${id}`, data)
+  }
 }
