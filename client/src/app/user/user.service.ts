@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
-import { IUser } from '../shared/user.interface';
+import { IUser } from '../shared/interfaces/user';
 import {environment} from '../../environments/environment'
 const API_URL = environment.apiUrl
 @Injectable({
