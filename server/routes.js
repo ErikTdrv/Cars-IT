@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
     res.json(token)
     // res.end()
 })
+
 router.use('/cars', carController)
 router.use(authController)
     

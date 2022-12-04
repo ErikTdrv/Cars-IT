@@ -10,7 +10,11 @@ const addCar = async (car) => {
 const getAllCars = async () => {
     return await Car.find({})
 }
+const getOneCar = async (id) => {
+    return await Car.findById(id)
+}
 module.exports = {
+    getOneCar,
     getAllCars,
     addCar,
 }
