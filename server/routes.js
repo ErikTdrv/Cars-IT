@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     res.json(token)
     // res.end()
 })
-router.use('/car', carController)
+router.use('/cars', carController)
 router.use(authController)
     
 module.exports = router;
