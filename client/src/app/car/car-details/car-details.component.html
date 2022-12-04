@@ -16,9 +16,13 @@
                 <h3>Description: <span>{{car?.description}}</span></h3>
                 <h3>Owner: <span>{{car?.owner}}</span></h3>
                 <div class="buttons">
-                    <button (click)="inEditMode = true">Edit</button>
-                    <button>Delete</button>
-                    <button>Add to favourite</button>
+                    <ng-container *ngIf="isAuthor">
+                        <button (click)="inEditMode = true">Edit</button>
+                        <button>Delete</button>
+                    </ng-container>
+                    <ng-container *ngIf="!isAuthor">
+                        <button>Add to favourite</button>
+                    </ng-container>
                 </div>
             </div>
         </article>

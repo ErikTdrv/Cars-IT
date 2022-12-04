@@ -13,7 +13,14 @@ import { CarService } from '../car.service';
 export class CarDetailsComponent {
   car: ICar | undefined;
   inEditMode: boolean = false;
-  constructor(private carService: CarService, private activatedRoute: ActivatedRoute) {
+  get isAuthor(): boolean{
+    if(this.car?.owner == this.userService.user?.username){
+      return true
+    }else {
+      return false;
+    }
+  }
+  constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private userService: UserService) {
     this.getCar()
   }
 
