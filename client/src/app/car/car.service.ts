@@ -15,4 +15,7 @@ export class CarService {
   getAllCars(){
     return this.http.get<ICar[]>(`${API_URL}/cars`)
   }
+  getOneCar(id: string){
+    return this.http.get<ICar>(`${API_URL}/${id}`)
+  }
 }

@@ -5,13 +5,15 @@ import { AddCarComponent } from './add-car/add-car.component';
 import { CarRoutingModule } from './car-routing.module';
 import { AllCarsComponent } from './all-cars/all-cars.component';
 import { FormsModule } from '@angular/forms';
+import { CarDetailsComponent } from './car-details/car-details.component';
 
 
 
 @NgModule({
   declarations: [
     AddCarComponent,
-    AllCarsComponent
+    AllCarsComponent,
+    CarDetailsComponent
   ],
   imports: [
     CommonModule,
