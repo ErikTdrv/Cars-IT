@@ -5,13 +5,13 @@ const carSchema = new mongoose.Schema({
         //Mercedes-Benz
         required: true,
         type: String,
-        minlength: [3, 'You must have at least 3 characters!']
+        minlength: [3, 'You should have at least 3 characters!']
     },
     model: {
         //S-Class
         required: true,
         type: String,
-        minlength: [3, 'You must have at least 3 characters!']
+        minlength: [2, 'You should have at least 2 characters!']
     },
     imageUrl: {
         required: true,
@@ -19,8 +19,8 @@ const carSchema = new mongoose.Schema({
     },
     year: {
         required: true,
-        type: Number,
-        min: [1950, 'Car year must be newer than 1950\'s!'],
+        type: String,
+        min: [1950, 'Car year should be newer than 1950\'s!'],
         max: [2022, 'Car year cannot be in the future!']
     },
     description: {
@@ -32,10 +32,10 @@ const carSchema = new mongoose.Schema({
     },
     price: {
         required: true,
-        type: Number,
+        type: String,
         min: [500, 'Car should be more expensive than 500$!'],
     }
 });
 
-const Car = new mongoose.Model('Car', carSchema);
+const Car = new mongoose.model('Car', carSchema);
 module.exports = Car;
