@@ -1,4 +1,4 @@
-const { addCar, getAllCars, getOneCar, getProfileCars } = require('../services/carService');
+const { addCar, getAllCars, getOneCar, getProfileCars, editCar } = require('../services/carService');
 
 const router = require('express').Router();
 
@@ -26,5 +26,16 @@ router.get('/:id', async (req, res) => {
     const id = req.params.id;
     const car = await getOneCar(id);
     res.status(200).json(car)
+})
+router.put('/:id', async (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
+    try {
+        await editCar(id, data)
+        const updatedCar = await getOneCar(id)
+        res.status(200).json(updatedCar)
+    } catch (error) {
+        res.status(400).json({error:error.message})
+    }
 })
 module.exports = router;

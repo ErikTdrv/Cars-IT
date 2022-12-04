@@ -16,7 +16,15 @@ const getOneCar = async (id) => {
 const getProfileCars = async (name) => {
     return await Car.find({owner: name})
 }
+const editCar = async (id, data) => {
+    try {
+        return await Car.findByIdAndUpdate(id, {...data}, {runValidators: true})
+    } catch (error) {
+        return error
+    }
+}
 module.exports = {
+    editCar,
     getProfileCars,
     getOneCar,
     getAllCars,
