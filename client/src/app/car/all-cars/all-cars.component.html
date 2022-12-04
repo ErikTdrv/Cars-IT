@@ -11,7 +11,7 @@
                 </div>
                 <div class="info">
                     <h1>{{car.make}}{{car.model}}</h1>
-                    <button>Details</button>
+                    <button [routerLink]="['/cars', car._id]">Details</button>
                 </div>
             </article>
         </ng-container>
