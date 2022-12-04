@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from './user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private userService: UserService){
+    if(localStorage.getItem('token')){
+      console.log('here')
+      userService.getProfileData().subscribe()
+    }
+  }
 
-  title = 'client';
 }
