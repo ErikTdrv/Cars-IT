@@ -24,5 +24,7 @@ export class CarService {
   deleteCar(id: string | undefined){
     return this.http.delete(`${API_URL}/cars/${id}`)
   }
-  
+  getTop3Cars(){
+    return this.http.get<ICar[]>(`${API_URL}/cars/most`)
+  }
 }

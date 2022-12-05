@@ -28,6 +28,7 @@ const deleteACar = async (id) => {
 }
 const getTop3Cars = async () => {
     const cars = await Car.find({}).sort({price: -1}).limit(3)
+    return cars
 }
 module.exports = {
     getTop3Cars,
