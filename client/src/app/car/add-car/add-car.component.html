@@ -32,11 +32,11 @@
                 <p class="error" *ngIf="year.errors?.['max']">Car year cannot be in the future!</p>
             </ng-container>
             <label>Description</label>
-            <input #description="ngModel" ngModel type="text" name="description" required minlength="10" maxlength="100">
+            <input #description="ngModel" ngModel type="text" name="description" required minlength="10" maxlength="50">
             <ng-container *ngIf="description.touched">
                 <p class="error" *ngIf="description.errors?.['required']">Description is required!</p>
                 <p class="error" *ngIf="description.errors?.['minlength']">Description should have at least 10 characters!</p>
-                <p class="error" *ngIf="description.errors?.['maxlength']">Description shouldn't have more than 100 characters!</p>
+                <p class="error" *ngIf="description.errors?.['maxlength']">Description shouldn't have more than 50 characters!</p>
             </ng-container>
             <label>Price</label>
             <input #price="ngModel" ngModel type="text" name="price" required min="500">

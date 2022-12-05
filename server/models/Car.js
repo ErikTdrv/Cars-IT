@@ -31,7 +31,7 @@ const carSchema = new mongoose.Schema({
         required: true,
         type: String,
         minlength: [10, 'Description should have at least 10 characters!'],
-        maxlength: [100, 'Description shouldn\'t have more than 100 characters!'],
+        maxlength: [50, 'Description shouldn\'t have more than 50 characters!'],
 
     },
     price: {
