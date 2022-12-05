@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ICar } from 'src/app/shared/interfaces/car';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  cars: ICar[] | undefined
   get isLogged() {
     if (this.userService.user) {
       return true

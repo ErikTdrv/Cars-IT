@@ -1,4 +1,4 @@
-const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar } = require('../services/carService');
+const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars } = require('../services/carService');
 
 const router = require('express').Router();
 
@@ -21,6 +21,10 @@ router.get('/mycars', async (req, res) => {
     const cars = await getProfileCars(username)
     res.status(200).json(cars)
     res.end()
+})
+router.get('/most', async (req, res) => {
+    const cars = await getTop3Cars()
+    res.status(200).json(cars)
 })
 router.get('/:id', async (req, res) => {
     const id = req.params.id;

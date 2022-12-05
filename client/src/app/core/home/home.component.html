@@ -16,17 +16,19 @@
    </div>
    <div class="top">
       <h1>TOP 3 most expensive cars</h1>
-      <section>
-         <article>
-            <p>20.000$</p>
-            <div class="image">
-                <img src="" alt="no-img">
-            </div>
-            <div class="info">
-                <h1>Mercedes-AMG E 63 S 4MATIC+</h1>
-                <button>Details</button>
-            </div>
-        </article>
+      <section *ngIf="cars">
+        <ng-container *ngFor="let car of cars">
+            <article>
+                <p>{{car.price}}$</p>
+                <div class="image">
+                    <img src={{car.imageUrl}} alt="no-img">
+                </div>
+                <div class="info">
+                    <h1>{{car.make}} {{car.model}}</h1>
+                    <button [routerLink]="['/cars', car._id]">Details</button>
+                </div>
+           </article>
+        </ng-container>
         
       </section>
    </div>

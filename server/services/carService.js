@@ -26,7 +26,11 @@ const editCar = async (id, data) => {
 const deleteACar = async (id) => {
     await Car.findByIdAndDelete(id)
 }
+const getTop3Cars = async () => {
+    const cars = await Car.find({}).sort({price: -1}).limit(3)
+}
 module.exports = {
+    getTop3Cars,
     deleteACar,
     editCar,
     getProfileCars,
