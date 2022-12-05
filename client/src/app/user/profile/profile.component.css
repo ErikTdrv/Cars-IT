@@ -1,6 +1,6 @@
 .container {
     background-image: linear-gradient(to right, #434343 0%, black 100%);
-    height: calc(100vh - 5rem);
+    min-height: calc(100vh - 5.42rem);
 }
 .title {
     width: 100%;
@@ -9,6 +9,11 @@
     background-image: linear-gradient(to right, #8e2de2, #4a00e0);;
     color: white;
     font-weight: bold;
+}
+section {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 /* .profile {
     width: 25%;
