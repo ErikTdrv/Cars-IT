@@ -69,7 +69,7 @@ article h3 {
     height: calc(300px - 190px);
 }
 h3 {
-    margin: 10px;
+    margin: 6px;
     padding-right: 10px;
     font-size: 1.5rem;
     font-weight: lighter;
@@ -99,7 +99,7 @@ h3 {
     justify-content: space-evenly;
 }
 .buttons button {
-    margin-top: 30px;
+    /* margin-top: 0px; */
     padding: 10px 20px;
 
     border: 2px solid black;

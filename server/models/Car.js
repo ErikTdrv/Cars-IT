@@ -13,6 +13,10 @@ const carSchema = new mongoose.Schema({
         type: String,
         minlength: [2, 'You should have at least 2 characters!']
     },
+    hp: {
+        required: true,
+        type: Number,
+    },
     imageUrl: {
         required: true,
         type: String,

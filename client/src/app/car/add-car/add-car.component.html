@@ -14,6 +14,11 @@
                 <p class="error" *ngIf="model.errors?.['required']">Model is required!</p>
                 <p class="error" *ngIf="model.errors?.['minlength']">You should have at least 2 characters!</p>
             </ng-container>
+            <label>Horsepower</label>
+            <input #hp="ngModel" ngModel type="text" name="hp" required>
+            <ng-container *ngIf="hp.touched">
+                <p class="error" *ngIf="hp.errors?.['required']">Horsepower are required!!</p>
+            </ng-container>
             <label>ImageUrl</label>
             <input #imageUrl="ngModel" ngModel type="text" name="imageUrl" required>
             <ng-container *ngIf="imageUrl.touched">
