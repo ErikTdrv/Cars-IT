@@ -17,7 +17,8 @@
             <label>Horsepower</label>
             <input #hp="ngModel" ngModel type="text" name="hp" required>
             <ng-container *ngIf="hp.touched">
-                <p class="error" *ngIf="hp.errors?.['required']">Horsepower are required!!</p>
+                <p class="error" *ngIf="hp.errors?.['required']">Horsepower are required!</p>
+                <p class="error" *ngIf="hp.value.includes(' ')">Horsepower cannot contain any spaces!</p>
             </ng-container>
             <label>ImageUrl</label>
             <input #imageUrl="ngModel" ngModel type="text" name="imageUrl" required>
@@ -39,12 +40,12 @@
                 <p class="error" *ngIf="description.errors?.['maxlength']">Description shouldn't have more than 50 characters!</p>
             </ng-container>
             <label>Price</label>
-            <input #price="ngModel" ngModel type="text" name="price" required min="500">
+            <input #price="ngModel" ngModel type="text" name="price" required>
             <ng-container *ngIf="price.touched">
                 <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>
-                <p class="error" *ngIf="price.errors?.['min']">Car should be more expensive than 500$!</p>
+                <p class="error" *ngIf="price.value.includes(' ')">Price cannot contain any spaces!</p>
             </ng-container>
-            <input [disabled]="form.invalid" type="submit" value="Add Car">
+            <input [disabled]="form.invalid || price.value?.includes(' ') || hp.value?.includes(' ')" type="submit" value="Add Car">
         </form>
     </div>
 </div>
