@@ -5,7 +5,7 @@ export interface ICar {
     imageUrl: string,
     year: string,
     description: string,
-    price: string,
+    price: number,
     _id: string,
     owner: string,
 }

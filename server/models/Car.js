@@ -36,7 +36,7 @@ const carSchema = new mongoose.Schema({
     },
     price: {
         required: true,
-        type: String,
+        type: Number,
         min: [500, 'Car should be more expensive than 500$!'],
     },
     owner: {
