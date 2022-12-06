@@ -14,7 +14,7 @@ export class CarDetailsComponent {
   car: ICar | undefined;
   inEditMode: boolean = false;
   get isAuthor(): boolean{
-    if(this.car?.owner == this.userService.user?.username){
+    if(this.car?.owner.username == this.userService.user?.username){
       return true
     }else {
       return false;
