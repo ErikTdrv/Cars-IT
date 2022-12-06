@@ -1,3 +1,5 @@
+import { IUser } from "./user";
+
 export interface ICar {
     make: string,
     model: string,
@@ -7,5 +9,6 @@ export interface ICar {
     description: string,
     price: number,
     _id: string,
-    owner: string,
+    owner: IUser,
+
 }
