@@ -14,7 +14,7 @@
             </ng-container>
        </div>
    </div>
-   <div class="top">
+   <div class="top" *ngIf="cars">
       <h1>TOP 3 most expensive cars</h1>
       <section *ngIf="cars">
         <ng-container *ngFor="let car of cars">
