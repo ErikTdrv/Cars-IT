@@ -40,8 +40,8 @@ const carSchema = new mongoose.Schema({
         min: [500, 'Car should be more expensive than 500$!'],
     },
     owner: {
-        required: true,
-        type: String,
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
     }
 });
 

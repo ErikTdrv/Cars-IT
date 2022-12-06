@@ -1,14 +1,17 @@
 const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars } = require('../services/carService');
+const { updateCarsOnUser } = require('../services/userService');
 
 const router = require('express').Router();
 
 router.post('/', async (req, res) => {
     const data = req.body;
     try {
-        data.owner = req.user.username;
-        const car = await addCar(data)
+        const id = req.user._id;
+        const car = await addCar(data, id)
+        await updateCarsOnUser(req.user._id, car._id)
         res.status(201).json(car)
     } catch (error) {
+        console.log(error)
         res.status(400).json({error:error.message})
     }
 })

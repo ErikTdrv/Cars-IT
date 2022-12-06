@@ -49,10 +49,17 @@ const login = async (email, password) => {
         throw new Error('Invalid email or password!')
     }
 }
+const updateCarsOnUser = async (_id, carId) => {
+    const user = await User.findById(_id);
+    let array = user.cars
+    array.push(carId)
+    await User.findByIdAndUpdate(_id, {cars: array})
+}
 const logout = (token) => {
     blacklist.add(token)
 }
 module.exports = {
+    updateCarsOnUser,
     login,
     register,
     createAccessToken,

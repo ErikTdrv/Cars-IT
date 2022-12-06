@@ -17,13 +17,19 @@ const userSchema = new mongoose.Schema({
         minlength: [6, 'Password should have at least 6 characters!'],
         maxlength: [12, 'Password cannot have more than 12 characters!'],
     },
+    cars: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Car',
+        }
+    ]
 })
 userSchema.pre('save', function (next) {
     bcrypt.hash(this.password, 10)
-    .then((hash) =>{
-         this.password = hash
-         return next()
-    })
+        .then((hash) => {
+            this.password = hash
+            return next()
+        })
 })
 const User = new mongoose.model('User', userSchema);
 module.exports = User;

@@ -1,9 +1,11 @@
 const Car = require("../models/Car")
 
-const addCar = async (car) => {
+const addCar = async (car, id) => {
     try {
+        car.owner = id;
         return await Car.create({...car})
     } catch (error) {
+        console.log(error)
         return error
     }
 }
