@@ -15,8 +15,8 @@ const getAllCars = async () => {
 const getOneCar = async (id) => {
     return await Car.findById(id).populate('owner')
 }
-const getProfileCars = async (name) => {
-    return await Car.find({owner: name})
+const getProfileCars = async (_id) => {
+    return await Car.find({owner: _id})
 }
 const editCar = async (id, data) => {
     try {

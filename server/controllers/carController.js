@@ -20,8 +20,8 @@ router.get('/', async (req, res) => {
     res.status(200).json(cars)
 })
 router.get('/mycars', async (req, res) => {
-    const username = req.user.username;
-    const cars = await getProfileCars(username)
+    const _id = req.user._id;
+    const cars = await getProfileCars(_id)
     res.status(200).json(cars)
     res.end()
 })
