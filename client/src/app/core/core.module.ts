@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -17,6 +18,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     CommonModule
   ],
-  exports: [HeaderComponent, FooterComponent, HomeComponent]
+  exports: [HeaderComponent, FooterComponent, HomeComponent],
+  providers: [AuthGuard]
 })
 export class CoreModule { }
