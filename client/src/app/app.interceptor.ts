@@ -4,9 +4,9 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class AppInterceptor implements HttpInterceptor {
-    token: any = localStorage.getItem('token')
+    token: any  = localStorage.getItem('token')
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        
+
         return next.handle(req.clone({ setHeaders: { 'X-Authorization': this.token}}));
     }
 
