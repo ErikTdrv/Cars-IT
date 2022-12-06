@@ -34,7 +34,9 @@
     cursor: pointer;
 }
 .container button:hover {
-    color: white;
+    background-color: red;
+  box-shadow: 2px 10px 13px rgb(201, 70, 70);
+  transform: translateY(-5px);
 }
 .top {
     width: 100%;
