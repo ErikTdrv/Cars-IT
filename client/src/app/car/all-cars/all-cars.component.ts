@@ -9,12 +9,15 @@ import { CarService } from '../car.service';
 })
 export class AllCarsComponent {
   cars: ICar[] | undefined
+
   constructor(private carService: CarService){
     this.getAllCars()
   }
 
   getAllCars(){
     this.cars = undefined;
-    this.carService.getAllCars().subscribe((cars) => this.cars = cars)
+    this.carService.getAllCars().subscribe({
+      next: (cars) => this.cars = cars
+    })
   }
 }

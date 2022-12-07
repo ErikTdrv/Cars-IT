@@ -32,6 +32,7 @@
                 <p class="error" *ngIf="year.errors?.['required']">Year is required!</p>
                 <p class="error" *ngIf="year.errors?.['min']">Car year should be newer than 1950's!</p>
                 <p class="error" *ngIf="year.errors?.['max']">Car year cannot be in the future!</p>
+                <p class="error" *ngIf="year.value.includes(' ')">Years cannot contain any spaces!</p>
             </ng-container>
             <label>Description</label>
             <input #description="ngModel" ngModel type="text" name="description" required minlength="10" maxlength="50">
@@ -46,7 +47,8 @@
                 <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>
                 <p class="error" *ngIf="price.value.includes(' ')">Price cannot contain any spaces!</p>
             </ng-container>
-            <input [disabled]="form.invalid || price.value?.includes(' ') || hp.value?.includes(' ')" type="submit" value="Add Car">
+            <p class="error" *ngIf="errors">{{errors}}</p>
+            <input [disabled]="form.invalid || price.value?.includes(' ') || hp.value?.includes(' ') || year.value?.includes(' ')" type="submit" value="Add Car">
         </form>
     </div>
 </div>

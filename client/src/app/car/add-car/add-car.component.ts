@@ -17,7 +17,7 @@ export class AddCarComponent{
     this.carService.addCar(form.value).subscribe({
       next: () => this.router.navigate(['/']),
       error: (err) => {
-        this.errors = err.error.error
+        this.errors = err?.error?.error
       }
     })
   }
