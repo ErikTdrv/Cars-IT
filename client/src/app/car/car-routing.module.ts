@@ -9,7 +9,10 @@ const routes: Routes = [
     {
         path: 'add',
         component: AddCarComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard], 
+        data: {
+            'authenticationRequired': true,
+        }
     },
     {
         path: 'cars',

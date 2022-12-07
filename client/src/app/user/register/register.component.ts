@@ -10,6 +10,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+
   form!: FormGroup;
   errors: string | undefined = undefined;
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {

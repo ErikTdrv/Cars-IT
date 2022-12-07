@@ -11,6 +11,7 @@ export class ProfileComponent {
   cars: ICar[] | undefined;
   constructor(private userService: UserService){
     this.getMyCars()
+
   }
   getMyCars(){
     this.userService.getProfileCars().subscribe({

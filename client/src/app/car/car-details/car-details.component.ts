@@ -13,6 +13,7 @@ import { CarService } from '../car.service';
 export class CarDetailsComponent {
   car: ICar | undefined;
   inEditMode: boolean = false;
+  token: string | null = localStorage.getItem('token')
   get isAuthor(): boolean{
     if(this.car?.owner.username == this.userService.user?.username){
       return true
@@ -30,6 +31,9 @@ export class CarDetailsComponent {
     this.carService.getOneCar(id).subscribe(car => this.car = car)
   }
   editCar(form: NgForm) {
+    if(this.token != this.car?.owner._id || !this.token){
+      this.router.navigate(['404'])
+    }
     const id = this.car?._id;
     this.carService.editCar(id, form.value).subscribe({
       next: (car) => {
@@ -40,6 +44,9 @@ export class CarDetailsComponent {
     })
   }
   delete(){
+    if(this.token != this.car?.owner._id || !this.token){
+      this.router.navigate(['404'])
+    }
     const id = this.car?._id;
     this.carService.deleteCar(id).subscribe({
       next: () => this.router.navigate(['/']),

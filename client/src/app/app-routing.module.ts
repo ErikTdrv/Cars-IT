@@ -15,16 +15,29 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [AuthGuard],
+    data: {
+      'authenticationRequired': false,
+      'onlyGuest': true,
+    }
   },
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [AuthGuard],
+    data: {
+      'authenticationRequired': false,
+      'onlyGuest': true,
+    }
   },
   {
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard],
+    data: {
+      'authenticationRequired': true
+    }
   }
 ];
 

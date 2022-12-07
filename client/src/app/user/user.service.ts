@@ -10,9 +10,16 @@ const API_URL = environment.apiUrl
   providedIn: 'root'
 })
 export class UserService {
-  user: null | IUser = null;
+  user: null | IUser | undefined;
   constructor(private http: HttpClient, private router: Router) { }
 
+  get isLogged(): boolean {
+    if(this.user){
+      return true
+    }else{
+      return false
+    }
+  }
   register(data: {}){
     return this.http.post<IUser>(`${API_URL}/register`, data).pipe(
       tap((user) => {
