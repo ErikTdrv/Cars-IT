@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { HomeComponent } from './core/home/home.component';
+import { ErrorComponent } from './user/error/error.component';
 import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RegisterComponent } from './user/register/register.component';
@@ -38,7 +39,11 @@ const routes: Routes = [
     data: {
       'authenticationRequired': true
     }
-  }
+  },
+  // {
+  //   path: '**',
+  //   component: ErrorComponent
+  // }
 ];
 
 @NgModule({

@@ -30,9 +30,13 @@ router.get('/most', async (req, res) => {
     res.status(200).json(cars)
 })
 router.get('/:id', async (req, res) => {
-    const id = req.params.id;
-    const car = await getOneCar(id);
-    res.status(200).json(car)
+    try {
+        const id = req.params.id;
+        const car = await getOneCar(id);
+        res.status(200).json(car)
+    } catch (error) {
+        res.status(400).json('Invalid car ID!')
+    }
 })
 router.put('/:id', async (req, res) => {
     const id = req.params.id;

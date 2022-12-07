@@ -14,25 +14,33 @@ export class CarDetailsComponent {
   car: ICar | undefined;
   inEditMode: boolean = false;
   token: string | null = localStorage.getItem('token')
-  get isAuthor(): boolean{
-    if(this.car?.owner.username == this.userService.user?.username){
-      return true
-    }else {
-      return false;
-    }
-  }
+  isAuthor: boolean = false;
+
   constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getCar()
   }
-
+  
   getCar(): void {
     this.car = undefined;
     const id = this.activatedRoute.snapshot.params['id'];
-    this.carService.getOneCar(id).subscribe(car => this.car = car)
+    this.carService.getOneCar(id).subscribe({
+      next: (car) => {
+        this.car = car
+        if(this.userService.user?._id == car.owner._id){
+          this.isAuthor = true
+        }else {
+          this.isAuthor = false;
+        }
+      },
+      error: (err) => {
+        console.log(err)
+        this.router.navigate(['**'])
+      }
+    })
   }
   editCar(form: NgForm) {
-    if(this.token != this.car?.owner._id || !this.token){
-      this.router.navigate(['404'])
+    if(this.userService.user?._id != this.car?.owner._id || !this.token){
+      this.router.navigate(['**'])
     }
     const id = this.car?._id;
     this.carService.editCar(id, form.value).subscribe({
@@ -44,8 +52,8 @@ export class CarDetailsComponent {
     })
   }
   delete(){
-    if(this.token != this.car?.owner._id || !this.token){
-      this.router.navigate(['404'])
+    if(this.userService.user?._id != this.car?.owner._id || !this.token){
+      this.router.navigate(['**'])
     }
     const id = this.car?._id;
     this.carService.deleteCar(id).subscribe({
