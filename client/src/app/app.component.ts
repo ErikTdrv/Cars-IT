@@ -8,7 +8,7 @@ import { UserService } from './user/user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  constructor(private http: HttpClient, private userService: UserService){
+  constructor(private userService: UserService){
     if(localStorage.getItem('token')){
       userService.getProfileData().subscribe()
     }

@@ -7,6 +7,7 @@ import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RegisterComponent } from './user/register/register.component';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -28,9 +29,9 @@ const routes: Routes = [
     component: LoginComponent,
     canActivate: [AuthGuard],
     data: {
-      'authenticationRequired': false,
-      'onlyGuest': true,
-    }
+      authenticationRequired: false,
+    },
+
   },
   {
     path: 'profile',

@@ -30,8 +30,12 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'error',
+        component: ErrorComponent,
+    },
+    {
         path: '**',
-        component: ErrorComponent
+        redirectTo: 'error',
     }
 
 ]

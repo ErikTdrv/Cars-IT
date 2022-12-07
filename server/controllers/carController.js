@@ -6,9 +6,9 @@ const router = require('express').Router();
 router.post('/', async (req, res) => {
     const data = req.body;
     try {
-        const id = req.user._id;
-        const car = await addCar(data, id)
-        await updateCarsOnUser(req.user._id, car._id)
+        const userId = req?.user?._id;
+        const car = await addCar(data, userId)
+        await updateCarsOnUser(userId, car._id)
         res.status(201).json(car)
     } catch (error) {
         console.log(error)
@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     res.status(200).json(cars)
 })
 router.get('/mycars', async (req, res) => {
-    const _id = req.user._id;
+    const _id = req?.user?._id;
     const cars = await getProfileCars(_id)
     res.status(200).json(cars)
     res.end()
