@@ -10,7 +10,7 @@ const routes: Routes = [
     {
         path: 'add',
         component: AddCarComponent,
-        canActivate: [AuthGuard], 
+        canActivate: [AuthGuard],
         data: {
             'authenticationRequired': true,
         }
@@ -32,12 +32,12 @@ const routes: Routes = [
     {
         path: '**',
         component: ErrorComponent
-      }
+    }
 
 ]
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
-  })
-  export class CarRoutingModule { }
+})
+export class CarRoutingModule { }
