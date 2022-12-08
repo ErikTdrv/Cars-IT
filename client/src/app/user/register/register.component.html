@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!isAuthenticating">
     <div class="form">
         <h1>Register</h1>
         <form [formGroup]="form" method="post" (ngSubmit)="register()">
