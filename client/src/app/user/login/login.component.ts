@@ -8,15 +8,19 @@ import { UserService } from '../user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
-  isAuthenticating: boolean = false;
-  constructor(private userService: UserService, private router: Router){}
-  ngOnInit(): void {
-    if(localStorage.getItem('token')){
-      this.router.navigate(['error'])
-    }else {
-      this.isAuthenticating = false;
-    };
+export class LoginComponent{
+
+  // IF AUTH GUARD IS NOT WORKING, USE THIS ---
+  // isAuthenticating: boolean = false;
+  // ngOnInit(): void {
+  //   if(localStorage.getItem('token')){
+  //     // this.router.navigate(['error'])
+  //   }else {
+  //     this.isAuthenticating = false;
+  //   };
+  // }
+  constructor(private userService: UserService, private router: Router){
+
   }
   errors: string | undefined = undefined;
   login(form: NgForm): void{

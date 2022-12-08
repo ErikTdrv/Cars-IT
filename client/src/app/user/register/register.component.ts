@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  isAuthenticating: boolean = false;
+
   form!: FormGroup;
   errors: string | undefined = undefined;
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
@@ -20,13 +20,6 @@ export class RegisterComponent {
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
       rePass: ['', [Validators.required, passwordValidator]]
     });
-  }
-  ngOnInit(): void {
-    if(localStorage.getItem('token')){
-      this.router.navigate(['error'])
-    }else {
-      this.isAuthenticating = false;
-    };
   }
 
   register(): void{

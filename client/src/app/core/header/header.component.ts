@@ -18,7 +18,10 @@ export class HeaderComponent {
   constructor(private userService: UserService, private router: Router){}
 
   logout(){
-    this.userService.logout()
-    this.router.navigate(['/'])
+    const token = localStorage.getItem('token')
+    if(token){
+      this.userService.logout()
+      this.router.navigate(['/'])
+    }
   }
 }

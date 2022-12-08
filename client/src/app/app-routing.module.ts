@@ -20,8 +20,7 @@ const routes: Routes = [
     component: RegisterComponent,
     canActivate: [AuthGuard],
     data: {
-      'authenticationRequired': false,
-      'onlyGuest': true,
+      'guest': true,
     }
   },
   {
@@ -29,7 +28,7 @@ const routes: Routes = [
     component: LoginComponent,
     canActivate: [AuthGuard],
     data: {
-      authenticationRequired: false,
+      'guest': true,
     },
 
   },
@@ -38,7 +37,7 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [AuthGuard],
     data: {
-      'authenticationRequired': true
+      'guest': false,
     }
   },
   // {

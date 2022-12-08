@@ -12,7 +12,7 @@ const routes: Routes = [
         component: AddCarComponent,
         canActivate: [AuthGuard],
         data: {
-            'authenticationRequired': true,
+            'guest': false,
         }
     },
     {

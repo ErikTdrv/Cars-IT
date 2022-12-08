@@ -7,14 +7,17 @@ import { UserService } from 'src/app/user/user.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  token: string | null = localStorage.getItem('token')
   constructor(private userService: UserService, private router: Router) {
 
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    const { authenticationRequired} = route.data;
+    const { guest } = route.data;
     const token = localStorage.getItem('token')
-    return true
-    return this.router.parseUrl('/');
+    if(!token && guest == true){
+      return true
+    }else if(token && guest == false){
+      return true
+    }
+    return this.router.parseUrl('/error');
   }
   }

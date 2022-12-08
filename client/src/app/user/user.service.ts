@@ -45,7 +45,9 @@ export class UserService {
   getProfileData(){
     return this.http.get<IUser>(`${API_URL}/user`).pipe(
       tap((user) => {
-        this.user = user;
+        if(user){
+          this.user = user;
+        }
       })
     )
   }
