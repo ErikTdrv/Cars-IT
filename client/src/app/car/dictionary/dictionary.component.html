@@ -1,1 +1,29 @@
-<p>dictionary works!</p>
+<div class="container">
+    <div class="title">
+        <h1 *ngIf="!falseVin">Decode VIN</h1>
+        <h1 *ngIf="falseVin">Invalid VIN!</h1>
+    </div>
+    <div class="flex">
+        <div class="input">
+            <input #vinInput type="text" name="vinInput" id="">
+            <button (click)="getVin(vinInput.value)">Search Car</button>
+        </div>
+    </div>
+    <section>
+            <article class="car" *ngIf="car">
+                <div class="carTitle">{{car?.make}} {{car?.model}} {{car?.series}}</div>
+                <hr>
+                <div class="info">
+                    <h3 *ngIf="car?.engine_hp">Horsepower: <span>{{car?.engine_hp}}</span></h3>
+                    <h3 *ngIf="car?.model_year">Year: <span>{{car?.model_year}}</span></h3>
+                    <h3 *ngIf="car?.vehicle_type">Vehicle Type: <span>{{car?.vehicle_type}}</span></h3>
+                    <h3 *ngIf="car?.doors">Doors: <span>{{car?.doors}}</span></h3>
+                    <h3 *ngIf="car?.drive_type">Drive Type: <span>{{car?.drive_type}}</span></h3>
+                    <h3 *ngIf="car?.gvwr">GVWR: <span>{{car?.gvwr}}</span></h3>
+                    <h3 *ngIf="car?.manufacturer">Manufacturer: <span>{{car?.manufacturer}}</span></h3>
+                    <h3 *ngIf="car?.plant_country">Created in: <span>{{car?.plant_country}}</span></h3>
+                    <h3 *ngIf="car?.transmission_style">Transmission: <span>{{car?.transmission_style}}</span></h3>
+                </div>
+            </article>
+    </section>
+</div>
