@@ -21,6 +21,12 @@ export class UserService {
     }
   }
 
+  getGoogle(){
+    return this.http.get(`https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=audi`, {headers: {
+      'X-RapidAPI-Key': '453f9c1bd6msh32734b876f80c8bp1aac59jsn6f9ec78a981c',
+      'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
+    }})
+  }
   register(data: {}){
     return this.http.post<IUser>(`${API_URL}/register`, data).pipe(
       tap((user) => {

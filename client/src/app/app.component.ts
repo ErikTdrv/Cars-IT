@@ -8,10 +8,14 @@ import { UserService } from './user/user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
+  data: any
   constructor(private userService: UserService){
     if(localStorage.getItem('token')){
       userService.getProfileData().subscribe()
     }
+    userService.getGoogle().subscribe((value) => console.log(value))
+    
   }
+  
 
 }
