@@ -3,9 +3,11 @@ import { Injectable } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { map, tap } from 'rxjs/operators';
 import { IUser } from '../shared/interfaces/user';
-import {environment} from '../../environments/environment'
 import { ICar } from '../shared/interfaces/car';
+
+import {environment} from '../../environments/environment'
 const API_URL = environment.apiUrl
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,10 +23,11 @@ export class UserService {
     }
   }
 
-  getCarsFrom3rdApi(data: {}){
-    return this.http.get(`https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=audi`, {headers: {
+  getCarsFrom3rdApi(vin: string){
+
+    return this.http.get<any>(`https://car-utils.p.rapidapi.com/vindecoder?vin=${vin.trim()}`, {headers: {
       'X-RapidAPI-Key': '453f9c1bd6msh32734b876f80c8bp1aac59jsn6f9ec78a981c',
-      'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
+      'X-RapidAPI-Host': 'car-utils.p.rapidapi.com'
     }})
   }
   register(data: {}){

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DictionaryComponent } from './car/dictionary/dictionary.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { HomeComponent } from './core/home/home.component';
 import { ErrorComponent } from './user/error/error.component';
@@ -40,6 +41,10 @@ const routes: Routes = [
       'guest': false,
     }
   },
+  {
+    path: 'dictionary',
+    component: DictionaryComponent,
+  }
   // {
   //   path: '**',
   //   component: ErrorComponent
