@@ -6,6 +6,7 @@ import { CarRoutingModule } from './car-routing.module';
 import { AllCarsComponent } from './all-cars/all-cars.component';
 import { FormsModule } from '@angular/forms';
 import { CarDetailsComponent } from './car-details/car-details.component';
+import { DictionaryComponent } from './dictionary/dictionary.component';
 
 
 
@@ -13,7 +14,8 @@ import { CarDetailsComponent } from './car-details/car-details.component';
   declarations: [
     AddCarComponent,
     AllCarsComponent,
-    CarDetailsComponent
+    CarDetailsComponent,
+    DictionaryComponent
   ],
   imports: [
     CommonModule,

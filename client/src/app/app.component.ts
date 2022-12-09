@@ -13,8 +13,6 @@ export class AppComponent{
     if(localStorage.getItem('token')){
       userService.getProfileData().subscribe()
     }
-    userService.getGoogle().subscribe((value) => console.log(value))
-    
   }
   
 
