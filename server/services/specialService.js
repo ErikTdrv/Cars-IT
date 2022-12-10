@@ -31,8 +31,14 @@ const getIPInfo = async (ip) => {
         return error
     }
 }
+const getUserIP = async () => {
+    const request = await fetch('https://api64.ipify.org?format=json')
+    const data = await request.json()
+    return data
+}
 
 module.exports = {
+    getUserIP,
     getIPInfo,
     getByVin,
 }

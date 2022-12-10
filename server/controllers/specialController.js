@@ -1,4 +1,4 @@
-const { getByVin, getIPInfo } = require('../services/specialService');
+const { getByVin, getIPInfo,getUserIP } = require('../services/specialService');
 
 
 const router = require('express').Router();
@@ -15,13 +15,12 @@ router.post('/myvin', async (req, res) => {
 
 
 router.get('/geolocation', async (req, res) => {
-    const { ip } = req.body;
+    const { ip }= await getUserIP();
     try {
         const data = await getIPInfo(ip)
         res.status(200).json(data)
     } catch (error) {
         res.status(400).json(error)
     }
-    
 })
 module.exports = router;

@@ -14,9 +14,7 @@ export class AppComponent{
     if(localStorage.getItem('token')){
       userService.getProfileData().subscribe()
     }
-
-    
   }
-  
+
 
 }
