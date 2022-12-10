@@ -1,3 +1,8 @@
+section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 .container {
     /* background-image: linear-gradient( #8360c3, #2ebf91); */
     background-image: linear-gradient(to right, #434343 0%, black 100%);
@@ -14,15 +19,7 @@
 .title h1 {
     padding: 10px;
 }
-article {
-    margin: 20px;
-    position: relative;
-    background-color: white;
-    width: 300px;
-    height: 300px;
-    border-radius: 15px;
 
-}
 .ipAddress {
     display: flex;
     justify-content: center;
@@ -36,23 +33,27 @@ article {
 }
 .ipAddress img {
     width: 40px;
-    /* height: auto; */
     text-align: center;
     margin-right: 10px;
 }
 .user {
-    /* border: 2px solid rgb(32, 32, 32); */
+    margin-top: 5%;
+    border-radius: 15px;
     border-bottom-left-radius: 1.2rem;
     border-bottom-right-radius: 1.2rem;
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: rgb(32, 32, 32);
     width: 500px;
     height: auto;
     color: white;
-    /* box-shadow: 15px 15px 25px rgb(32, 32, 32); */
+}
+.userSchema {
+    border-radius: 15px;
+    border-bottom-left-radius: 1.2rem;
+    border-bottom-right-radius: 1.2rem;
+    background-color: rgb(32, 32, 32);
+    width: 500px;
+    color: white;
+    height: auto;
 }
 h3 {
     text-align: center;

@@ -4,6 +4,12 @@
         <h1 *ngIf="!info">Loading Info...</h1>
     </div>
     <section>
+        <article class="userSchema" *ngIf="info">
+            <div class="userSchema">
+                <h3>Username: <span>{{currUser?.username}}</span></h3>
+                <h3>Email: <span>{{currUser?.email}}</span></h3>
+            </div>
+        </article>
         <article class="user" *ngIf="info">
             <div class="ipAddress">
                 <img src="{{info?.country_flag}}" alt="no-flag">

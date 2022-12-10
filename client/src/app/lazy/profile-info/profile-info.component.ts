@@ -8,8 +8,9 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class ProfileInfoComponent {
   info: any = null;
+  currUser: any 
   constructor(private userService: UserService) {
-    this.userService.getIPaddress().subscribe((value) => {this.info = value
-    console.log(value)})
+    this.userService.getIPaddress().subscribe((value) => {this.info = value})
+    this.currUser = userService.user
   }
 }
