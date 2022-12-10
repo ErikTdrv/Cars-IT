@@ -16,8 +16,9 @@ export class DictionaryComponent {
   getVin(vin: string){
     this.userService.getCarsFrom3rdApi(vin).subscribe({
       next: (value) => {
-        if(value.errors.length > 1){
+        if(value?.errors?.length > 1){
           this.falseVin = true
+          this.car = null;
         }else {
           this.falseVin = false;
           this.car = value.specs;

@@ -24,8 +24,7 @@ export class UserService {
   }
 
   getCarsFrom3rdApi(vin: string){
-
-    return this.http.get<any>(`https://car-utils.p.rapidapi.com/vindecoder?vin=${vin.trim()}`, {headers: {
+    return this.http.post<any>(`${API_URL}/myvin`,{ vin },{headers: {
       'X-RapidAPI-Key': '453f9c1bd6msh32734b876f80c8bp1aac59jsn6f9ec78a981c',
       'X-RapidAPI-Host': 'car-utils.p.rapidapi.com'
     }})
