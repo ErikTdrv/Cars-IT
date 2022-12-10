@@ -54,7 +54,7 @@ button {
 button:hover {
     background-color: red;
 }
-article {
+/* article {
     margin: 20px;
     position: relative;
     background-color: white;
@@ -62,7 +62,7 @@ article {
     height: 300px;
     border-radius: 15px;
 
-}
+} */
 .carTitle {
     font-size: 40px;
     text-transform: uppercase;
@@ -79,8 +79,8 @@ article {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgb(32, 32, 32);
-    width: 500px;
-    height: auto;
+    /* width: 500px; */
+    /* height: auto; */
     color: white;
     /* box-shadow: 15px 15px 25px rgb(32, 32, 32); */
 }
