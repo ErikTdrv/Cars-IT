@@ -11,12 +11,12 @@ export class ProfileComponent {
   cars: ICar[] | undefined;
   constructor(private userService: UserService){
     this.getMyCars()
-
   }
   getMyCars(){
     this.userService.getProfileCars().subscribe({
-      next: (value) => this.cars = value,
-      error: (err) => console.log(err)
+      next: (value) => {this.cars = value},
+      error: (err) => console.log(err),
+      
     })
 
   }

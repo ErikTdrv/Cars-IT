@@ -7,7 +7,7 @@
             <li><a routerLink="/cars">All Cars</a></li>
             <ng-container *ngIf="isLogged">
                 <li><a routerLink="/add">Add Car</a></li>
-                <li><a routerLink="/profile">My Profile</a></li>
+                <li><a routerLink="/profile">My Cars</a></li>
             </ng-container>
         </ul>
     </div>
@@ -18,6 +18,7 @@
                 <li><a routerLink="/register">Register</a></li>
             </ng-container>
             <ng-container *ngIf="isLogged">
+                <li><a routerLink="/profile-info">Profile Info</a></li>
                 <li><a (click)="logout()">Logout</a></li>
             </ng-container>
         </ul>

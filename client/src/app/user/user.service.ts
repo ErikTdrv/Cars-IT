@@ -13,7 +13,7 @@ const API_URL = environment.apiUrl
 })
 export class UserService {
   user: null | IUser | undefined ;
-  userIP: null | Object = null;
+  userInfo: null | Object = null;
   constructor(private http: HttpClient, private router: Router) {}
 
   get isLogged(): boolean {
@@ -64,8 +64,8 @@ export class UserService {
     return this.http.get<ICar[]>(`${API_URL}/cars/mycars`)
   }
   getIPaddress(){
-    return this.http.get('http://api.ipify.org/?format=json',).pipe(
-      tap((ip) => this.userIP = {ip})
+    return this.http.get(`${API_URL}/geolocation`).pipe(
+      tap((ip) => this.userInfo = ip)
     )
   }
   

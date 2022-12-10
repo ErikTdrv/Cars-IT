@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { DictionaryComponent } from './car/dictionary/dictionary.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { HomeComponent } from './core/home/home.component';
@@ -44,6 +44,10 @@ const routes: Routes = [
   {
     path: 'dictionary',
     component: DictionaryComponent,
+  },
+  {
+    path: 'profile-info',
+    loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule)
   }
   // {
   //   path: '**',
@@ -52,7 +56,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
