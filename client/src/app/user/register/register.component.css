@@ -4,7 +4,7 @@
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: calc(100vh - 5rem);
+    height: calc(100vh - 5.4rem);
 }
 .form {
     border: 2px solid rgb(32, 32, 32);

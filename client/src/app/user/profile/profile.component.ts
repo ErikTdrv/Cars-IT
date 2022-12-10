@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  cars: ICar[] | undefined;
+  cars: ICar[] | any;
   constructor(private userService: UserService){
     this.getMyCars()
   }
