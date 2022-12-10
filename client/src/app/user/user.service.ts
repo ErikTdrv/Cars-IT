@@ -64,9 +64,7 @@ export class UserService {
     return this.http.get<ICar[]>(`${API_URL}/cars/mycars`)
   }
   getIPaddress(){
-    return this.http.get(`${API_URL}/geolocation`).pipe(
-      tap((ip) => this.userInfo = ip)
-    )
+    return this.http.get(`${API_URL}/geolocation`)
   }
   
 }
