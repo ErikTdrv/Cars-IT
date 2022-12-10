@@ -32,24 +32,9 @@ const getTop3Cars = async () => {
     const cars = await Car.find({}).sort({ price: -1 }).limit(3)
     return cars
 }
-const getByVin = async (vin) => {
-    try {
-        const request = await fetch(`https://car-utils.p.rapidapi.com/vindecoder?vin=${vin?.trim()}`, {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': process.env.APITOKEN,
-                'X-RapidAPI-Host': 'car-utils.p.rapidapi.com'
-            }
-        })
-        const data = await request.json()
-        return data
-    } catch (error) {
-        return error
-    }
-}
+
 
 module.exports = {
-    getByVin,
     getTop3Cars,
     deleteACar,
     editCar,
