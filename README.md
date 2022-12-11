@@ -1,6 +1,6 @@
 # CarsIT
 Simple app for study purposes, created with Angular as front-end, Node.js as back-end and MongoDB as database.
-
+<h1 style="color:red">Home</h1>
 <p align="center">
   <img style="text-align: center" src="/client/src/assets/githubprojectimage.png" width="550" title="project-image">
 </p>
