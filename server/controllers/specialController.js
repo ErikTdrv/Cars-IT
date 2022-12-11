@@ -1,4 +1,4 @@
-const { getByVin, getIPInfo,getUserIP } = require('../services/specialService');
+const { getByVin, getIPInfo,getUserIP } = require('../services/specialservice');
 
 
 const router = require('express').Router();

@@ -1,34 +1,34 @@
-const Car = require("../models/Car")
+const car = require("../models/car")
 require('dotenv').config()
 const addCar = async (car, id) => {
     try {
         car.owner = id;
-        return await Car.create({ ...car })
+        return await car.create({ ...car })
     } catch (error) {
         throw new Error(error)
     }
 }
 const getAllCars = async () => {
-    return await Car.find({})
+    return await car.find({})
 }
 const getOneCar = async (id) => {
-    return await Car.findById(id).populate('owner')
+    return await car.findById(id).populate('owner')
 }
 const getProfileCars = async (_id) => {
-    return await Car.find({ owner: _id })
+    return await car.find({ owner: _id })
 }
 const editCar = async (id, data) => {
     try {
-        return await Car.findByIdAndUpdate(id, { ...data }, { runValidators: true })
+        return await car.findByIdAndUpdate(id, { ...data }, { runValidators: true })
     } catch (error) {
         throw new Error(error)
     }
 }
 const deleteACar = async (id) => {
-    await Car.findByIdAndDelete(id)
+    await car.findByIdAndDelete(id)
 }
 const getTop3Cars = async () => {
-    const cars = await Car.find({}).sort({ price: -1 }).limit(3)
+    const cars = await car.find({}).sort({ price: -1 }).limit(3)
     return cars
 }
 
