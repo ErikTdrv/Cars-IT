@@ -41,8 +41,8 @@
 .top {
     width: 100%;
     height: auto;
-    /* background-image: linear-gradient(to right, #8360c3, #2ebf91); */
-    background-image: url(../../../assets/home1.jpg);
+    background-image: linear-gradient(to right, #8360c3, #2ebf91);
+    /* background-image: url(../../../assets/home1.jpg); */
     background-size: cover;
     background-position: center;
     width: 100%;
