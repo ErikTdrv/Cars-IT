@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-  cars: ICar[] | any;
+  cars: ICar[] | any = null;;
   isEmpty: boolean = false;
   isLoading: boolean = false;
   constructor(private userService: UserService) {
