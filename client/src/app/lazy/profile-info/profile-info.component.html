@@ -1,7 +1,8 @@
 <div class="container">
-    <ng-container *ngIf="info">
+    <ng-container>
         <div class="title">
             <h1 *ngIf="info">My Profile Info</h1>
+            <h1 *ngIf="isLoading">Loading...</h1>
         </div>
         <section>
             <article class="userSchema" *ngIf="info">
