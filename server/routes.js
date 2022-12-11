@@ -4,10 +4,8 @@ const carController = require('./controllers/carController');
 const specialController = require('./controllers/specialController');
 const { getUserIP } = require('./services/specialService');
 
-router.get('/myipaddress', async (req, res) => {
-    const { ip }= await getUserIP();
-    console.log(ip)
-    res.end()
+router.get('/', (req, res) => {
+    res.json('Working...')
 })
 router.use(specialController)
 router.use('/cars', carController)
