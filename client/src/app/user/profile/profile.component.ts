@@ -9,14 +9,23 @@ import { UserService } from '../user.service';
 })
 export class ProfileComponent {
   cars: ICar[] | any;
-  constructor(private userService: UserService){
+  isEmpty: boolean = false;
+  isLoading: boolean = false;
+  constructor(private userService: UserService) {
     this.getMyCars()
   }
-  getMyCars(){
+  getMyCars() {
+    this.isLoading = true;
     this.userService.getProfileCars().subscribe({
-      next: (value) => {this.cars = value},
+      next: (value) => {
+        this.isLoading = false;
+        this.cars = value
+        if (value.length == 0) {
+          this.isEmpty = true;
+        }
+      },
       error: (err) => console.log(err),
-      
+
     })
 
   }

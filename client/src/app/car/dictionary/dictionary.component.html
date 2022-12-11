@@ -1,8 +1,8 @@
 <div class="container">
     <div class="title">
-        <h1 *ngIf="!falseVin && searching == false">Decode VIN</h1>
+        <h1 *ngIf="!falseVin && isLoading == false">Decode VIN</h1>
         <h1 *ngIf="falseVin">Invalid VIN!</h1>
-        <h1 *ngIf="searching">Loading...</h1>
+        <h1 *ngIf="isLoading">Loading...</h1>
 
     </div>
     <div class="flex">
@@ -11,7 +11,7 @@
             <button (click)="getVin(vinInput.value)">Search Car</button>
         </div>
     </div>
-    <div class="lds-ellipsis" *ngIf="searching">
+    <div class="lds-ellipsis" *ngIf="isLoading">
         <div></div>
         <div></div>
         <div></div>

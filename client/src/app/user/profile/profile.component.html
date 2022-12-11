@@ -1,7 +1,8 @@
 <div class="container">
     <div class="title">
-        <h1 *ngIf="cars?.length != 0">MY CARS FOR SALE</h1>
-        <h1 *ngIf="cars?.length == 0">NO CARS TO SHOW</h1>
+        <h1 *ngIf="cars">MY CARS FOR SALE</h1>
+        <h1 *ngIf="isEmpty">NO CARS TO SHOW</h1>
+        <h1 *ngIf="isLoading">Loading...</h1>
     </div>
     <section *ngIf="cars">
         <ng-container *ngFor="let car of cars">
@@ -15,8 +16,13 @@
                     <button [routerLink]="['/cars', car._id]">Details</button>
                 </div>
             </article>
-            
         </ng-container>
     </section>
+    <div class="lds-ellipsis" *ngIf="isLoading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
     
 </div>

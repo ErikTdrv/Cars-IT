@@ -12,15 +12,15 @@ import { UserService } from 'src/app/user/user.service';
 export class DictionaryComponent {
   car: any
   falseVin: boolean | null = null;
-  searching: boolean = false;
+  isLoading: boolean = false;
   constructor(private userService: UserService){}
   getVin(vin: string){
-    this.searching = true
+    this.isLoading = true
     this.car = null;
     this.falseVin = null;
     this.userService.getCarsFrom3rdApi(vin).subscribe({
       next: (value) => {
-        this.searching = false;
+        this.isLoading = false;
         if(value?.errors?.length > 1){
           this.falseVin = true
           this.car = null;
