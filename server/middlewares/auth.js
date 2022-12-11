@@ -1,4 +1,4 @@
-const { validateToken } = require("../services/userService");
+const { validateToken } = require("../services/user");
 
 const authMiddleware = (req, res, next) => {
     const token = req.headers['x-authorization'];

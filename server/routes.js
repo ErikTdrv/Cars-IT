@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const authcontroller = require('./controllers/authcontroller')
-const carcontroller = require('./controllers/carcontroller');
-const specialcontroller = require('./controllers/specialcontroller');
+const authcontroller = require('./controllers/auth')
+const carcontroller = require('./controllers/car');
+const specialcontroller = require('./controllers/special');
 
 router.get('/', (req, res) => {
     res.json('Working...')

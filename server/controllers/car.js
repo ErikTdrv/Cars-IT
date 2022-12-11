@@ -1,6 +1,6 @@
 const User = require('../models/user');
-const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars } = require('../services/carservice');
-const { updateCarsOnUser } = require('../services/userservice');
+const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars } = require('../services/car');
+const { updateCarsOnUser } = require('../services/user');
 
 const router = require('express').Router();
 

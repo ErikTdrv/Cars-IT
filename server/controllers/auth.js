@@ -1,4 +1,4 @@
-const { register, login } = require('../services/userservice');
+const { register, login } = require('../services/user');
 
 const router = require('express').Router();
 
