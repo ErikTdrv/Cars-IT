@@ -2,7 +2,7 @@
 Simple app for study purposes, created with Angular as front-end, Node.js as back-end and MongoDB as database.
 
 <p align="center">
-  <img style="text-align: center" src="/client/src/assets/githubprojectimage.png" width="800" title="project-image">
+  <img style="text-align: center" src="/client/src/assets/githubprojectimage.png" width="550" title="project-image">
 </p>
 
 <!-- ![Alt text](/client/src/assets/githubprojectimage.png "Title") -->
