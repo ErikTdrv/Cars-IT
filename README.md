@@ -1,6 +1,6 @@
 # CarsIT
 Simple app for study purposes, created with Angular as front-end, Node.js as back-end and MongoDB as database.
-  <img style="text-align: center" src="/projectImage.jpg" width="350" title="hover text">
+
 
 <!-- ![Alt text](/projectImage.jpg "Title") -->
 ## General information
