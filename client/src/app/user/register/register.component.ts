@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { handleError } from 'src/app/shared/errorHandler';
 import { emailValidator, passwordValidator } from 'src/app/shared/validator';
 import { UserService } from '../user.service';
 
@@ -26,7 +27,7 @@ export class RegisterComponent {
     this.userService.register(this.form.value).subscribe({
       next: () => this.router.navigate(['/']),
       error: (err) => {
-        this.errors = err.error.error
+        this.errors = handleError(err.error?.error)
       }
     })
   }

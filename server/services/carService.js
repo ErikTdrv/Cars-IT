@@ -5,8 +5,7 @@ const addCar = async (car, id) => {
         car.owner = id;
         return await Car.create({ ...car })
     } catch (error) {
-        console.log(error)
-        return error
+        throw new Error(error)
     }
 }
 const getAllCars = async () => {

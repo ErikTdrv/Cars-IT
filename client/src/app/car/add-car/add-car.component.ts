@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { handleError } from 'src/app/shared/errorHandler';
 import { CarService } from '../car.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class AddCarComponent{
     this.carService.addCar(form.value).subscribe({
       next: () => this.router.navigate(['/']),
       error: (err) => {
-        this.errors = err?.error?.error
+        this.errors = handleError(err?.error?.error)
       }
     })
   }

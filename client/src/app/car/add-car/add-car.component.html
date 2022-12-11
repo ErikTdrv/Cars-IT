@@ -48,7 +48,7 @@
                 <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>
                 <p class="error" *ngIf="price.value.includes(' ')">Price cannot contain any spaces!</p>
             </ng-container>
-            <p class="error" *ngIf="errors">{{errors}}</p>
+            <p class="mainError" *ngIf="errors">{{errors}}</p>
             <input [disabled]="form.invalid || price.value?.includes(' ') || hp.value?.includes(' ') || year.value?.includes(' ')" type="submit" value="Add Car">
         </form>
     </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { handleError } from 'src/app/shared/errorHandler';
 import { UserService } from '../user.service';
 
 @Component({
@@ -29,7 +30,7 @@ export class LoginComponent{
         this.router.navigate(['/'])
       },
       error: (err) => {
-        this.errors = err.error.error
+        this.errors = handleError(err.error?.error)
       }
     })
   }

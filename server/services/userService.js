@@ -50,10 +50,14 @@ const login = async (email, password) => {
     }
 }
 const updateCarsOnUser = async (_id, carId) => {
-    const user = await User.findById(_id);
-    let array = user.cars
-    array.push(carId)
-    await User.findByIdAndUpdate(_id, {cars: array})
+    try {
+        const user = await User.findById(_id);
+        let array = user.cars
+        array.push(carId)
+        await User.findByIdAndUpdate(_id, {cars: array})
+    } catch (error) {
+        return error
+    }
 }
 const logout = (token) => {
     blacklist.add(token)
