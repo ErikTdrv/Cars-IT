@@ -16,6 +16,8 @@ export class DictionaryComponent {
   constructor(private userService: UserService){}
   getVin(vin: string){
     this.searching = true
+    this.car = null;
+    this.falseVin = null;
     this.userService.getCarsFrom3rdApi(vin).subscribe({
       next: (value) => {
         this.searching = false;
