@@ -1,8 +1,11 @@
 # CarsIT
 Simple app for study purposes, created with Angular as front-end, Node.js as back-end and MongoDB as database.
-  <img style="text-align: center" src="/projectImage.jpg" width="350" title="hover text">
 
-<!-- ![Alt text](/projectImage.jpg "Title") -->
+<p align="center">
+  <img style="text-align: center" src="/client/src/assets/githubprojectimage.png" width="350" title="hover text">
+</p>
+
+<!-- ![Alt text](/client/src/assets/githubprojectimage.png "Title") -->
 ## General information
 * The main purpose of the app is to view/add cars for sale.
 * Guests are only able to see Home Page, All Cars and VIN Dictionary.
