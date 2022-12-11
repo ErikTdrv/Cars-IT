@@ -9,7 +9,7 @@ import { CarService } from '../car.service';
 })
 export class AllCarsComponent {
   cars: ICar[] | undefined
-
+  isEmpty: boolean = false;
   constructor(private carService: CarService){
     this.getAllCars()
   }
@@ -17,7 +17,12 @@ export class AllCarsComponent {
   getAllCars(){
     this.cars = undefined;
     this.carService.getAllCars().subscribe({
-      next: (cars) => this.cars = cars
+      next: (cars) => {
+        this.cars = cars
+        if(cars.length == 0){
+          this.isEmpty = true;
+        }
+      }
     })
   }
 }

@@ -9,6 +9,12 @@
             <button (click)="getVin(vinInput.value)">Search Car</button>
         </div>
     </div>
+    <div class="lds-ellipsis" *ngIf="searching">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
     <section>
             <article class="car" *ngIf="car">
                 <div class="carTitle">{{car?.make}} {{car?.model}} {{car?.series}}</div>

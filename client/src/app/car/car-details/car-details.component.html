@@ -1,6 +1,6 @@
 
 <div class="container">
-    <ng-container *ngIf="!inEditMode">
+    <ng-container *ngIf="!inEditMode && car">
         <div class="title">
             <h1>Details Page</h1>
         </div>
@@ -30,7 +30,12 @@
             </div>
         </article>
     </ng-container>
-
+    <div class="lds-ellipsis" *ngIf="!car">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
     
     <ng-container *ngIf="inEditMode">
         <div class="title">

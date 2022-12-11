@@ -1,6 +1,8 @@
 <div class="container">
     <div class="title">
-        <h1>CARS FOR SALE</h1>
+        <h1 *ngIf="cars">CARS FOR SALE</h1>
+        <h1 *ngIf="isEmpty">NO CARS ADDED!</h1>
+        <h1 *ngIf="!cars">Loading...</h1>
     </div>
     <section *ngIf="cars">
         <ng-container *ngFor="let car of cars">
@@ -16,5 +18,10 @@
             </article>
         </ng-container>
     </section>
-    <h1 *ngIf="!cars">No Cars added!</h1>
+    <div class="lds-ellipsis" *ngIf="!cars">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </div>
