@@ -1,3 +1,4 @@
+const User = require('../models/User');
 const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars, getVinCar } = require('../services/carService');
 const { updateCarsOnUser } = require('../services/userService');
 
@@ -41,18 +42,32 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     const id = req.params.id;
     const data = req.body;
+    const car = await getOneCar(id)
     try {
-        await editCar(id, data)
-        const updatedCar = await getOneCar(id)
-        res.status(200).json(updatedCar)
+        if(req?.user._id == car.owner._id){
+            await editCar(id, data)
+            const updatedCar = await getOneCar(id)
+            res.status(200).json(updatedCar)
+        }else {
+            throw new Error('You are not the owner!')
+        }
     } catch (error) {
         res.status(400).json({error:error.message})
     }
 })
 router.delete('/:id', async (req, res) => {
+    const user = await User.findById(req.user._id)
     const id = req.params.id;
-    await deleteACar(id)
-    res.status(200).json('Deleted!')
+    if(user.cars.includes(id)){
+        let carsArray = user.cars;
+        let deletionIndex = carsArray.indexOf(id)
+        carsArray.splice(deletionIndex, 1)
+        await User.findByIdAndUpdate(req.user._id, {cars: carsArray})
+        await deleteACar(id)
+        res.status(200).json('Deleted!')
+    }else {
+        res.status(400).json({error: 'You are not the owner of the car!'})
+    }
 })
 
 module.exports = router;

@@ -26,6 +26,7 @@
                         <button>Add to favourite</button>
                     </ng-container>
                 </div>
+                <p class="mainError" *ngIf="errors">{{errors}}</p>
             </div>
         </article>
     </ng-container>
@@ -74,7 +75,9 @@
                 <ng-container *ngIf="price.touched">
                     <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>
                     <p class="error" *ngIf="price.errors?.['min']">Car should be more expensive than 500$!</p>
+                    <p class="mainError" *ngIf="errors">{{errors}}</p>
                 </ng-container>
+
                 <input [disabled]="form.invalid" type="submit" value="Edit Car">
             </form>
         </div>

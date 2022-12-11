@@ -15,7 +15,7 @@ export class CarDetailsComponent {
   inEditMode: boolean = false;
   token: string | null = localStorage.getItem('token')
   isAuthor: boolean = false;
-
+  errors: Object | undefined
   constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getCar()
   }
@@ -33,7 +33,7 @@ export class CarDetailsComponent {
         }
       },
       error: (err) => {
-        console.log(err)
+        this.errors = err.error?.error
         this.router.navigate(['**'])
       }
     })
@@ -48,7 +48,9 @@ export class CarDetailsComponent {
         this.car = car
         this.inEditMode = false;
       },
-      error: (err) => console.log(err)
+      error: (err) => {
+        this.errors = err.error?.error
+      }
     })
   }
   delete(){
@@ -58,7 +60,9 @@ export class CarDetailsComponent {
     const id = this.car?._id;
     this.carService.deleteCar(id).subscribe({
       next: () => this.router.navigate(['/']),
-      error: (err) => console.log(err)
+      error: (err) => {
+        this.errors = err.error?.error
+      }
     })
   }
 }
