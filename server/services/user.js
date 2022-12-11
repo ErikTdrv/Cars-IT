@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs');
 const server = require('../environment')
-const user = require('../models/user')
+const user = require('../models/User')
 
 const validateToken = (token) => {
     try {

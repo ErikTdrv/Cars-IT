@@ -1,4 +1,4 @@
-const user = require('../models/user');
+const user = require('../models/User');
 const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars } = require('../services/car');
 const { updateCarsOnUser } = require('../services/user');
 

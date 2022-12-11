@@ -1,4 +1,4 @@
-const car = require("../models/car")
+const car = require("../models/Car")
 require('dotenv').config()
 const addCar = async (car, id) => {
     try {
