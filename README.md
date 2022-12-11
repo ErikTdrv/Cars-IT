@@ -4,6 +4,7 @@ Simple app for study purposes, created with Angular as front-end, Node.js as bac
   <img src="/projectImage.jpg" width="350" title="hover text">
 </p>
 <!-- ![Alt text](/projectImage.jpg "Title") -->
+
 ## General information
 * The main purpose of the app is to view/add cars for sale.
 * Guests are only able to see Home Page, All Cars and VIN Dictionary.
