@@ -21,7 +21,7 @@ const editCar = async (id, data) => {
     try {
         return await Car.findByIdAndUpdate(id, { ...data }, { runValidators: true })
     } catch (error) {
-        return error
+        throw new Error(error)
     }
 }
 const deleteACar = async (id) => {

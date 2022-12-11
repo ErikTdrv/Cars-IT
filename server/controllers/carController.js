@@ -32,11 +32,16 @@ router.get('/most', async (req, res) => {
 })
 router.get('/:id', async (req, res) => {
     try {
-        const id = req.params.id;
+        let id = req.params.id;
         const car = await getOneCar(id);
-        res.status(200).json(car)
+        if(car){
+            res.status(200).json(car)
+        }else {
+            throw new Error('Invalid car ID!')
+        }
     } catch (error) {
-        res.status(400).json('Invalid car ID!')
+        console.log(error)
+        res.status(400).json({error:error.message})
     }
 })
 router.put('/:id', async (req, res) => {

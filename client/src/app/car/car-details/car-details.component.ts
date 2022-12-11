@@ -34,7 +34,7 @@ export class CarDetailsComponent {
       },
       error: (err) => {
         this.errors = err.error?.error
-        this.router.navigate(['**'])
+        console.log(err)
       }
     })
   }

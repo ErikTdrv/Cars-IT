@@ -56,7 +56,7 @@ const updateCarsOnUser = async (_id, carId) => {
         array.push(carId)
         await User.findByIdAndUpdate(_id, {cars: array})
     } catch (error) {
-        return error
+        throw new Error(error)
     }
 }
 const logout = (token) => {
