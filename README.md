@@ -1,8 +1,8 @@
 # CarsIT
 Simple app for study purposes, created with Angular as front-end, Node.js as back-end and MongoDB as database.
-
+![Alt text](/projectImage.jpg "Title")
 ## General information
-* The main purpose of the app is to see/add cars for sale.
+* The main purpose of the app is to view/add cars for sale.
 * Guests are only able to see Home Page, All Cars and VIN Dictionary.
 * Logged in users have access to Add Car, My Cars and Profile information, as well they have the ability to Edit/Delete their own posts.
 * <b>VIN Dictionary</b> is a special page which gets data from a 3<sup>rd</sup> API(Car Utils). To get data about a vehicle it is required to provide a vehicle identification number(VIN) in the input.
