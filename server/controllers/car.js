@@ -1,4 +1,4 @@
-const user = require('../models/User');
+const User = require('../models/User');
 const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars } = require('../services/car');
 const { updateCarsOnUser } = require('../services/user');
 
@@ -61,13 +61,13 @@ router.put('/:id', async (req, res) => {
     }
 })
 router.delete('/:id', async (req, res) => {
-    const user = await user.findById(req.user._id)
+    const user = await User.findById(req.user._id)
     const id = req.params.id;
     if(user.cars.includes(id)){
         let carsArray = user.cars;
         let deletionIndex = carsArray.indexOf(id)
         carsArray.splice(deletionIndex, 1)
-        await user.findByIdAndUpdate(req.user._id, {cars: carsArray})
+        await User.findByIdAndUpdate(req.user._id, {cars: carsArray})
         await deleteACar(id)
         res.status(200).json('Deleted!')
     }else {
