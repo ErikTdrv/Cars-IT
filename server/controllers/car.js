@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 const User = require('../models/User');
+=======
+
+>>>>>>> Stashed changes
 const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars } = require('../services/car');
 const { updateCarsOnUser } = require('../services/user');
 
