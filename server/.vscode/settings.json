@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/b501af45-be6a-4c81-964c-a609def3cc8c/AppServices/subscriptions/b501af45-be6a-4c81-964c-a609def3cc8c/resourceGroups/carsit/providers/Microsoft.Web/sites/carsit",
+    "appService.deploySubpath": "."
+}
