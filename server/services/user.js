@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs');
 const server = require('../environment')
-const user = require('../models/User')
+const User = require('../models/User')
 
 const validateToken = (token) => {
     try {
@@ -26,8 +26,8 @@ const createAccessToken = (user) => {
     };
 }
 const register = async (username, email, password) => {
-    const existingEmail = await user.findOne({email})
-    const existingUsername = await user.findOne({username})
+    const existingEmail = await User.findOne({email})
+    const existingUsername = await User.findOne({username})
 
     if(existingEmail){
         throw new Error('Email already exists!')
@@ -38,7 +38,7 @@ const register = async (username, email, password) => {
     return createAccessToken(user)
 }
 const login = async (email, password) => {
-    const user = await user.findOne({email});
+    const user = await User.findOne({email});
     if(!user){
         throw new Error('Invalid email or password!')
     }
@@ -51,10 +51,10 @@ const login = async (email, password) => {
 }
 const updateCarsOnUser = async (_id, carId) => {
     try {
-        const user = await user.findById(_id);
+        const user = await User.findById(_id);
         let array = user.cars
         array.push(carId)
-        await user.findByIdAndUpdate(_id, {cars: array})
+        await User.findByIdAndUpdate(_id, {cars: array})
     } catch (error) {
         throw new Error(error)
     }
