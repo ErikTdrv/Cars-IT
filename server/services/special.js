@@ -1,6 +1,6 @@
 require('dotenv').config()
-// const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-// npm i node-fetch
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+// Version 18+ on Node.js needs fetch to be imported with import syntax
 
 const getByVin = async (vin) => {
     try {

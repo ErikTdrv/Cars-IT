@@ -5,17 +5,17 @@
             <h1>Details Page</h1>
         </div>
         <article class="car">
-            <p class="price">{{car?.price}}$</p>
+            <p class="price">{{car.price}}$</p>
             <div class="image">
-                <img src={{car?.imageUrl}} alt="no-img">
+                <img src={{car.imageUrl}} alt="no-img">
             </div>
             <div class="info">
-                <h1>{{car?.make}} <span>{{car?.model}}</span></h1>
+                <h1>{{car.make}} <span>{{car.model}}</span></h1>
                 <hr>
-                <h3>Horsepower: <span>{{car?.hp}}</span></h3>
-                <h3>Year: <span>{{car?.year}}</span></h3>
-                <h3>Description: <span>{{car?.description}}</span></h3>
-                <h3>Owner: <span>{{car?.owner?.username}}</span></h3>
+                <h3>Horsepower: <span>{{car.hp}}</span></h3>
+                <h3>Year: <span>{{car.year}}</span></h3>
+                <h3>Description: <span>{{car.description}}</span></h3>
+                <h3>Owner: <span>{{car.owner.username}}</span></h3>
                 <div class="buttons">
                     <button routerLink="/cars">Back</button>
                     <ng-container *ngIf="isAuthor">
