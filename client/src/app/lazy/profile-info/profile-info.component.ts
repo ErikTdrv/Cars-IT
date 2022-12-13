@@ -2,7 +2,7 @@ import { trigger, state, style, animate, transition, query, stagger } from '@ang
 import { Component } from '@angular/core';
 import { UserService } from 'src/app/user/user.service';
 
-const fadeInOutFast = trigger('fadeInOutSlow', [
+const fadeInOutSlow = trigger('fadeInOutSlow', [
   transition(':enter', [
     query('h3', [
       style({
@@ -15,7 +15,7 @@ const fadeInOutFast = trigger('fadeInOutSlow', [
     ])
   ])
 ])
-const fadeInOutSlow = trigger('fadeInOutFast', [
+const fadeInOutFast = trigger('fadeInOutFast', [
   transition(':enter', [
     query('h3', [
       style({
