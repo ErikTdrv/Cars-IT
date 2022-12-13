@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
+import { FavouriteCarsComponent } from './favourite-cars/favourite-cars.component';
 
 
 
@@ -15,7 +16,8 @@ import { ErrorComponent } from './error/error.component';
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
-    ErrorComponent
+    ErrorComponent,
+    FavouriteCarsComponent
   ],
   imports: [
     CommonModule,

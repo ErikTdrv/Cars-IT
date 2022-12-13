@@ -4,6 +4,7 @@ import { DictionaryComponent } from './car/dictionary/dictionary.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { HomeComponent } from './core/home/home.component';
 import { ErrorComponent } from './user/error/error.component';
+import { FavouriteCarsComponent } from './user/favourite-cars/favourite-cars.component';
 import { LoginComponent } from './user/login/login.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RegisterComponent } from './user/register/register.component';
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: 'profile-info',
     loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule)
+  },
+  {
+    path: 'favourites-profile',
+    component: FavouriteCarsComponent
   }
   // {
   //   path: '**',

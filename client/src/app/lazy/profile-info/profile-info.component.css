@@ -4,7 +4,7 @@ section {
     align-items: center;
 }
 .container {
-    background-image:url(../../../assets/profile-page.jpg);
+    background-image:url(../../../assets/profileInfo.jpg);
     background-size: cover;
     background-position: center;
     width: 100%;

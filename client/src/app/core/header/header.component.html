@@ -7,18 +7,24 @@
             <li><a routerLink="/cars">All Cars</a></li>
             <ng-container *ngIf="isLogged">
                 <li><a routerLink="/add">Add Car</a></li>
-                <li><a routerLink="/profile">My Cars</a></li>
             </ng-container>
         </ul>
     </div>
     <div class="auth">
         <ul>
+            <div class="dropdown" *ngIf="isLogged">
+                <button class="dropbtn">Profile. . .</button>
+                <div class="dropdown-content">
+                    <a routerLink="/profile">My Cars</a>
+                    <a routerLink="/favourites-profile">My Favourite Cars</a>
+                    <a routerLink="/profile-info">Profile Info</a>
+                </div>
+            </div>
             <ng-container *ngIf="!isLogged">
                 <li><a routerLink="/login">Login</a></li>
                 <li><a routerLink="/register">Register</a></li>
             </ng-container>
             <ng-container *ngIf="isLogged">
-                <li><a routerLink="/profile-info">Profile Info</a></li>
                 <li><a (click)="logout()">Logout</a></li>
             </ng-container>
         </ul>
