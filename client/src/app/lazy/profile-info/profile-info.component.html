@@ -6,18 +6,18 @@
         </div>
         <section>
             <article class="userSchema" *ngIf="info">
-                <div class="userSchema">
+                <div class="userSchema" @fadeInOutFast>
                     <h3>Username: <span>{{currUser?.username}}</span></h3>
                     <h3>Email: <span>{{currUser?.email}}</span></h3>
                 </div>
             </article>
             <article class="user" *ngIf="info">
                 <div class="ipAddress">
-                    <img src="{{info?.country_flag}}" alt="no-flag">
-                    {{info?.ip}}
+                        <img src="{{info?.country_flag}}" alt="no-flag">
+                        {{info?.ip}}
                 </div>
                 <hr>
-                <div class="info">
+                <div class="info" @fadeInOutSlow>
                     <h3 *ngIf="info?.region">Region: <span>{{info?.region}}</span></h3>
                     <h3 *ngIf="info?.country">Country: <span>{{info?.country}}</span></h3>
                     <h3 *ngIf="info?.continent">Continent: <span>{{info?.continent}}</span></h3>
