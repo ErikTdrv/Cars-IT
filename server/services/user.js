@@ -34,7 +34,7 @@ const register = async (username, email, password) => {
     }else if(existingUsername){
         throw new Error('Username already exists!')
     }
-    const user = await user.create({username, email, password})
+    const user = await User.create({username, email, password})
     return createAccessToken(user)
 }
 const login = async (email, password) => {
