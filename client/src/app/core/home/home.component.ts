@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CarService } from 'src/app/car/car.service';
 import { ICar } from 'src/app/shared/interfaces/car';
 import { UserService } from 'src/app/user/user.service';
@@ -8,7 +8,7 @@ import { UserService } from 'src/app/user/user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   cars: ICar[] | undefined
   get isLogged() {
     if (this.userService.user) {
@@ -20,6 +20,10 @@ export class HomeComponent {
   constructor(private userService: UserService, private carService: CarService) { 
     this.getTopCars()
   }
+  ngOnInit(): void {
+    console.log('loaded')
+  }
+  
   getTopCars(){
     this.carService.getTop3Cars().subscribe({
       next: (value) => this.cars = value,
