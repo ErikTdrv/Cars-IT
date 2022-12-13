@@ -30,4 +30,7 @@ export class CarService {
   addToFavourite(id: string | undefined){
     return this.http.get(`${API_URL}/cars/favourites/${id}`)
   }
+  getFavouriteCars(){
+    return this.http.get<ICar[]>(`${API_URL}/cars/favourite-cars`)
+  }
 }

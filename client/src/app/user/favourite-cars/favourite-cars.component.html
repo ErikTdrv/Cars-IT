@@ -1,1 +1,28 @@
-<p>favourite-cars works!</p>
+<div class="container">
+    <div class="title">
+        <h1 *ngIf="cars?.length > 0">MY FAVOURITE CARS</h1>
+        <h1 *ngIf="isEmpty && cars?.length == 0">NO FAVOURITE CARS ADDED</h1>
+        <h1 *ngIf="isLoading">Loading...</h1>
+    </div>
+    <section *ngIf="cars">
+        <ng-container *ngFor="let car of cars">
+            <article>
+                <p>{{car.price}}$</p>
+                <div class="image">
+                    <img src={{car.imageUrl}} alt="no-img">
+                </div>
+                <div class="info">
+                    <h1>{{car.make}} {{car.model}}</h1>
+                    <button [routerLink]="['/cars', car._id]">Details</button>
+                </div>
+            </article>
+        </ng-container>
+    </section>
+    <div class="lds-ellipsis" *ngIf="isLoading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+</div>

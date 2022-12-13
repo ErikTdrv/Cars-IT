@@ -1,6 +1,6 @@
 const User = require('../models/User');
 
-const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars, addToFavourite } = require('../services/car');
+const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars, addToFavourite, getFavouriteCars } = require('../services/car');
 const { updateCarsOnUser } = require('../services/user');
 
 const router = require('express').Router();
@@ -38,6 +38,16 @@ router.get('/favourites/:id', async (req, res) => {
         await addToFavourite(userId, carId)
         res.status(200).json('Success')
     } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+})
+router.get('/favourite-cars', async (req, res) => {
+    let userId = req.user._id
+    try {
+        let cars = await getFavouriteCars(userId)
+        res.status(200).json(cars?.favouriteCars)
+    } catch (error) {
+        console.log(error)
         res.status(400).json({error: error.message})
     }
 })

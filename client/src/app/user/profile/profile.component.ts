@@ -23,7 +23,6 @@ export class ProfileComponent {
         if (value.length == 0) {
           this.isEmpty = true;
         }
-        console.log(this.cars)
       },
       error: (err) => console.log(err),
 

@@ -38,6 +38,8 @@ const addToFavourite = async (userId, carId) => {
         const user = await User.findById(userId)
         let array = user.favouriteCars;
         array.push(carId)
+        console.log(userId)
+        console.log(carId)
         await User.findByIdAndUpdate(userId, {favouriteCars: array})
         //Adding user to car
         let car = await Car.findById(carId)
@@ -49,8 +51,12 @@ const addToFavourite = async (userId, carId) => {
     }
 
 }
+const getFavouriteCars = async (userId) => {
+    return await User.findById(userId).populate('favouriteCars')
+}
 
 module.exports = {
+    getFavouriteCars,
     addToFavourite,
     getTop3Cars,
     deleteACar,
