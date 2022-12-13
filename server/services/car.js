@@ -13,7 +13,7 @@ const getAllCars = async () => {
     return await Car.find({})
 }
 const getOneCar = async (id) => {
-    return await Car.findById(id).populate('owner')
+    return await Car.findById(id).populate('owner addedBy')
 }
 const getProfileCars = async (_id) => {
     return await Car.find({ owner: _id })

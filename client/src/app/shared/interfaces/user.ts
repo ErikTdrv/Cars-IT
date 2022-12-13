@@ -4,4 +4,5 @@ export interface IUser {
     accessToken: string,
     _id: any,
     cars: string[],
+    favouriteCars: string[]
 }

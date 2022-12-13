@@ -15,7 +15,8 @@ export class CarDetailsComponent {
   inEditMode: boolean = false;
   token: string | null = localStorage.getItem('token')
   isAuthor: boolean = false;
-  errors: Object | undefined
+  errors: Object | undefined;
+  alreadyFavourite: any;
   constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getCar()
   }
@@ -26,6 +27,7 @@ export class CarDetailsComponent {
     this.carService.getOneCar(id).subscribe({
       next: (car) => {
         this.car = car
+        this.alreadyFavourite = car.addedBy.some((user) => user.username == this.userService.user?.username)
         if(this.userService.user?._id == car.owner._id){
           this.isAuthor = true
         }else {

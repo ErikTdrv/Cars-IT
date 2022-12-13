@@ -22,7 +22,7 @@
                         <button (click)="inEditMode = true">Edit</button>
                         <button (click)="delete()">Delete</button>
                     </ng-container>
-                    <ng-container *ngIf="!isAuthor">
+                    <ng-container *ngIf="!isAuthor && !alreadyFavourite">
                         <button (click)="addToFavourite()">Add to favourite</button>
                     </ng-container>
                 </div>
