@@ -65,4 +65,10 @@ export class CarDetailsComponent {
       }
     })
   }
+  addToFavourite(){
+    let id = this.car?._id
+    this.carService.addToFavourite(id).subscribe({
+      next: () => this.router.navigate(['/cars', this.car?._id])
+    })
+  }
 }

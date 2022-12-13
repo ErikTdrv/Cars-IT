@@ -42,6 +42,7 @@ const addToFavourite = async (userId, carId) => {
         //Adding user to car
         let car = await Car.findById(carId)
         let carArray = car.addedBy
+        carArray.push(userId)
         await Car.findByIdAndUpdate(carId, {addedBy: carArray})
     } catch (error) {
         throw new Error(error)

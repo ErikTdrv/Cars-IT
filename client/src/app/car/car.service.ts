@@ -27,4 +27,7 @@ export class CarService {
   getTop3Cars(){
     return this.http.get<ICar[]>(`${API_URL}/cars/most`)
   }
+  addToFavourite(id: string | undefined){
+    return this.http.get(`${API_URL}/cars/favourites/${id}`)
+  }
 }

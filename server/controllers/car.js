@@ -31,7 +31,7 @@ router.get('/most', async (req, res) => {
     const cars = await getTop3Cars()
     res.status(200).json(cars)
 })
-router.post('/:id', async (req, res) => {
+router.get('/favourites/:id', async (req, res) => {
     try {
         const userId = req.user._id;
         const carId = req.params.id;
