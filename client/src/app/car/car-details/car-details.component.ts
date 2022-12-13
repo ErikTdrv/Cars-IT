@@ -16,7 +16,8 @@ export class CarDetailsComponent {
   token: string | null = localStorage.getItem('token')
   isAuthor: boolean = false;
   errors: Object | undefined;
-  alreadyFavourite: any;
+  alreadyFavourite: boolean = false;
+  addedToFavourite: boolean = false;
   constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getCar()
   }
@@ -70,7 +71,9 @@ export class CarDetailsComponent {
   addToFavourite(){
     let id = this.car?._id
     this.carService.addToFavourite(id).subscribe({
-      next: () => this.router.navigate(['/cars', this.car?._id])
+      next: () => {
+        this.alreadyFavourite = true;
+      }
     })
   }
 }

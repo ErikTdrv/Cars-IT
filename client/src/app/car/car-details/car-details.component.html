@@ -25,6 +25,7 @@
                     <ng-container *ngIf="!isAuthor && !alreadyFavourite">
                         <button (click)="addToFavourite()">Add to favourite</button>
                     </ng-container>
+                        <button id="added" *ngIf="alreadyFavourite">Added to favourites</button>
                 </div>
                 <p class="mainError" *ngIf="errors">{{errors}}</p>
             </div>
