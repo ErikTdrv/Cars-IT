@@ -1,4 +1,5 @@
 const Car = require("../models/Car")
+const User = require("../models/User")
 require('dotenv').config()
 const addCar = async (car, id) => {
     try {
@@ -31,9 +32,25 @@ const getTop3Cars = async () => {
     const cars = await Car.find({}).sort({ price: -1 }).limit(3)
     return cars
 }
+const addToFavourite = async (userId, carId) => {
+    try {
+        //Adding car to user
+        const user = await User.findById(userId)
+        let array = user.favouriteCars;
+        array.push(carId)
+        await User.findByIdAndUpdate(userId, {favouriteCars: array})
+        //Adding user to car
+        let car = await Car.findById(carId)
+        let carArray = car.addedBy
+        await Car.findByIdAndUpdate(carId, {addedBy: carArray})
+    } catch (error) {
+        throw new Error(error)
+    }
 
+}
 
 module.exports = {
+    addToFavourite,
     getTop3Cars,
     deleteACar,
     editCar,

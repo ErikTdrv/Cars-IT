@@ -1,9 +1,6 @@
-<<<<<<< Updated upstream
 const User = require('../models/User');
-=======
 
->>>>>>> Stashed changes
-const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars } = require('../services/car');
+const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars, addToFavourite } = require('../services/car');
 const { updateCarsOnUser } = require('../services/user');
 
 const router = require('express').Router();
@@ -33,6 +30,16 @@ router.get('/mycars', async (req, res) => {
 router.get('/most', async (req, res) => {
     const cars = await getTop3Cars()
     res.status(200).json(cars)
+})
+router.post('/:id', async (req, res) => {
+    try {
+        const userId = req.user._id;
+        const carId = req.params.id;
+        await addToFavourite(userId, carId)
+        res.status(200).json('Success')
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
 })
 router.get('/:id', async (req, res) => {
     try {

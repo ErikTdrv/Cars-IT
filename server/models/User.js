@@ -22,6 +22,12 @@ const userSchema = new mongoose.Schema({
             type: mongoose.Types.ObjectId,
             ref: 'Car',
         }
+    ],
+    favouriteCars: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'Car',
+        }
     ]
 })
 userSchema.pre('save', function (next) {
