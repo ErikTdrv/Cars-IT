@@ -1,6 +1,2 @@
 ---
 runtime: nodejs18
-env_variables:
-  APITOKEN: "453f9c1bd6msh32734b876f80c8bp1aac59jsn6f9ec78a981c"
-  CONNECTIONSTRING: "mongodb+srv://todorowwww:Erik0446131700@cars-it.lel6fca.mongodb.net/?retryWrites=true&w=majority"
-  INFO: 'DSAJOSDAOASDJKOK'
