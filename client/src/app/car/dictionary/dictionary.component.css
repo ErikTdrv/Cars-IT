@@ -28,7 +28,7 @@
     height: 70px;
     background-image: linear-gradient(to left, #8e2de2, #4a00e0);
     /* border-radius: 30px; */
-    border-radius: 10px 0px 10px 0px;
+    border-radius: 10px;
 
 }
 input {

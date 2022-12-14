@@ -8,7 +8,7 @@ const { authMiddleware } = require('./middlewares/auth');
 startServer()
 async function startServer(){
     try {
-        app.use(cors({credentials: true,origin: 'http://localhost:4200', allowedHeaders: ['Content-Type, X-Authorization, X-RapidAPI-Key, X-RapidAPI-Host']}))
+        app.use(cors({credentials: true, origin: ['http://localhost:4200', 'https://carsit-fe.ew.r.appspot.com'], allowedHeaders: ['Content-Type, X-Authorization, X-RapidAPI-Key, X-RapidAPI-Host']}))
         app.use(express.json())
         app.use(authMiddleware)
         app.use(routes)

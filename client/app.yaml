@@ -1,2 +1,15 @@
 ---
 runtime: nodejs18
+
+instance_class: F2
+
+env_variables: 
+  BUCKET_NAME: "your-ng-app-bucket"
+
+handlers:
+- url: /
+  static_files: dist/client/index.html
+  upload: dist/client/index.html
+
+- url: /
+  static_dir: dist/client

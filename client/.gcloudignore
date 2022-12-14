@@ -12,6 +12,6 @@
 # below:
 .git
 .gitignore
-
+.angular
 # Node.js dependencies:
 node_modules/
