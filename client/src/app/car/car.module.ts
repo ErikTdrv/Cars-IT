@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AddCarComponent } from './add-car/add-car.component';
-import { CarRoutingModule } from './car-routing.module';
+import { CarRoutingModule } from './car-routing.module'
 import { AllCarsComponent } from './all-cars/all-cars.component';
 import { FormsModule } from '@angular/forms';
 import { CarDetailsComponent } from './car-details/car-details.component';

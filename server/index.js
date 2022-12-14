@@ -14,7 +14,7 @@ async function startServer(){
         app.use(routes)
         //Initializing database
         await initDatabase()
-        app.listen(server.PORT, () => console.log(`Server listening on http://localhost:${server.PORT}`))
+        app.listen(process.env.PORT || 3030, () => console.log(`Server listening on http://localhost:${server.PORT}`))
     } catch (error) {
         console.log(error)
     }
