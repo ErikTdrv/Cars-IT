@@ -28,8 +28,8 @@
 
 .car {
     /* border: 2px solid rgb(32, 32, 32); */
-    border-bottom-left-radius: 1.2rem;
-    border-bottom-right-radius: 1.2rem;
+    border-radius: 1.2rem;
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -42,6 +42,8 @@
 }
 
 img {
+    border-top-left-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
     width: 500px;
     height: 281.25px
 }

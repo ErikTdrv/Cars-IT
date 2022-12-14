@@ -30,9 +30,12 @@ article {
 
 }
 .image {
-    height: 190px;
+height: 190px;
 }
 img {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+
     width: 300px;
     height: 190px;
 }
