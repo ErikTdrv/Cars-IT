@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'https://carsit-api.ew.r.appspot.com/',
+    // apiUrl: 'https://carsit-api.ew.r.appspot.com/',
+    apiUrl: 'http://localhost:3030',
   };
   
   /*

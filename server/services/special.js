@@ -34,7 +34,7 @@ const getIPInfo = async (ip) => {
     }
 }
 const getUserIP = async () => {
-    const request = await fetch('https://api64.ipify.org?format=json')
+    const request = await fetch('https://api.ipify.org/?format=json')
     const data = await request.json()
     return data
 }

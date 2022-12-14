@@ -13,7 +13,8 @@ async function startServer(){
         app.use(authMiddleware)
         app.use(routes)
         //Initializing database
-        app.listen(process.env.PORT || 3030, () => console.log(`Server listening on http://localhost:${server.PORT}`))
+        let port = process.env.PORT || 3030
+        app.listen(port, () => console.log(`Server listening on http://localhost:${port}`))
         await initDatabase()
     } catch (error) {
         console.log(error)

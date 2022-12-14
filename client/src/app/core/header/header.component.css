@@ -5,6 +5,9 @@
     background-color: rgb(32, 32, 32);
     height: 3rem;
 }
+a {
+    text-decoration: none;
+}
 h2 {
     color: white;
     font-weight: bold;
