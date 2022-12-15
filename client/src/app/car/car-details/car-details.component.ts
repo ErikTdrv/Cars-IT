@@ -70,10 +70,14 @@ export class CarDetailsComponent {
   }
   addToFavourite(){
     let id = this.car?._id
-    this.carService.addToFavourite(id).subscribe({
-      next: () => {
-        this.alreadyFavourite = true;
-      }
-    })
+    if(!this.token){
+      this.router.navigate(['login'])
+    }else {
+      this.carService.addToFavourite(id).subscribe({
+        next: () => {
+          this.alreadyFavourite = true;
+        }
+      })
+    }
   }
 }
