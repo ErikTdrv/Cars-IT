@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 const cors = require('cors')
-const server = require('./environment');
 const initDatabase = require('./configs/database');
 const routes = require('./routes');
+
 const { authMiddleware } = require('./middlewares/auth');
 startServer()
 async function startServer(){

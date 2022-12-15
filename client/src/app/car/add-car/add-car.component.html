@@ -22,6 +22,7 @@
             </ng-container>
             <label>ImageUrl</label>
             <input #imageUrl="ngModel" ngModel type="text" name="imageUrl" pattern="^https?://.+" required>
+            <!-- <input #imageUrl="ngModel" ngModel type="file" name="imageUrl" required> -->
             <!-- <img src={{imageUrl.value}}> TO DO -->
             <ng-container *ngIf="imageUrl.touched">
                 <p class="error" *ngIf="imageUrl.errors?.['required']">ImageUrl is required!</p>
