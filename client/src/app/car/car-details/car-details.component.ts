@@ -62,7 +62,7 @@ export class CarDetailsComponent {
     }
     const id = this.car?._id;
     this.carService.deleteCar(id).subscribe({
-      next: () => this.router.navigate(['/']),
+      next: () => this.router.navigate(['/cars']),
       error: (err) => {
         this.errors = err.error?.error
       }
