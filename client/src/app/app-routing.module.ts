@@ -48,11 +48,19 @@ const routes: Routes = [
   },
   {
     path: 'profile-info',
-    loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule)
+    loadChildren: () => import('./lazy/lazy.module').then(m => m.LazyModule),
+    canActivate: [AuthGuard],
+    data: {
+      'guest': false,
+    }
   },
   {
     path: 'favourites-profile',
-    component: FavouriteCarsComponent
+    component: FavouriteCarsComponent,
+    canActivate: [AuthGuard],
+    data: {
+      'guest': false,
+    }
   }
   // {
   //   path: '**',
