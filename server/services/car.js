@@ -6,6 +6,7 @@ const addCar = async (car, id) => {
         car.owner = id;
         return await Car.create({ ...car })
     } catch (error) {
+        console.log(error)
         throw new Error(error)
     }
 }

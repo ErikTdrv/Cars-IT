@@ -1,15 +1,8 @@
-
-<IfModule mod_rewrite.c>
 RewriteEngine On
-
-# Redirection to HTTPS:
-RewriteCond %{HTTPS} !on
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-
-# Redirection of requests to index.html
+# If an existing asset or directory is requested go to it as it is
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
-RewriteRule ^.*$ - [NC,L]
-# Redirect all non-file routes to index.html
-RewriteRule ^(?!.*\.).*$ index.html [NC,L]
-</IfModule>
+RewriteRule ^ - [L]
+
+# If the requested resource doesn't exist, use index.html
+RewriteRule ^ /index.html
