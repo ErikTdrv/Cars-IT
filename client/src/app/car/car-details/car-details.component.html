@@ -1,4 +1,3 @@
-
 <div class="container">
     <ng-container *ngIf="!inEditMode && car">
         <div class="title">
@@ -25,7 +24,7 @@
                     <ng-container *ngIf="!isAuthor && !alreadyFavourite">
                         <button (click)="addToFavourite()">Add to favourite</button>
                     </ng-container>
-                        <button id="added" *ngIf="alreadyFavourite">Added to favourites</button>
+                    <button id="added" *ngIf="alreadyFavourite">Added to favourites</button>
                 </div>
                 <p class="mainError" *ngIf="errors">{{errors}}</p>
             </div>
@@ -37,7 +36,7 @@
         <div></div>
         <div></div>
     </div>
-    
+
     <ng-container *ngIf="inEditMode">
         <div class="title">
             <h1>Edit Car</h1>
@@ -57,34 +56,49 @@
                     <p class="error" *ngIf="model.errors?.['required']">Model is required!</p>
                     <p class="error" *ngIf="model.errors?.['minlength']">You should have at last 2 characters!</p>
                 </ng-container>
+                <label>Horsepower</label>
+                <input #hp="ngModel" ngModel type="text" name="hp" [ngModel]="car?.hp" required>
+                <ng-container *ngIf="hp.touched">
+                    <p class="error" *ngIf="hp.errors?.['required']">Horsepower are required!</p>
+                    <p class="error" *ngIf="hp.value.includes(' ')">Horsepower cannot contain any spaces!</p>
+                </ng-container>
                 <label>ImageUrl</label>
-                <input #imageUrl="ngModel" ngModel type="text" name="imageUrl" required [ngModel]="car?.imageUrl">
+                <input #imageUrl="ngModel" ngModel type="text" name="imageUrl" pattern="^https?://.+" required
+                    [ngModel]="car?.imageUrl">
                 <ng-container *ngIf="imageUrl.touched">
+                    <p class="error" *ngIf="imageUrl.errors?.['pattern']">You must give a URL!</p>
                     <p class="error" *ngIf="imageUrl.errors?.['required']">ImageUrl is required!</p>
                 </ng-container>
                 <label>Year</label>
-                <input #year="ngModel" ngModel type="text" name="year" required min="1950" max="2022" [ngModel]="car?.year">
+                <input #year="ngModel" ngModel type="text" name="year" required min="1950" max="2022"
+                    [ngModel]="car?.year">
                 <ng-container *ngIf="year.touched">
                     <p class="error" *ngIf="year.errors?.['required']">Year is required!</p>
                     <p class="error" *ngIf="year.errors?.['min']">Car year should be newer than 1950's!</p>
                     <p class="error" *ngIf="year.errors?.['max']">Car year cannot be in the future!</p>
+                    <p class="error" *ngIf="year.value.includes(' ')">Years cannot contain any spaces!</p>
                 </ng-container>
                 <label>Description</label>
-                <input #description="ngModel" ngModel type="text" name="description" required minlength="10" maxlength="50" [ngModel]="car?.description">
+                <input #description="ngModel" ngModel type="text" name="description" required minlength="10"
+                    maxlength="50" [ngModel]="car?.description">
                 <ng-container *ngIf="description.touched">
                     <p class="error" *ngIf="description.errors?.['required']">Description is required!</p>
-                    <p class="error" *ngIf="description.errors?.['minlength']">Description should have at least 10 characters!</p>
-                    <p class="error" *ngIf="description.errors?.['maxlength']">Description shouldn't have more than 100 characters!</p>
+                    <p class="error" *ngIf="description.errors?.['minlength']">Description should have at least 10
+                        characters!</p>
+                    <p class="error" *ngIf="description.errors?.['maxlength']">Description shouldn't have more than 50
+                        characters!</p>
                 </ng-container>
                 <label>Price</label>
                 <input #price="ngModel" ngModel type="text" name="price" required min="500" [ngModel]="car?.price">
                 <ng-container *ngIf="price.touched">
                     <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>
-                    <p class="error" *ngIf="price.errors?.['min']">Car should be more expensive than 500$!</p>
-                    <p class="mainError" *ngIf="errors">{{errors}}</p>
+                    <p class="error" *ngIf="price.value.includes(' ')">Price cannot contain any spaces!</p>
                 </ng-container>
+                <p class="mainError" *ngIf="errors">{{errors}}</p>
 
-                <input [disabled]="form.invalid" type="submit" value="Edit Car">
+                <input
+                    [disabled]="form.invalid || price.value?.includes(' ') || hp.value?.includes(' ') || year.value?.includes(' ')"
+                    type="submit" value="Edit Car">
             </form>
         </div>
     </ng-container>
