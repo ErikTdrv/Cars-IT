@@ -81,6 +81,15 @@ export class CarDetailsComponent {
     }
   }
   removeFromFavourites(){
-    
+    let id = this.car?._id;
+    if(!this.token){
+      this.router.navigate(['login'])
+    }else {
+      this.carService.removeFromFavourites(id).subscribe({
+        next: () => {
+          this.alreadyFavourite = false;
+        }
+      })
+    }
   }
 }

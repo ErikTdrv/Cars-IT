@@ -33,4 +33,7 @@ export class CarService {
   getFavouriteCars(){
     return this.http.get<ICar[]>(`${API_URL}/cars/favourite-cars`)
   }
+  removeFromFavourites(id: string | undefined){
+    return this.http.delete(`${API_URL}/cars/favourites/${id}`)
+  }
 }
