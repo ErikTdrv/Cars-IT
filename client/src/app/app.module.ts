@@ -9,7 +9,7 @@ import { AppInterceptor, appInterceptorProvider } from './app.interceptor';
 import { CarModule } from './car/car.module';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { UserModule } from './user/user.module';
     BrowserAnimationsModule,
 
   ],
-  providers: [appInterceptorProvider],
+  providers: [appInterceptorProvider, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
