@@ -80,4 +80,7 @@ export class CarDetailsComponent {
       })
     }
   }
+  removeFromFavourites(){
+    
+  }
 }

@@ -55,8 +55,26 @@ const addToFavourite = async (userId, carId) => {
 const getFavouriteCars = async (userId) => {
     return await User.findById(userId).populate('favouriteCars')
 }
+const removeFromFavourites = async (userId, carId) => {
+    try {
+        const user = await User.findById(userId);
+        let userCarArray = user.favouriteCars
+        let userIndex = userCarArray.indexOf(carId);
+        userCarArray.splice(userIndex, 1)
+        await User.findByIdAndUpdate(userId, {favouriteCars: userCarArray})
+
+        const car = await Car.findById(carId);
+        let carUserArray = car.addedBy;
+        let carUserIndex =carUserArray.indexOf(userId)
+        carUserArray.splice(carUserIndex, 1)
+        await Car.findByIdAndUpdate(carId, {addedBy: carUserArray})
+    } catch (error) {
+        throw new Error(error)
+    }
+}
 
 module.exports = {
+    removeFromFavourites,
     getFavouriteCars,
     addToFavourite,
     getTop3Cars,

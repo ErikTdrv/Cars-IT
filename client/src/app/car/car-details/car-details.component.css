@@ -79,7 +79,7 @@ h3 {
 }
 
 .buttons {
-    
+    margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
 }
@@ -99,12 +99,17 @@ h3 {
     border-color: rgb(12, 122, 18);
     background-color: rgb(12, 122, 18);
 }
+#remove {
+    border-color: red;
+    background-color: red;
+}
 span {
     color: rgb(216, 47, 47);
     font-weight: bold;
     font-style: italic;
     
 }
+
 
 
 .form {
