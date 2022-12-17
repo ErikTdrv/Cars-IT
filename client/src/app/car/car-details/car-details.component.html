@@ -9,6 +9,7 @@
                 <img src={{car.imageUrl}} alt="no-img">
             </div>
             <div class="info">
+                <span *ngIf="alreadyFavourite" class="added">&#10003;</span>
                 <h1>{{car.make}} <span>{{car.model}}</span></h1>
                 <hr>
                 <h3>Horsepower: <span>{{car.hp}}</span></h3>
@@ -24,8 +25,9 @@
                     <ng-container *ngIf="!isAuthor && !alreadyFavourite">
                         <button (click)="addToFavourite()">Add to favourite</button>
                     </ng-container>
-                    <button id="added" *ngIf="alreadyFavourite">Added to favourites</button>
-                    <button id="remove" *ngIf="alreadyFavourite" (click)="removeFromFavourites()">Remove from favourites</button>
+                    <!-- <button id="added" *ngIf="alreadyFavourite">Added to favourites</button> -->
+                    <button id="remove" *ngIf="alreadyFavourite" (click)="removeFromFavourites()">Remove from
+                        favourites</button>
                 </div>
                 <p class="mainError" *ngIf="errors">{{errors}}</p>
             </div>
@@ -46,16 +48,18 @@
             <h1 class="h1">Edit Car</h1>
             <form #form="ngForm" (ngSubmit)="editCar(form)">
                 <label>Make</label>
-                <input #make="ngModel" ngModel type="text" name="make" required minlength="3" [ngModel]="car?.make">
+                <input #make="ngModel" ngModel type="text" name="make" required minlength="3" maxlength="10">
                 <ng-container *ngIf="make.touched">
                     <p class="error" *ngIf="make.errors?.['required']">Make is required!</p>
+                    <p class="error" *ngIf="make.errors?.['maxlength']">You cannot add more than 10 characters!</p>
                     <p class="error" *ngIf="make.errors?.['minlength']">You should have at least 3 characters!</p>
                 </ng-container>
                 <label>Model</label>
-                <input #model="ngModel" ngModel type="text" name="model" required minlength="2" [ngModel]="car?.model">
+                <input #model="ngModel" ngModel type="text" name="model" required minlength="2" maxlength="10">
                 <ng-container *ngIf="model.touched">
                     <p class="error" *ngIf="model.errors?.['required']">Model is required!</p>
-                    <p class="error" *ngIf="model.errors?.['minlength']">You should have at last 2 characters!</p>
+                    <p class="error" *ngIf="model.errors?.['minlength']">You should have at least 2 characters!</p>
+                    <p class="error" *ngIf="model.errors?.['maxlength']">You cannot add more than 10 characters!</p>
                 </ng-container>
                 <label>Horsepower</label>
                 <input #hp="ngModel" ngModel type="text" name="hp" [ngModel]="car?.hp" required>
