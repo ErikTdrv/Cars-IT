@@ -94,10 +94,11 @@
                         characters!</p>
                 </ng-container>
                 <label>Price</label>
-                <input #price="ngModel" ngModel type="text" name="price" required pattern="^[0-9]+$" [ngModel]="car?.price">
+                <input #price="ngModel" ngModel type="text" name="price" required pattern="^[0-9]+$" maxlength="7" [ngModel]="car?.price">
                 <ng-container *ngIf="price.touched">
                     <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>
                     <p class="error" *ngIf="price.errors?.['pattern']">Price cannot contain any spaces or characters!</p>
+                    <p class="error" *ngIf="price.errors?.['maxlength']">Price cannot have more than 7 characters!</p>
                 </ng-container>
                 <p class="mainError" *ngIf="errors">{{errors}}</p>
                 <input
