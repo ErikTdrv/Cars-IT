@@ -48,10 +48,10 @@
             <h1 class="h1">Edit Car</h1>
             <form #form="ngForm" (ngSubmit)="editCar(form)">
                 <label>Make</label>
-                <input #make="ngModel" ngModel type="text" name="make" required minlength="2" maxlength="10" [ngModel]="car?.make">
+                <input #make="ngModel" ngModel type="text" name="make" required minlength="3" maxlength="15" [ngModel]="car?.make">
                 <ng-container *ngIf="make.touched">
                     <p class="error" *ngIf="make.errors?.['required']">Make is required!</p>
-                    <p class="error" *ngIf="make.errors?.['maxlength']">You cannot add more than 10 characters!</p>
+                    <p class="error" *ngIf="make.errors?.['maxlength']">You cannot add more than 15 characters!</p>
                     <p class="error" *ngIf="make.errors?.['minlength']">You should have at least 3 characters!</p>
                 </ng-container>
                 <label>Model</label>
