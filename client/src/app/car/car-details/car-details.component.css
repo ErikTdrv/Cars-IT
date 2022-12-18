@@ -84,7 +84,7 @@ h3 {
     justify-content: space-evenly;
 }
 .buttons button {
-    /* margin-top: 0px; */
+    margin-top: 5px;
     padding: 10px 20px;
     
     border: 2px solid black;
