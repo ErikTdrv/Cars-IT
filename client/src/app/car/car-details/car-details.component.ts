@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { handleError } from 'src/app/shared/errorHandler';
 import { ICar } from 'src/app/shared/interfaces/car';
 import { UserService } from 'src/app/user/user.service';
 import { CarService } from '../car.service';
@@ -52,7 +53,7 @@ export class CarDetailsComponent {
         this.inEditMode = false;
       },
       error: (err) => {
-        this.errors = err.error?.error
+        this.errors = handleError(err.error?.error)
       }
     })
   }

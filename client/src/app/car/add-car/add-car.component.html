@@ -17,10 +17,10 @@
                 <p class="error" *ngIf="model.errors?.['maxlength']">You cannot add more than 10 characters!</p>
             </ng-container>
             <label>Horsepower</label>
-            <input #hp="ngModel" ngModel type="text" name="hp" required>
+            <input #hp="ngModel" ngModel type="text" name="hp" required pattern="^[0-9]+$">
             <ng-container *ngIf="hp.touched">
                 <p class="error" *ngIf="hp.errors?.['required']">Horsepower are required!</p>
-                <p class="error" *ngIf="hp.value.includes(' ')">Horsepower cannot contain any spaces!</p>
+                <p class="error" *ngIf="hp.errors?.['pattern']">Horsepower cannot contain any spaces or characters!</p>
             </ng-container>
             <label>ImageUrl</label>
             <input #imageUrl="ngModel" ngModel type="text" name="imageUrl" pattern="^https?://.+" required>
@@ -31,12 +31,12 @@
                 <p class="error" *ngIf="imageUrl.errors?.['pattern']">You must give a URL!</p>
             </ng-container>
             <label>Year</label>
-            <input #year="ngModel" ngModel type="text" name="year" required min="1950" max="2022">
+            <input #year="ngModel" ngModel type="text" name="year" required min="1950" max="2022" pattern="^[0-9]+$">
             <ng-container *ngIf="year.touched">
                 <p class="error" *ngIf="year.errors?.['required']">Year is required!</p>
                 <p class="error" *ngIf="year.errors?.['min']">Car year should be newer than 1950's!</p>
                 <p class="error" *ngIf="year.errors?.['max']">Car year cannot be in the future!</p>
-                <p class="error" *ngIf="year.value.includes(' ')">Years cannot contain any spaces!</p>
+                <p class="error" *ngIf="year.errors?.['pattern']">Years cannot contain any spaces or characters!</p>
             </ng-container>
             <label>Description</label>
             <input #description="ngModel" ngModel type="text" name="description" required minlength="10" maxlength="50">
@@ -46,13 +46,13 @@
                 <p class="error" *ngIf="description.errors?.['maxlength']">Description shouldn't have more than 50 characters!</p>
             </ng-container>
             <label>Price</label>
-            <input #price="ngModel" ngModel type="text" name="price" required>
+            <input #price="ngModel" ngModel type="text" name="price" required pattern="^[0-9]+$">
             <ng-container *ngIf="price.touched">
                 <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>
-                <p class="error" *ngIf="price.value.includes(' ')">Price cannot contain any spaces!</p>
+                <p class="error" *ngIf="price.errors?.['pattern']">Price cannot contain any spaces or characters!</p>
             </ng-container>
             <p class="mainError" *ngIf="errors">{{errors}}</p>
-            <input [disabled]="form.invalid || price.value?.includes(' ') || hp.value?.includes(' ') || year.value?.includes(' ')" type="submit" value="Add Car">
+            <input [disabled]="form.invalid" type="submit" value="Add Car">
         </form>
     </div>
 </div>

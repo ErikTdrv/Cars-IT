@@ -16,7 +16,7 @@ export class AddCarComponent{
 
   addCar(form: NgForm){
     this.carService.addCar(form.value).subscribe({
-      next: () => this.router.navigate(['/']),
+      next: () => this.router.navigate(['/cars']),
       error: (err) => {
         this.errors = handleError(err?.error?.error)
       }
