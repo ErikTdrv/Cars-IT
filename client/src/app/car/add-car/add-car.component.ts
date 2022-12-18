@@ -7,7 +7,8 @@ import { CarService } from '../car.service';
 @Component({
   selector: 'app-add-car',
   templateUrl: './add-car.component.html',
-  styleUrls: ['./add-car.component.css']
+  styleUrls: ['./add-car.component.css'],
+  
 })
 export class AddCarComponent{
   

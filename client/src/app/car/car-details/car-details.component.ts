@@ -18,7 +18,7 @@ export class CarDetailsComponent {
   isAuthor: boolean = false;
   errors: Object | undefined;
   alreadyFavourite: boolean = false;
-  addedToFavourite: boolean = false;
+
   constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getCar()
   }
@@ -37,7 +37,7 @@ export class CarDetailsComponent {
         }
       },
       error: (err) => {
-        this.errors = err.error?.error
+        this.errors = handleError(err.error?.error)
         console.log(err)
       }
     })
@@ -65,7 +65,7 @@ export class CarDetailsComponent {
     this.carService.deleteCar(id).subscribe({
       next: () => this.router.navigate(['/cars']),
       error: (err) => {
-        this.errors = err.error?.error
+        this.errors = handleError(err.error?.error)
       }
     })
   }

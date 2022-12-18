@@ -27,6 +27,7 @@ export class DictionaryComponent {
   falseVin: boolean | null = null;
   isLoading: boolean = false;
   constructor(private userService: UserService){}
+  
   getVin(vin: string){
     this.isLoading = true
     this.car = null;

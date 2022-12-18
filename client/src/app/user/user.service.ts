@@ -25,10 +25,7 @@ export class UserService {
   }
 
   getCarsFrom3rdApi(vin: string){
-    return this.http.post<any>(`${API_URL}/myvin`,{ vin },{headers: {
-      'X-RapidAPI-Key': '453f9c1bd6msh32734b876f80c8bp1aac59jsn6f9ec78a981c',
-      'X-RapidAPI-Host': 'car-utils.p.rapidapi.com'
-    }})
+    return this.http.post<any>(`${API_URL}/myvin`,{ vin })
   }
   register(data: {}){
     return this.http.post<IUser>(`${API_URL}/register`, data).pipe(
@@ -43,7 +40,6 @@ export class UserService {
     return this.http.post<IUser>(`${API_URL}/login`, data, ).pipe(
       tap((user) => {
         this.user = user
-        console.log(user)
         localStorage.setItem('token', this.user.accessToken)
       })
     )
@@ -51,7 +47,6 @@ export class UserService {
   logout(){
     this.user = null;
     return localStorage.removeItem('token')
-
   }
   getProfileData(){
     return this.http.get<IUser>(`${API_URL}/user`).pipe(

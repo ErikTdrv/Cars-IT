@@ -11,5 +11,4 @@ export interface ICar {
     _id: string,
     owner: IUser,
     addedBy: IUser[]
-
 }
