@@ -1,22 +1,27 @@
 const User = require('../models/User');
-
+const cloudinary = require('cloudinary');
+const uploader = require("../services/multer");
 const { addCar, getAllCars, getOneCar, getProfileCars, editCar, deleteACar, getTop3Cars, addToFavourite, getFavouriteCars, removeFromFavourites } = require('../services/car');
 const { updateCarsOnUser } = require('../services/user');
 
 const router = require('express').Router();
 
-router.post('/', async (req, res) => {
-    const data = req.body;
-    // try {
-    //     const userId = req?.user?._id;
-    //     const car = await addCar(data, userId)
-    //     await updateCarsOnUser(userId, car._id)
-    //     res.status(201).json(car)
-    // } catch (error) {
-    //     console.log(error)
-    //     res.status(400).json({error:error.message})
-    // }
-    console.log(data)
+router.post('/', uploader.single("file") ,async (req, res) => {
+    const base64 = req.body.base64;
+    const data = req.body.data;
+    try {
+        const upload = await cloudinary.v2.uploader.upload(base64);
+        const userId = req?.user?._id;
+        if(base64){
+            data.imageUrl = upload.url
+        }
+        const car = await addCar(data, userId)
+        await updateCarsOnUser(userId, car._id)
+        res.status(201).json(car)
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({error:error.message})
+    }
     res.end()
 })
 router.get('/', async (req, res) => {
