@@ -11,7 +11,7 @@ import { CarService } from '../car.service';
   
 })
 export class AddCarComponent{
-  
+  isLoading: boolean = false;
   errors: string | undefined = undefined;
   constructor(private carService: CarService, private router: Router){}
   
@@ -30,6 +30,7 @@ export class AddCarComponent{
     })
   }
   async addCar(form: NgForm, imageUrl: any){
+    this.isLoading = true;
     const file: File = imageUrl.files[0];
     let base64: any
     if(file){
@@ -37,7 +38,10 @@ export class AddCarComponent{
       form.value.base64 = base64
     }
     this.carService.addCar(form.value).subscribe({
-      next: () => this.router.navigate(['/cars']),
+      next: () => {
+        this.isLoading = false;
+        this.router.navigate(['/cars'])
+      },
       error: (err) => {
         this.errors = handleError(err?.error?.error)
       }
