@@ -13,6 +13,7 @@ router.post('/', uploader.single("file") ,async (req, res) => {
         if(base64){
             const upload = await cloudinary.v2.uploader.upload(base64);
             data.imageUrl = upload.url
+            data.imageId = upload.public_id
         }
         const userId = req?.user?._id;
 
@@ -107,7 +108,8 @@ router.delete('/:id', async (req, res) => {
         let deletionIndex = carsArray.indexOf(id)
         carsArray.splice(deletionIndex, 1)
         await User.findByIdAndUpdate(req.user._id, {cars: carsArray})
-        await deleteACar(id)
+        let car = await deleteACar(id)
+        await cloudinary.v2.uploader.destroy(car.imageId)
         res.status(200).json('Deleted!')
     }else {
         res.status(400).json({error: 'You are not the owner of the car!'})

@@ -21,6 +21,9 @@ const carSchema = new mongoose.Schema({
         required: true,
         type: String,
     },
+    imageId: {
+        type: String,
+    },
     year: {
         required: true,
         type: String,
