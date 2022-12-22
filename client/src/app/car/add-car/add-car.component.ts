@@ -14,15 +14,25 @@ export class AddCarComponent{
   
   errors: string | undefined = undefined;
   constructor(private carService: CarService, private router: Router){}
+  
+  convertToBase64(file: any){
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
 
-  addCar(form: NgForm, imageUrl: any){
+      fileReader.onload = () => {
+        resolve(fileReader.result)
+      }
+
+      fileReader.onerror = (error) => {
+        reject(error)
+      }
+    })
+  }
+  async addCar(form: NgForm, imageUrl: any){
     const file: File = imageUrl.files[0];
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onloadend = () => {
-      console.log(reader.result)
-    }
-    this.carService.addCar(form.value, file).subscribe({
+    let base64 = await this.convertToBase64(file)
+    this.carService.addCar(form.value, base64).subscribe({
       next: () => this.router.navigate(['/cars']),
       error: (err) => {
         this.errors = handleError(err?.error?.error)
