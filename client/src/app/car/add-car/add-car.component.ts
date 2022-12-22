@@ -31,8 +31,12 @@ export class AddCarComponent{
   }
   async addCar(form: NgForm, imageUrl: any){
     const file: File = imageUrl.files[0];
-    let base64 = await this.convertToBase64(file)
-    this.carService.addCar(form.value, base64).subscribe({
+    let base64: any
+    if(file){
+      base64 = await this.convertToBase64(file)
+      form.value.base64 = base64
+    }
+    this.carService.addCar(form.value).subscribe({
       next: () => this.router.navigate(['/cars']),
       error: (err) => {
         this.errors = handleError(err?.error?.error)

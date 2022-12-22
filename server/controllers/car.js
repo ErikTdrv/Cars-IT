@@ -7,14 +7,15 @@ const { updateCarsOnUser } = require('../services/user');
 const router = require('express').Router();
 
 router.post('/', uploader.single("file") ,async (req, res) => {
-    const base64 = req.body.base64;
+    const base64 = req.body.data.base64;
     const data = req.body.data;
     try {
-        const upload = await cloudinary.v2.uploader.upload(base64);
-        const userId = req?.user?._id;
         if(base64){
+            const upload = await cloudinary.v2.uploader.upload(base64);
             data.imageUrl = upload.url
         }
+        const userId = req?.user?._id;
+
         const car = await addCar(data, userId)
         await updateCarsOnUser(userId, car._id)
         res.status(201).json(car)
