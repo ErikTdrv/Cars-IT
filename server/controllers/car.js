@@ -7,15 +7,17 @@ const router = require('express').Router();
 
 router.post('/', async (req, res) => {
     const data = req.body;
-    try {
-        const userId = req?.user?._id;
-        const car = await addCar(data, userId)
-        await updateCarsOnUser(userId, car._id)
-        res.status(201).json(car)
-    } catch (error) {
-        console.log(error)
-        res.status(400).json({error:error.message})
-    }
+    // try {
+    //     const userId = req?.user?._id;
+    //     const car = await addCar(data, userId)
+    //     await updateCarsOnUser(userId, car._id)
+    //     res.status(201).json(car)
+    // } catch (error) {
+    //     console.log(error)
+    //     res.status(400).json({error:error.message})
+    // }
+    console.log(data)
+    res.end()
 })
 router.get('/', async (req, res) => {
     const cars = await getAllCars()

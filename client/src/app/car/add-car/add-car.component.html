@@ -1,7 +1,7 @@
 <div class="container">
     <div class="form">
         <h1>Add Car</h1>
-        <form #form="ngForm" (ngSubmit)="addCar(form)">
+        <form #form="ngForm" (ngSubmit)="addCar(form, imageUrl)">
             <label>Make</label>
             <input #make="ngModel" ngModel type="text" name="make" required minlength="3" maxlength="15">
             <ng-container *ngIf="make.touched">
@@ -23,13 +23,13 @@
                 <p class="error" *ngIf="hp.errors?.['pattern']">Horsepower cannot contain any spaces or characters!</p>
             </ng-container>
             <label>ImageUrl</label>
-            <input #imageUrl="ngModel" ngModel type="text" name="imageUrl" pattern="^https?://.+" required>
-            <!-- <input #imageUrl="ngModel" ngModel type="file" name="imageUrl" required> -->
+            <input #imageUrl ngModel type="file" accept="image/*" name="imageUrl" required>
+            <!-- <input #imageUrl="ngModel" ngModel type="text" name="imageUrl" pattern="^https?://.+" required> -->
             <!-- <img src={{imageUrl.value}}> TO DO -->
-            <ng-container *ngIf="imageUrl.touched">
+            <!-- <ng-container *ngIf="imageUrl.touched">
                 <p class="error" *ngIf="imageUrl.errors?.['required']">ImageUrl is required!</p>
                 <p class="error" *ngIf="imageUrl.errors?.['pattern']">You must give a URL!</p>
-            </ng-container>
+            </ng-container> -->
             <label>Year</label>
             <input #year="ngModel" ngModel type="text" name="year" required min="1950" max="2022" pattern="^[0-9]+$">
             <ng-container *ngIf="year.touched">
@@ -42,8 +42,10 @@
             <input #description="ngModel" ngModel type="text" name="description" required minlength="10" maxlength="50">
             <ng-container *ngIf="description.touched">
                 <p class="error" *ngIf="description.errors?.['required']">Description is required!</p>
-                <p class="error" *ngIf="description.errors?.['minlength']">Description should have at least 10 characters!</p>
-                <p class="error" *ngIf="description.errors?.['maxlength']">Description shouldn't have more than 50 characters!</p>
+                <p class="error" *ngIf="description.errors?.['minlength']">Description should have at least 10
+                    characters!</p>
+                <p class="error" *ngIf="description.errors?.['maxlength']">Description shouldn't have more than 50
+                    characters!</p>
             </ng-container>
             <label>Price</label>
             <input #price="ngModel" ngModel type="text" name="price" required pattern="^[0-9]+$">

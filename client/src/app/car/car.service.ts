@@ -9,8 +9,8 @@ const API_URL = environment.apiUrl
 export class CarService {
 
   constructor(private http: HttpClient) { }
-  addCar(data: {}){
-    return this.http.post(`${API_URL}/cars`, data)
+  addCar(data: any, file: any){
+    return this.http.post(`${API_URL}/cars`, {data, fileName: file.name})
   }
   getAllCars(){
     return this.http.get<ICar[]>(`${API_URL}/cars`)
