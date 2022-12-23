@@ -11,7 +11,7 @@ router.post('/', uploader.single("file") ,async (req, res) => {
     const data = req.body.data;
     try {
         if(base64){
-            const upload = await cloudinary.v2.uploader.upload(base64);
+            const upload = await cloudinary.v2.uploader.upload(base64, {fetch_format: "auto"});
             data.imageUrl = upload.url
             data.imageId = upload.public_id
         }
