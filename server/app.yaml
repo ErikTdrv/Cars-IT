@@ -1,9 +1,0 @@
----
-runtime: nodejs18
-env_variables:
-  APITOKEN: "453f9c1bd6msh32734b876f80c8bp1aac59jsn6f9ec78a981c"
-  CONNECTIONSTRING: "mongodb+srv://todorowwww:Erik0446131700@cars-it.lel6fca.mongodb.net/?retryWrites=true&w=majority"
-  CLOUD_NAME: "dzywd3xdo"
-  CLOUD_KEY: "657911139318351"
-  CLOUD_KEY_SECRET: "pUTP0aXP8NVPDbaJlLc1jjL7dVw"
-  CLOUDINARY_URL: "cloudinary://657911139318351:pUTP0aXP8NVPDbaJlLc1jjL7dVw@dzywd3xdo"
