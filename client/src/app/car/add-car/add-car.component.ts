@@ -11,9 +11,12 @@ import { CarService } from '../car.service';
   
 })
 export class AddCarComponent{
+
   isLoading: boolean = false;
   errors: string | undefined = undefined;
-  constructor(private carService: CarService, private router: Router){}
+  constructor(private carService: CarService, private router: Router){
+
+  }
   
   convertToBase64(file: any){
     return new Promise((resolve, reject) => {
@@ -50,5 +53,18 @@ export class AddCarComponent{
   processFile(imageInput: any) {
     const file: File = imageInput.files[0];
     console.log(file)
+  }
+  onChange(input: any){
+    if(input.value == 'ImageURL'){
+      let imageInput: any = document.getElementById('url');
+      imageInput.style.display = 'block'
+      let fileInput: any = document.getElementById('file');
+      fileInput.style.display = 'none'
+    }else if(input.value == 'UploadFile') {
+      let imageInput: any = document.getElementById('url');
+      imageInput.style.display = 'none'
+      let fileInput: any = document.getElementById('file');
+      fileInput.style.display = 'block'
+    }
   }
 }

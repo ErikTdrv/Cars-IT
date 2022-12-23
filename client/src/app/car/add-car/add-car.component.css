@@ -26,14 +26,14 @@ h1 {
     /* font-weight: bold; */
 }
 
-label {
+.formTitle {
     display: flex;
     margin-top: 10px;
     margin-bottom: 2.5px;
     font-size: 1.1rem;
     padding-left: 0.7rem;
 }
-input {
+.formInput {
     width: 20rem;
     height: 1.9rem;
     padding-left: 12px;
@@ -41,6 +41,18 @@ input {
     border: 1px solid gray;
     border-radius: 8px;
     margin-left: 0.5rem;
+}
+.imageurl {
+    font-size: 1.1rem;
+    padding-left: 12px;
+    margin-top: 10px;
+    margin-bottom: 2.5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#upload {
+    margin-left: 20px;
 }
 input[type="submit"] {
     margin-left: 50%;
@@ -80,4 +92,14 @@ input:disabled {
     border: 1px solid #999999;
   background-color: #cccccc;
   /* color: #666666; */
+}
+input[type="radio"] {
+    height: 20px;
+    margin-left: 10px;
+}
+.hidden {
+    display: none;
+}
+#file {
+    display: none;
 }
