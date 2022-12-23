@@ -45,7 +45,9 @@ img {
     border-top-left-radius: 1.2rem;
     border-top-right-radius: 1.2rem;
     width: 500px;
-    height: 281.25px
+    height: 281.25px;
+    object-fit:cover;
+   object-position:50% 50%;
 }
 article h1 {
     font-size: 1.5rem;

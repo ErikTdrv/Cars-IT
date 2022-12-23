@@ -40,6 +40,8 @@ img {
 
     width: 300px;
     height: 190px;
+    object-fit:cover;
+   /* object-position:50% 50%; */
 }
 article h1 {
     font-size: 1rem;
