@@ -109,7 +109,9 @@ router.delete('/:id', async (req, res) => {
         carsArray.splice(deletionIndex, 1)
         await User.findByIdAndUpdate(req.user._id, {cars: carsArray})
         let car = await deleteACar(id)
-        await cloudinary.v2.uploader.destroy(car.imageId)
+        if(car.imageId){
+            await cloudinary.v2.uploader.destroy(car.imageId)
+        }
         res.status(200).json('Deleted!')
     }else {
         res.status(400).json({error: 'You are not the owner of the car!'})
