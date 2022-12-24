@@ -2,17 +2,17 @@
     <a routerLink="/">
         <h2>Cars<span>IT</span></h2>
     </a>
-    
+
     <div class="main">
         <ul>
+            <li ><a routerLink="/">Home</a></li>
             <a href="javascript:void(0);" class="icon">
                 <i class="fa fa-bars"></i>
             </a>
-            <li><a routerLink="/">Home</a></li>
-            <li><a routerLink="/dictionary">VIN Dictionary</a></li>
-            <li><a routerLink="/cars">All Cars</a></li>
+            <li routerLinkActive="active"><a routerLink="/dictionary">VIN Dictionary</a></li>
+            <li routerLinkActive="active"><a routerLink="/cars">All Cars</a></li>
             <ng-container *ngIf="isLogged">
-                <li><a routerLink="/add">Add Car</a></li>
+                <li routerLinkActive="active"><a routerLink="/add">Add Car</a></li>
             </ng-container>
         </ul>
     </div>
@@ -27,12 +27,31 @@
                 </div>
             </div>
             <ng-container *ngIf="!isLogged">
-                <li><a routerLink="/login">Login</a></li>
-                <li><a routerLink="/register">Register</a></li>
+                <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+                <li routerLinkActive="active"><a routerLink="/register">Register</a></li>
             </ng-container>
             <ng-container *ngIf="isLogged">
                 <li><a (click)="logout()">Logout</a></li>
             </ng-container>
         </ul>
     </div>
+
+    <div class="mobile" *ngIf="view">
+        <a routerLink="/">Home</a>
+        <a routerLink="/dictionary">VIN Dictionary</a>
+        <a routerLink="/cars">All Cars</a>
+        <ng-container *ngIf="isLogged">
+            <a routerLink="/add">Add Car</a>
+        </ng-container>
+        <ng-container *ngIf="!isLogged">
+            <a routerLink="/login">Login</a>
+            <a routerLink="/register">Register</a>
+        </ng-container>
+        <ng-container *ngIf="isLogged">
+            <a id="logout" (click)="logout()">Logout</a>
+        </ng-container>
+    </div>
+    <a href="javascript:void(0);" (click)="menuClick()" class="icon">
+        <i class="fa fa-bars"></i>
+    </a>
 </div>

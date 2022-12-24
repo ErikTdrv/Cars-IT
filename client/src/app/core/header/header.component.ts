@@ -8,6 +8,7 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  view: boolean = false;
   get isLogged(): boolean{
     if(this.userService.user){
       return true
@@ -23,5 +24,8 @@ export class HeaderComponent {
       this.userService.logout()
       this.router.navigate(['/'])
     }
+  }
+  menuClick(){
+    this.view = !this.view
   }
 }
