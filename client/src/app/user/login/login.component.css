@@ -5,11 +5,12 @@
     background-position: center;
     width: 100%;
     height: calc(100vh - 5.4rem);
+    position: relative;
 }
 .form {
     border: 2px solid rgb(32, 32, 32);
     border-radius: 1.2rem;
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 35%;
     transform: translate(-50%, -50%);
