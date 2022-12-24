@@ -152,3 +152,6 @@ p {
     text-align: center;
     font-style: italic;
 }
+@media only screen and (max-width: 740px) {
+    
+  }
