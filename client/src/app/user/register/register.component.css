@@ -1,5 +1,6 @@
 .container{
     /* background-color: #474E68; */
+    position: relative;
     background-image: url('../../../assets/register.jpg');
     background-size: cover;
     background-position: center;
@@ -9,7 +10,7 @@
 .form {
     border: 2px solid rgb(32, 32, 32);
     border-radius: 1.2rem;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -85,4 +86,12 @@ input:disabled {
     border: 1px solid #999999;
   background-color: #cccccc;
   /* color: #666666; */
+}
+@media only screen and (max-width: 740px) {
+    .form {
+        width: 85%;
+    }
+    input {
+        width: 90%;
+    }
 }
