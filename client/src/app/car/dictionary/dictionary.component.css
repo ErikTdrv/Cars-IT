@@ -99,3 +99,19 @@ span {
     font-weight: bold;
     font-style: italic;
 }
+
+@media only screen and (max-width: 740px) {
+    input {
+        width: 180px;
+    }
+    button {
+        width: 100px;
+        font-size: 0.7rem;
+    }
+    .carTitle {
+        font-size: 1rem;
+    }
+    .info h3 {
+        font-size: 1rem;
+    }
+}
