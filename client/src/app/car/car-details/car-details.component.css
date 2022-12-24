@@ -4,6 +4,7 @@
     background-position: center;
     width: 100%;
     height: calc(100vh - 5.4rem);
+    position: relative;
 }
 .container h2 {
     position: absolute;
@@ -29,7 +30,7 @@
 .car {
     /* border: 2px solid rgb(32, 32, 32); */
     border-radius: 1.2rem;
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -202,7 +203,7 @@ input:disabled {
 @media only screen and (max-width: 740px) {
     .car {
         font-size: 1rem;
-        top: 47%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: rgb(32, 32, 32);
