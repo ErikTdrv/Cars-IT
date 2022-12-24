@@ -9,7 +9,7 @@
 .form {
     border: 2px solid rgb(32, 32, 32);
     border-radius: 1.2rem;
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 35%;
     transform: translate(-50%, -50%);
@@ -84,4 +84,13 @@ input:disabled {
     border: 1px solid #999999;
   background-color: #cccccc;
   /* color: #666666; */
+}
+@media only screen and (max-width: 740px) {
+    .form {
+        width: 85%;
+        left: 50%;
+    }
+    input {
+        width: 90%;
+    }
 }
