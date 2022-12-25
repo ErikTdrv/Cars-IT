@@ -47,6 +47,9 @@
             <a routerLink="/login">Login</a>
             <a routerLink="/register">Register</a>
         </ng-container>
+        <a routerLink="/profile">My Cars</a>
+        <a routerLink="/favourites-profile">My Favourite Cars</a>
+        <a routerLink="/profile-info">Profile Info</a>
         <ng-container *ngIf="isLogged">
             <a id="logout" (click)="logout()">Logout</a>
         </ng-container>

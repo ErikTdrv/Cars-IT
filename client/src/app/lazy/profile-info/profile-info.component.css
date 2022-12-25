@@ -8,7 +8,7 @@ section {
     background-size: cover;
     background-position: center;
     width: 100%;
-    min-height: calc(100vh - 5.4rem);
+    height: calc(100vh - 5.4rem);
 }
 .title {
     width: 100%;
@@ -73,3 +73,12 @@ span {
     padding-left: 5px;
 }
 
+@media only screen and (max-width: 740px) {
+    section {
+        flex-direction: column;
+        margin: 10px;
+    }
+    section h3 {
+        font-size: 1.2rem;
+    }
+}
