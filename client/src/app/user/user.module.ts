@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { FavouriteCarsComponent } from './favourite-cars/favourite-cars.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -20,6 +21,7 @@ import { FavouriteCarsComponent } from './favourite-cars/favourite-cars.componen
     FavouriteCarsComponent
   ],
   imports: [
+    NgxPaginationModule,
     CommonModule,
     RouterModule,
     HttpClientModule,

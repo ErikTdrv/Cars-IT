@@ -12,6 +12,7 @@ export class FavouriteCarsComponent {
   cars: ICar[] | any = null;;
   isEmpty: boolean = false;
   isLoading: boolean = false;
+  p: Number | any = 1;
   constructor(private carService: CarService) {
     this.getFavouriteCars()
   }
