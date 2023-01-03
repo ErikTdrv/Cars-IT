@@ -7,6 +7,8 @@ import { AllCarsComponent } from './all-cars/all-cars.component';
 import { FormsModule } from '@angular/forms';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { DictionaryComponent } from './dictionary/dictionary.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 
 
@@ -22,6 +24,7 @@ import { DictionaryComponent } from './dictionary/dictionary.component';
     CarRoutingModule,
     RouterModule,
     FormsModule,
+    NgxPaginationModule
   ],
 })
 export class CarModule { }

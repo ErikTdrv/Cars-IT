@@ -10,6 +10,7 @@ import { CarModule } from './car/car.module';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
