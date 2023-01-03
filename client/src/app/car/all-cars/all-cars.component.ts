@@ -8,6 +8,7 @@ import { CarService } from '../car.service';
   styleUrls: ['./all-cars.component.css']
 })
 export class AllCarsComponent {
+  p: Number | any = 1;
   cars: ICar[] | undefined
   isEmpty: boolean = false;
   constructor(private carService: CarService){

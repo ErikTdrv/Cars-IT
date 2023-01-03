@@ -5,7 +5,7 @@
         <h1 *ngIf="!cars">Loading...</h1>
     </div>
     <section *ngIf="cars">
-        <ng-container *ngFor="let car of cars">
+        <ng-container *ngFor="let car of cars | paginate: { itemsPerPage: 5, currentPage: p }">
             <article>
                 <p>{{car.price}}$</p>
                 <div class="image">
@@ -24,4 +24,5 @@
         <div></div>
         <div></div>
     </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
