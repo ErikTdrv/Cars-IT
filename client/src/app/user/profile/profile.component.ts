@@ -11,6 +11,8 @@ export class ProfileComponent {
   cars: ICar[] | any = null;;
   isEmpty: boolean = false;
   isLoading: boolean = false;
+  p: Number | any = 1;
+
   constructor(private userService: UserService) {
     this.getMyCars()
   }
