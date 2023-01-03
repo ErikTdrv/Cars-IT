@@ -77,3 +77,15 @@ button {
     font-weight: bold;
     cursor: pointer;
 }
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: relative; */
+}
+.paginator ::ng-deep .ngx-pagination {
+    font-size: 20px;
+}
+.paginator ::ng-deep .ngx-pagination .current{
+    background-color: rgb(42, 162, 241);
+}
