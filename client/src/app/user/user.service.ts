@@ -64,6 +64,6 @@ export class UserService {
     return this.http.post(`${API_URL}/geolocation`, {ip})
   }
   getUserIP(){
-    return this.http.get<any>("http://api.ipify.org/?format=json");
+    return this.http.get<any>("https://api.ipify.org/?format=json");
   }
 }
