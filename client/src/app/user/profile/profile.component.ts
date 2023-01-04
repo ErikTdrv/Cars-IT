@@ -12,9 +12,10 @@ export class ProfileComponent {
   isEmpty: boolean = false;
   isLoading: boolean = false;
   p: Number | any = 1;
-
+  ip: any
   constructor(private userService: UserService) {
     this.getMyCars()
+    userService.getIPAddress()
   }
   getMyCars() {
     this.isLoading = true;

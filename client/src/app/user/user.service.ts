@@ -63,5 +63,10 @@ export class UserService {
   getIPaddress(){
     return this.http.get(`${API_URL}/geolocation`)
   }
-  
+  getIPAddress()
+  {
+    return this.http.get("http://api.ipify.org/?format=json").subscribe((res:any)=>{
+      console.log(res)
+    });
+  }
 }
