@@ -7,10 +7,10 @@ const fadeInOutSlow = trigger('fadeInOutSlow', [
     query('h3', [
       style({
         opacity: '0',
-      }), 
-      stagger(300,[
+      }),
+      stagger(300, [
         animate('2s',
-        style({ opacity: 1, transform: 'none' }))
+          style({ opacity: 1, transform: 'none' }))
       ])
     ])
   ])
@@ -20,10 +20,10 @@ const fadeInOutFast = trigger('fadeInOutFast', [
     query('h3', [
       style({
         opacity: '0',
-      }), 
-      stagger(30,[
+      }),
+      stagger(30, [
         animate('2s',
-        style({ opacity: 1, transform: 'none' }))
+          style({ opacity: 1, transform: 'none' }))
       ])
     ])
   ])
@@ -41,16 +41,19 @@ export class ProfileInfoComponent {
   isLoading = false;
   ip: string | null = null;
   constructor(private userService: UserService) {
+    this.isLoading = true;
     userService.getUserIP().subscribe({
       next: (value) => {
         this.ip = value.ip
+        this.showingInfo()
       }
     })
-    this.isLoading = true;
+  }
+  showingInfo(){
     this.userService.getIPaddress(this.ip).subscribe((value) => {
       this.info = value
       this.isLoading = false
     })
-    this.currUser = userService.user
+    this.currUser = this.userService.user
   }
 }
