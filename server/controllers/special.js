@@ -14,8 +14,8 @@ router.post('/myvin', async (req, res) => {
 })
 
 
-router.get('/geolocation', async (req, res) => {
-    const { ip }= await getUserIP();
+router.post('/geolocation', async (req, res) => {
+    const ip= req.body.ip;
     try {
         const data = await getIPInfo(ip)
         res.status(200).json(data)
