@@ -60,13 +60,10 @@ export class UserService {
   getProfileCars(){
     return this.http.get<ICar[]>(`${API_URL}/cars/mycars`)
   }
-  getIPaddress(){
-    return this.http.get(`${API_URL}/geolocation`)
+  getIPaddress(ip: any){
+    return this.http.post(`${API_URL}/geolocation`, {ip})
   }
-  getIPAddress()
-  {
-    return this.http.get("http://api.ipify.org/?format=json").subscribe((res:any)=>{
-      console.log(res)
-    });
+  getUserIP(){
+    return this.http.get<any>("http://api.ipify.org/?format=json");
   }
 }

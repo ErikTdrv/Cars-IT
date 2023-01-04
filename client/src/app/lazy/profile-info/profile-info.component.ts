@@ -39,10 +39,15 @@ export class ProfileInfoComponent {
   info: any = false;
   currUser: any;
   isLoading = false;
-  
+  ip: string | null = null;
   constructor(private userService: UserService) {
+    userService.getUserIP().subscribe({
+      next: (value) => {
+        this.ip = value.ip
+      }
+    })
     this.isLoading = true;
-    this.userService.getIPaddress().subscribe((value) => {
+    this.userService.getIPaddress(this.ip).subscribe((value) => {
       this.info = value
       this.isLoading = false
     })

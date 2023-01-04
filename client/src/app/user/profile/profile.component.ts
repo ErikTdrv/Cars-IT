@@ -15,7 +15,6 @@ export class ProfileComponent {
   ip: any
   constructor(private userService: UserService) {
     this.getMyCars()
-    userService.getIPAddress()
   }
   getMyCars() {
     this.isLoading = true;
