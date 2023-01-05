@@ -45,8 +45,8 @@ ul li::after {
     transition: .4s;
 }
 
-.active {
-    border-bottom: 1px solid #f44336;
+.active a{
+    border-bottom: 2px solid #f44336;
 }
 
 ul li:hover::after {
