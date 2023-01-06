@@ -39,8 +39,10 @@ export class RegisterComponent {
   }
   async register(avatarImg: any){
     const file: File = avatarImg.files[0];
-    let base64 = await this.convertToBase64(file)
-
+    if(file){
+      let base64 = await this.convertToBase64(file)
+      this.form.value.avatarImg = base64;
+    }
     this.userService.register(this.form.value).subscribe({
       next: () => this.router.navigate(['/']),
       error: (err) => {
