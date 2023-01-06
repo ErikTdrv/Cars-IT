@@ -25,16 +25,16 @@ const createAccessToken = (user) => {
         _id: user._id
     };
 }
-const register = async (username, email, password) => {
-    const existingEmail = await User.findOne({email})
-    const existingUsername = await User.findOne({username})
+const register = async (data) => {
+    const existingEmail = await User.findOne({email: data.email})
+    const existingUsername = await User.findOne({username: data.username})
 
     if(existingEmail){
         throw new Error('Email already exists!')
     }else if(existingUsername){
         throw new Error('Username already exists!')
     }
-    const user = await User.create({username, email, password})
+    const user = await User.create(data)
     return createAccessToken(user)
 }
 const login = async (email, password) => {

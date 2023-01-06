@@ -1,13 +1,20 @@
 const { register, login } = require('../services/user');
-
+const cloudinary = require('cloudinary');
+const uploader = require("../services/multer");
 const router = require('express').Router();
 
 
 //Authentification routes
 router.post('/register', async (req, res) => {
-    const { username, email, password } = req.body;
+    const data = req.body;
+    const { avatarImg } = req.body;
     try {
-        const user = await register(username, email, password);
+        if(avatarImg){
+            const upload = await cloudinary.v2.uploader.upload(avatarImg, {fetch_format: "auto"});
+            data.avatarImg = upload.url
+            data.imageId = upload.public_id
+        }
+        const user = await register(data);
         res.status(201).json(user)
     } catch (error) {
         console.log(error)
