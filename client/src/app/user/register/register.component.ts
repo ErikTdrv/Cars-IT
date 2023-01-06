@@ -20,7 +20,6 @@ export class RegisterComponent {
       email: ['', [Validators.required, emailValidator]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
       rePass: ['', [Validators.required, passwordValidator]],
-      avatar: ['']
     });
   }
   convertToBase64(file: any){
