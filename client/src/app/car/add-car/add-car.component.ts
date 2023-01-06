@@ -52,7 +52,6 @@ export class AddCarComponent{
   }
   processFile(imageInput: any) {
     const file: File = imageInput.files[0];
-    console.log(file)
   }
   onChange(input: any){
     if(input.value == 'ImageURL'){

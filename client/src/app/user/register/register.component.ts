@@ -19,11 +19,28 @@ export class RegisterComponent {
       username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
       email: ['', [Validators.required, emailValidator]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]],
-      rePass: ['', [Validators.required, passwordValidator]]
+      rePass: ['', [Validators.required, passwordValidator]],
+      avatar: ['']
     });
   }
+  convertToBase64(file: any){
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
 
-  register(): void{
+      fileReader.onload = () => {
+        resolve(fileReader.result)
+      }
+
+      fileReader.onerror = (error) => {
+        reject(error)
+      }
+    })
+  }
+  async register(avatarImg: any){
+    const file: File = avatarImg.files[0];
+    let base64 = await this.convertToBase64(file)
+
     this.userService.register(this.form.value).subscribe({
       next: () => this.router.navigate(['/']),
       error: (err) => {
