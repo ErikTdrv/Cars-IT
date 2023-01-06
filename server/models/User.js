@@ -28,7 +28,10 @@ const userSchema = new mongoose.Schema({
             type: mongoose.Types.ObjectId,
             ref: 'Car',
         }
-    ]
+    ],
+    avatarImg: {
+        required: false
+    }
 })
 userSchema.pre('save', function (next) {
     bcrypt.hash(this.password, 10)
