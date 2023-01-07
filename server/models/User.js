@@ -30,7 +30,12 @@ const userSchema = new mongoose.Schema({
         }
     ],
     avatarImg: {
-        required: false
+        required: false,
+        type: String,
+    },
+    imageId: {
+        required: false,
+        type: String,
     }
 })
 userSchema.pre('save', function (next) {
