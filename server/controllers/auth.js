@@ -1,6 +1,7 @@
 const { register, login } = require('../services/user');
 const cloudinary = require('cloudinary');
 const uploader = require("../services/multer");
+const User = require('../models/User');
 const router = require('express').Router();
 
 
@@ -26,7 +27,6 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await login(email, password)
-        console.log(user)
         res.status(201).json(user)
     } catch (error) {
         res.status(400).json({error:error.message})
@@ -37,10 +37,20 @@ router.get('/logout', (req, res) => {
     // api.logout(req.user.token);
     res.status(204).end();
 });
-router.get('/user', (req, res) => {
-    const user = req.user;
+router.get('/user', async (req, res) => {
+    const { token } = req.user;
+    let user = await User.findOne({token})
+    let userToReturn = {
+        _id: user._id,
+        username: user.username, 
+        email: user.email,
+        cars: user.cars,
+        favouriteCars: user.favouriteCars,
+        avatarImg: user.avatarImg,
+        imageId: user.imageId,
+    }
     if(user){
-        res.status(200).json(user)
+        res.status(200).json(userToReturn)
     }
 })
 module.exports = router;
