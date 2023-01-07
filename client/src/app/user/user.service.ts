@@ -36,7 +36,6 @@ export class UserService {
     )
   }
   login(data: {}){
-    console.log(data)
     return this.http.post<IUser>(`${API_URL}/login`, data, ).pipe(
       tap((user) => {
         this.user = user

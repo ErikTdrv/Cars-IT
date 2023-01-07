@@ -4,5 +4,7 @@ export interface IUser {
     accessToken: string,
     _id: any,
     cars: string[],
-    favouriteCars: string[]
+    favouriteCars: string[],
+    avatarImg: string,
+    imageId: string,
 }
