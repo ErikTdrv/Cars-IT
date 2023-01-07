@@ -5,12 +5,12 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AppInterceptor, appInterceptorProvider } from './app.interceptor';
+import { appInterceptorProvider } from './app.interceptor';
 import { CarModule } from './car/car.module';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
