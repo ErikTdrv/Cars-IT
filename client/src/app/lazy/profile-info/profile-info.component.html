@@ -6,12 +6,13 @@
         </div>
         <section>
             <article class="userSchema" *ngIf="info">
+                <img [src]="currUser.avatarImg" class="avatarImg">
                 <div class="userSchema" @fadeInOutFast>
                     <h3>Username: <span>{{currUser?.username}}</span></h3>
                     <h3>Email: <span>{{currUser?.email}}</span></h3>
                 </div>
             </article>
-            <article class="user" *ngIf="info">
+            <article class="user" *ngIf="info && geolocationLoaded">
                 <div class="ipAddress">
                         <img src="{{info?.country_flag}}" alt="no-flag">
                         {{info?.ip}}

@@ -1,6 +1,7 @@
 import { trigger, state, style, animate, transition, query, stagger } from '@angular/animations';
 import { Component } from '@angular/core';
 import { UserService } from 'src/app/user/user.service';
+import { __values } from 'tslib';
 
 const fadeInOutSlow = trigger('fadeInOutSlow', [
   transition(':enter', [
@@ -40,16 +41,21 @@ export class ProfileInfoComponent {
   currUser: any;
   isLoading = false;
   ip: string | null = null;
+  geolocationLoaded: boolean = false;
   constructor(private userService: UserService) {
     this.isLoading = true;
     userService.getUserIP().subscribe({
       next: (value) => {
         this.ip = value.ip
         this.showingInfo()
-      }
+      },
+      error: (err) => console.log(err)
     })
   }
   showingInfo(){
+    if(this.ip){
+      this.geolocationLoaded = true;
+    }
     this.userService.getIPaddress(this.ip).subscribe((value) => {
       this.info = value
       this.isLoading = false
