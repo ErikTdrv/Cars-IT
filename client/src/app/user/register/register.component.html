@@ -2,6 +2,9 @@
     <div class="form">
         <h1>Register</h1>
         <form [formGroup]="form" method="post" (ngSubmit)="register(avatarImg)">
+            <label>Avatar(optional)</label>
+            <input class="avatar" type="file" #avatarImg name="avatar" (change)="onChange(avatarImg)">
+            <img id="avatar" [src]="file">
             <label>Username</label>
             <input type="text" placeholder="Username..." name="username" formControlName="username">
             <ng-container *ngIf="form.get('username')?.touched">
@@ -28,8 +31,6 @@
                 <p class="error" *ngIf="form.get('rePass')?.errors?.['required']">Repeat-password is required!</p>
                 <p class="error" *ngIf="form.get('rePass')?.errors?.['invalidPasswords']">Passwords must be equal!</p>
             </ng-container>
-            <label>Avatar(optional)</label>
-            <input type="file" #avatarImg name="avatar">
             <ng-container *ngIf="errors">
                 <p class="mainerror">{{errors}}</p>
             </ng-container>
