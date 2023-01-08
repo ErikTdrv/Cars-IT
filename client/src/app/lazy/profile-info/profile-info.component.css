@@ -8,7 +8,7 @@ section {
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: calc(100vh - 5.4rem);
+    min-height: calc(100vh - 5.4rem);
 }
 .title {
     width: 100%;
@@ -83,12 +83,17 @@ span {
     border-radius: 50%;
     margin-top: 10px;
 }
-@media only screen and (max-width: 740px) {
+@media only screen and (max-width: 840px) {
     section {
         flex-direction: column;
-        margin: 10px;
+        margin: 5px;
     }
     section h3 {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin: 3vh;
+
+    }
+    .ipAddress {
+        margin: 5px;
     }
 }
