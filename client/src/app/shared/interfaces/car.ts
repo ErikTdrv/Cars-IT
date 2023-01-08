@@ -10,5 +10,6 @@ export interface ICar {
     price: number,
     _id: string,
     owner: IUser,
-    addedBy: IUser[]
+    addedBy: IUser[],
+    isUrl: boolean,
 }
