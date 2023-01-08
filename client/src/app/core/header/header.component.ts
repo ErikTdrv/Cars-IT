@@ -28,4 +28,7 @@ export class HeaderComponent {
   menuClick(){
     this.view = !this.view
   }
+  clicking(){
+    this.view = false;
+  }
 }

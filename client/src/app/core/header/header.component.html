@@ -36,7 +36,7 @@
         </ul>
     </div>
 
-    <div class="mobile" *ngIf="view">
+    <div class="mobile" *ngIf="view" (click)="clicking()">
         <a routerLink="/">Home</a>
         <a routerLink="/dictionary">VIN Dictionary</a>
         <a routerLink="/cars">All Cars</a>
