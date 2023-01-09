@@ -94,3 +94,6 @@ button {
 .paginator ::ng-deep .ngx-pagination .current{
     background-color: rgb(42, 162, 241);
 }
+.uploadedImage {
+    object-fit:cover;
+}
