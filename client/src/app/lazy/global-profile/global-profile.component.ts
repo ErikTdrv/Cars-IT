@@ -11,9 +11,8 @@ export class GlobalProfileComponent {
   p: Number | any = 1;
   currUser: any = this.userService.user
   constructor(private userService: UserService, private route: ActivatedRoute){
-    let username;
+    let username = '';
     route.params.subscribe((value: any) => username = value.owner)
-    console.log(username)
-    // userService.getUnknownUserInfo()
+    userService.getUnknownUserInfo(username).subscribe((value) => this.currUser = value)
   }
 }
