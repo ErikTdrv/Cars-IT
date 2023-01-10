@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-global-profile',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./global-profile.component.css']
 })
 export class GlobalProfileComponent {
-
+  p: Number | any = 1;
+  currUser: any = this.userService.user
+  constructor(private userService: UserService, private route: ActivatedRoute){
+    let username;
+    route.params.subscribe((value: any) => username = value.owner)
+    console.log(username)
+    // userService.getUnknownUserInfo()
+  }
 }
