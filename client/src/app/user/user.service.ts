@@ -65,4 +65,7 @@ export class UserService {
   getUserIP(){
     return this.http.get<any>("https://api.ipify.org/?format=json");
   }
+  getUnknownUserInfo(username: string){
+    return this.http.get<IUser>(`${API_URL}/user/${username}`)
+  }
 }
