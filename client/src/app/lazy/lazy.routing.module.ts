@@ -12,7 +12,7 @@ const routes: Routes = [
     {
       path: ':owner',
       component: GlobalProfileComponent,
-    }
+    },
 ];
   
   @NgModule({

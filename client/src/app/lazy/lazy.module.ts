@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { LazyRoutingModule } from './lazy.routing.module';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { GlobalProfileComponent } from './global-profile/global-profile.component';
 
 
 @NgModule({
   declarations: [
-    ProfileInfoComponent
+    ProfileInfoComponent,
+    GlobalProfileComponent
   ],
   imports: [
-    NgxPaginationModule,
     CommonModule,
     LazyRoutingModule,
   ]
