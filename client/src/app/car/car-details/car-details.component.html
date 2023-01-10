@@ -15,7 +15,7 @@
                 <h3>Horsepower: <span>{{car.hp}}</span></h3>
                 <h3>Year: <span>{{car.year}}</span></h3>
                 <h3>Description: <span>{{car.description}}</span></h3>
-                <h3>Owner: <span>{{car.owner.username}}</span></h3>
+                <h3>Owner: <span class="ownerSpan" [routerLink]="['/profile-info', car.owner.username]">{{car.owner.username}}</span></h3>
                 <div class="buttons">
                     <button routerLink="/cars">Back</button>
                     <ng-container *ngIf="isAuthor">
