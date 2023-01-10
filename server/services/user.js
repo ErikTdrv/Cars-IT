@@ -65,7 +65,11 @@ const updateCarsOnUser = async (_id, carId) => {
 const logout = (token) => {
     blacklist.add(token)
 }
+const getUnknownUser = async (username) => {
+    return await User.findOne({username});
+}
 module.exports = {
+    getUnknownUser,
     updateCarsOnUser,
     login,
     register,

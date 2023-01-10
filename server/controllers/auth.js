@@ -1,4 +1,4 @@
-const { register, login } = require('../services/user');
+const { register, login, getUnknownUser } = require('../services/user');
 const cloudinary = require('cloudinary');
 const uploader = require("../services/multer");
 const User = require('../models/User');
@@ -51,6 +51,15 @@ router.get('/user', async (req, res) => {
     }
     if(user){
         res.status(200).json(userToReturn)
+    }
+})
+router.get('/user/:owner', async (req, res) => {
+    const { owner } = req.params;
+    try {
+        let user = await getUnknownUser(owner);
+        res.status(200).json(user)
+    } catch (error) {
+        res.status(400).json({error:error.message})
     }
 })
 module.exports = router;
