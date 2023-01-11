@@ -12,13 +12,33 @@
                 </div>
             </div>
         </article>
+        <div class="divadded">
+            <h1 class="addedcars" *ngIf="currUser?.cars">Added Cars</h1>
+            <h1 class="addedcars" *ngIf="!currUser?.cars">No cars added!</h1>
+        </div>
     </section>
-    <!-- <div class="lds-ellipsis" *ngIf="isLoading">
+    <section class="cars">
+        <ng-container *ngIf="currUser?.cars">
+            <article *ngFor="let car of currUser.cars">
+                <p>{{car.price}}$</p>
+                <div class="image">
+                    <img *ngIf="car.imageUrl.includes('res.cloudinary.com')" src={{car.imageUrl}} class="uploadedImage"
+                        alt="no-img">
+                    <img *ngIf="!car.imageUrl.includes('res.cloudinary.com')" src={{car.imageUrl}} alt="no-img">
+                </div>
+                <div class="info">
+                    <h1>{{car.make}} {{car.model}}</h1>
+                    <button [routerLink]="['/cars', car._id]">Details</button>
+                </div>
+            </article>
+        </ng-container>
+    </section>
+    <div class="lds-ellipsis" *ngIf="isLoading">
         <div></div>
         <div></div>
         <div></div>
         <div></div>
-    </div> -->
+    </div>
     <!-- <div class="pagination">
         <pagination-controls class="paginator" (pageChange)="p = $event"></pagination-controls>
     </div> -->
