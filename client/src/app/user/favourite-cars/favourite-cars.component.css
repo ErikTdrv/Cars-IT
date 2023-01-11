@@ -85,6 +85,14 @@ button {
     font-weight: bold;
     cursor: pointer;
 }
+button:hover {
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    transition: 0.2s;
+    top: 86%;
+    font-size: 1.1rem;
+
+}
 .pagination {
     display: flex;
     justify-content: center;

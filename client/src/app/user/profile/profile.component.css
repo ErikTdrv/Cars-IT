@@ -43,6 +43,9 @@ article {
     width: 300px;
     height: 190px;
 }
+.uploadedImage {
+    object-fit:cover;
+}
 img {
     border-radius: 13px 13px 0px 0px;
     width: 300px;
@@ -81,6 +84,14 @@ button {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+}
+button:hover {
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    transition: 0.2s;
+    top: 86%;
+    font-size: 1.1rem;
+
 }
 .pagination {
     display: flex;
