@@ -10,12 +10,13 @@ import { UserService } from 'src/app/user/user.service';
 export class GlobalProfileComponent {
   p: Number | any = 1;
   currUser: any;
+  isLoading: boolean = true;
   constructor(private userService: UserService, private route: ActivatedRoute){
     let username = '';
     route.params.subscribe((value: any) => username = value.owner)
     userService.getUnknownUserInfo(username).subscribe((value) => {
       this.currUser = value
-      console.log(value)
+      this.isLoading = false;
     })
   }
 }
