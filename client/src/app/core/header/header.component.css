@@ -56,7 +56,6 @@ ul li:hover::after {
 .auth a {
     cursor: pointer;
 }
-
 .dropbtn {
     background-color: rgb(32, 32, 32);
     color: white;
@@ -107,6 +106,7 @@ ul li:hover::after {
     background-color: #e04b4b;
 }
 
+
 .icon {
     color: rgb(196, 188, 188);
     font-size: 20px;
@@ -120,11 +120,11 @@ ul li:hover::after {
 #logout {
     cursor: pointer;
 }
-.mobile {
+.mobile, .authorization {
     display: none;
 }
 @media screen and (max-width:777px) {
-
+    
     .main {
         display: none;
     }
@@ -163,7 +163,18 @@ ul li:hover::after {
     }
     .mobile a {
         color: white;
-
         padding: 1rem 2rem;
+    }
+    .authorization {
+        display: block;
+    }
+    .authorization a{
+
+        color: white;
+        font-weight: bold;
+        font-size: 1rem;
+        list-style-type: none;
+        margin: 10px;
+        text-align: center;
     }
 }
