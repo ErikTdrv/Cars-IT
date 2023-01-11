@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors')
 const initDatabase = require('./configs/database');
 const routes = require('./routes');
-
+const manualCors = require('./configs/cors')
 const { authMiddleware } = require('./middlewares/auth');
 startServer()
 async function startServer() {
@@ -11,7 +11,8 @@ async function startServer() {
         var bodyParser = require('body-parser');
         app.use(bodyParser.json({ limit: '50mb' }));
         app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-        app.use(cors({ credentials: true, origin: ['http://localhost:4200', 'https://carsit-fe.ew.r.appspot.com'], allowedHeaders: ['Content-Type, X-Authorization, X-RapidAPI-Key, X-RapidAPI-Host'] }))
+        // app.use(cors({ credentials: true, origin: ['http://localhost:4200', 'https://carsit-fe.ew.r.appspot.com'], allowedHeaders: ['Content-Type, X-Authorization, X-RapidAPI-Key, X-RapidAPI-Host'] }))
+        app.use(manualCors())
         app.use(express.json())
         app.use(authMiddleware)
         app.use(routes)
