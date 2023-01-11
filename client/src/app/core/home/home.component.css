@@ -143,6 +143,14 @@ p {
     cursor: pointer;
 
 }
+.top button:hover {
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+    transition: 0.2s;
+    top: 86%;
+    font-size: 1.1rem;
+
+}
 .top img {
     border-radius: 10px 10px 0px 0px;
 }
