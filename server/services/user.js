@@ -66,7 +66,7 @@ const logout = (token) => {
     blacklist.add(token)
 }
 const getUnknownUser = async (username) => {
-    return await User.findOne({username});
+    return await User.findOne({username}).populate('cars');
 }
 module.exports = {
     getUnknownUser,

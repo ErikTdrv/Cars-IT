@@ -57,6 +57,7 @@ router.get('/user/:owner', async (req, res) => {
     const { owner } = req.params;
     try {
         let user = await getUnknownUser(owner);
+        console.log(user)
         res.status(200).json(user)
     } catch (error) {
         res.status(400).json({error:error.message})
