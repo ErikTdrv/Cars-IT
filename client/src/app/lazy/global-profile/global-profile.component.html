@@ -19,7 +19,7 @@
     </section>
     <section class="cars">
         <ng-container *ngIf="currUser?.cars">
-            <article *ngFor="let car of currUser.cars">
+            <article *ngFor="let car of currUser.cars | paginate: { itemsPerPage: 5, currentPage: p }">
                 <p>{{car.price}}$</p>
                 <div class="image">
                     <img *ngIf="car.imageUrl.includes('res.cloudinary.com')" src={{car.imageUrl}} class="uploadedImage"
@@ -39,7 +39,7 @@
         <div></div>
         <div></div>
     </div>
-    <!-- <div class="pagination">
+    <div class="pagination">
         <pagination-controls class="paginator" (pageChange)="p = $event"></pagination-controls>
-    </div> -->
+    </div>
 </div>

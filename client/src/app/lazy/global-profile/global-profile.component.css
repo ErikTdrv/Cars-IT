@@ -3,7 +3,7 @@
     min-height: calc(100vh - 5.4rem);
 }
 .cars {
-    margin-top: 10%;
+    margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -69,10 +69,7 @@ button {
     font-weight: bold;
 }
 .divadded{
-    position: absolute;
     margin-top: 30px;
-    left: 50%;
-    transform: translate(-50%);
     width: 50%;
     background-image: linear-gradient(to left, #8e2de2, #4a00e0);;
     height: 60px;
@@ -90,6 +87,11 @@ button {
     display: flex;
     justify-content: center;
     margin-top: 15px;
+}
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .userSchema {
     border-radius: 15px;
