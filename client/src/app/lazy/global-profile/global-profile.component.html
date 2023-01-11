@@ -5,7 +5,7 @@
     <section class="profile">
         <article class="user">
             <div class="userSchema" *ngIf="currUser">
-                <img [src]="currUser.avatarImg" class="avatarImg">
+                <img [src]="currUser.avatarImg" class="avatarImg" alt="no-avatar">
                 <div class="text">
                     <h3>Username: <span>{{currUser?.username}}</span></h3>
                     <h3>Email: <span>{{currUser?.email}}</span></h3>
