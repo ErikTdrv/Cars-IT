@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { LazyRoutingModule } from './lazy.routing.module';
 import { GlobalProfileComponent } from './global-profile/global-profile.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { GlobalProfileComponent } from './global-profile/global-profile.componen
   imports: [
     CommonModule,
     LazyRoutingModule,
+    NgxPaginationModule,
   ]
 })
 export class LazyModule { }
