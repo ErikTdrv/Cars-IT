@@ -103,6 +103,10 @@ h3 {
     font-weight: bold;
     cursor: pointer;
 }
+.buttons button:hover {
+    background-color: #e20404;
+    border: 2px solid #e20404;
+}
 #added {
     border-color: rgb(12, 122, 18);
     background-color: rgb(12, 122, 18);
