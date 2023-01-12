@@ -60,7 +60,6 @@ export class ProfileInfoComponent {
       this.info = value
       this.isLoading = false
       this.currUser = this.userService.user
-      console.log(this.currUser)
     })
   }
 }
