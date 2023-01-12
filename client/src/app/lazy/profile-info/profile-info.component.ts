@@ -59,7 +59,8 @@ export class ProfileInfoComponent {
     this.userService.getIPaddress(this.ip).subscribe((value) => {
       this.info = value
       this.isLoading = false
+      this.currUser = this.userService.user
+      console.log(this.currUser)
     })
-    this.currUser = this.userService.user
   }
 }
