@@ -4,14 +4,15 @@
     background-size: cover;
     background-position: center;
     width: 100%;
+    position: relative;
     height: calc(100vh - 5.4rem);
 }
 .form {
     border: 2px solid rgb(32, 32, 32);
     border-radius: 1.2rem;
-    position: absolute;
+    position: relative;
     top: 50%;
-    left: 78%;
+    left: 80%;
     transform: translate(-50%, -50%);
     background-color: rgb(32, 32, 32);
     width: 360px;
@@ -110,14 +111,31 @@ input[type="radio"] {
     padding-left: 12px;
     font-weight: bold;
 }
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 930px) {
     .form {
         left: 50%;
     }
     .form h1 {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     .form label{ 
         font-size: 1rem;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .container { 
+    height: 100vh;
+    width: 100%;
+    }
+    .form {
+        width: 90%;
+    }
+    .formInput {
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 777px) {
+    .container { 
+    height: calc(100vh - 6.4rem);
     }
 }
