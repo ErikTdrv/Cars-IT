@@ -48,10 +48,16 @@ input[type="submit"] {
     height: 2rem;
     margin-top: 40px;
     border: none;
-    background-color: #fd0000;
+    background-color: #e26565;
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
+}
+input[type="submit"]:hover:enabled {
+    background-color: #ff0000;
+    transform: translate(-50%, -67%);
+    transition: 0.2s;
+
 }
 p.error {
     text-align: left;
