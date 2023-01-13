@@ -118,3 +118,9 @@ span {
     }
 
 }
+@media only screen and (max-width: 400px) {
+    input {
+        width: 50%;
+        margin-left: 10px;
+    }
+}
