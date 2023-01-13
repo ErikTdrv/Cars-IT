@@ -54,6 +54,11 @@ input[type="submit"] {
     font-weight: bold;
     text-align: center;
 }
+input[type="submit"]:hover:enabled {
+    background-color: #ff0000;
+    transform: translate(-50%, -67%);
+    transition: 0.2s;
+}
 p.error {
     text-align: left;
     color: red;
