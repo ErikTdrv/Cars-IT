@@ -164,6 +164,7 @@ ul li:hover::after {
     .mobile a {
         color: white;
         padding: 1rem 2rem;
+        text-align: center;
     }
     .authorization {
         display: block;

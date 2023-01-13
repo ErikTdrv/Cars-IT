@@ -43,9 +43,9 @@
         <ng-container *ngIf="isLogged">
             <a routerLink="/add">Add Car</a>
         </ng-container>
-        <a routerLink="/profile">My Cars</a>
-        <a routerLink="/favourites-profile">My Favourite Cars</a>
-        <a routerLink="/profile-info">Profile Info</a>
+        <a *ngIf="isLogged" routerLink="/profile">My Cars</a>
+        <a *ngIf="isLogged" routerLink="/favourites-profile">My Favourite Cars</a>
+        <a *ngIf="isLogged" routerLink="/profile-info">Profile Info</a>
     </div>
     <div class="authorization">
         <ng-container *ngIf="!isLogged">
