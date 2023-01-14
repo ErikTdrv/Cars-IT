@@ -25,7 +25,7 @@
         <div></div>
         <div></div>
     </div>
-    <div class="pagination">
+    <div class="pagination" *ngIf="!isLoading">
         <pagination-controls class="paginator" (pageChange)="p = $event"></pagination-controls>
     </div>
 </div>
