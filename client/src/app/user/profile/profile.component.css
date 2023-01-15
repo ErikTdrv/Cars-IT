@@ -39,6 +39,17 @@ article {
     border-radius: 15px;
 
 }
+.specialform {
+    height: 100px;
+    /* position: relative; */
+}
+.specialform button {
+    top: 75%;
+    left: 20%;
+}
+.specialform p {
+    top: 60%;
+}
 .image {
     width: 300px;
     height: 190px;
