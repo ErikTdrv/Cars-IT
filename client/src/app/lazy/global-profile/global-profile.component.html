@@ -17,11 +17,11 @@
             <h1 class="addedcars" *ngIf="!currUser?.cars">No cars added!</h1>
         </div>
     </section>
-    <section class="cars">
-        <ng-container *ngIf="currUser?.cars">
-            <article *ngFor="let car of currUser.cars | paginate: { itemsPerPage: 5, currentPage: p }">
+    <section class="cars" *ngIf="currUser?.cars">
+        <ng-container *ngFor="let car of currUser.cars | paginate: { itemsPerPage: 5, currentPage: p }">
+            <article [ngClass]="!car.imageUrl.includes('http') ? 'specialform' : ''">
                 <p>{{car.price}}$</p>
-                <div class="image">
+                <div class="image" *ngIf="car.imageUrl.includes('http')">
                     <img *ngIf="car.imageUrl.includes('res.cloudinary.com')" src={{car.imageUrl}} class="uploadedImage"
                         alt="no-img">
                     <img *ngIf="!car.imageUrl.includes('res.cloudinary.com')" src={{car.imageUrl}} alt="no-img">

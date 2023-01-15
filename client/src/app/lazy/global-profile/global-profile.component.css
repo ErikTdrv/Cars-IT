@@ -8,6 +8,17 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+.cars .specialform {
+    height: 100px;
+    /* position: relative; */
+}
+.cars .specialform button {
+    top: 75%;
+    left: 20%;
+}
+.cars .specialform p {
+    top: 60%;
+}
 .cars article{
     margin: 20px;
     position: relative;
@@ -15,7 +26,7 @@
     width: 300px;
     height: 300px;
     border-radius: 15px;
-
+    
 }
 .image {
     width: 300px;
@@ -135,6 +146,7 @@ span {
     font-style: italic;
     padding-left: 5px;
 }
+
 .pagination {
     display: flex;
     justify-content: center;
