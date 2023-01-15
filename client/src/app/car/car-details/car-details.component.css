@@ -209,7 +209,12 @@ input:disabled {
   background-color: #cccccc;
   /* color: #666666; */
 }
-
+.specialform {
+    min-height: 300px;
+}
+.specialform .price {
+    top: 18%;
+}
 @media only screen and (max-width: 740px) {
     .car {
         font-size: 1rem;

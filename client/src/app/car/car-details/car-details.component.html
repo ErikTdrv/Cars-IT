@@ -3,10 +3,10 @@
         <div class="title">
             <h1>Details Page</h1>
         </div>
-        <article class="car">
+        <article class="car" [ngClass]="!car.imageUrl.includes('http') ? 'specialform' : ''">
             <p class="price">{{car.price}}$</p>
             <div class="image">
-                <img src={{car.imageUrl}} alt="no-img">
+                <img src={{car.imageUrl}} alt="no-img" *ngIf="car.imageUrl.includes('http')">
             </div>
             <div class="info">
                 <span *ngIf="alreadyFavourite" class="added">&hearts;</span>
