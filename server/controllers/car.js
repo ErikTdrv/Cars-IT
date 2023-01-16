@@ -6,26 +6,31 @@ const { updateCarsOnUser } = require('../services/user');
 
 const router = require('express').Router();
 
-router.post('/', uploader.array('carPhotos') ,async (req, res) => {
+router.post('/', uploader.array('carPhotos'), async (req, res) => {
     const base64 = req.body.data.base64;
     const data = req.body.data;
     try {
-        if(base64){
-            for(let el of base64){
-                const uploaded = await cloudinary.v2.uploader.upload(el, {fetch_format: "auto"});
-                data[uploaded.asset_id] = {
+        data.carImages = []
+        if (base64) {
+            for (let el of base64) {
+                const uploaded = await cloudinary.v2.uploader.upload(el, { fetch_format: "auto" });
+                let objectToPush =  {
                     imageUrl: uploaded.url,
                     imageId: uploaded.public_id,
                 }
+                data.carImages.push(objectToPush)
             }
+        }else {
+            data.carImages.push(data.imageUrl)
         }
+        console.log(data)
         const userId = req?.user?._id;
         const car = await addCar(data, userId)
         await updateCarsOnUser(userId, car._id)
         res.status(201).json(car)
     } catch (error) {
         console.log(error)
-        res.status(400).json({error:error.message})
+        res.status(400).json({ error: error.message })
     }
     res.end()
 })
@@ -50,7 +55,7 @@ router.delete('/favourites/:id', async (req, res) => {
         await removeFromFavourites(userId, carId)
         res.status(200).json('Success')
     } catch (error) {
-        res.status(400).json({error: error.message})
+        res.status(400).json({ error: error.message })
     }
 })
 router.get('/favourites/:id', async (req, res) => {
@@ -60,7 +65,7 @@ router.get('/favourites/:id', async (req, res) => {
         await addToFavourite(userId, carId)
         res.status(200).json('Success')
     } catch (error) {
-        res.status(400).json({error: error.message})
+        res.status(400).json({ error: error.message })
     }
 })
 router.get('/favourite-cars', async (req, res) => {
@@ -70,21 +75,21 @@ router.get('/favourite-cars', async (req, res) => {
         res.status(200).json(cars?.favouriteCars)
     } catch (error) {
         console.log(error)
-        res.status(400).json({error: error.message})
+        res.status(400).json({ error: error.message })
     }
 })
 router.get('/:id', async (req, res) => {
     try {
         let id = req.params.id;
         const car = await getOneCar(id);
-        if(car){
+        if (car) {
             res.status(200).json(car)
-        }else {
+        } else {
             throw new Error('Invalid car ID!')
         }
     } catch (error) {
         console.log(error)
-        res.status(400).json({error:error.message})
+        res.status(400).json({ error: error.message })
     }
 })
 router.put('/:id', async (req, res) => {
@@ -92,32 +97,32 @@ router.put('/:id', async (req, res) => {
     const data = req.body;
     const car = await getOneCar(id)
     try {
-        if(req?.user._id == car.owner._id){
+        if (req?.user._id == car.owner._id) {
             await editCar(id, data)
             const updatedCar = await getOneCar(id)
             res.status(200).json(updatedCar)
-        }else {
+        } else {
             throw new Error('You are not the owner!')
         }
     } catch (error) {
-        res.status(400).json({error:error.message})
+        res.status(400).json({ error: error.message })
     }
 })
 router.delete('/:id', async (req, res) => {
     const user = await User.findById(req.user._id)
     const id = req.params.id;
-    if(user.cars.includes(id)){
+    if (user.cars.includes(id)) {
         let carsArray = user.cars;
         let deletionIndex = carsArray.indexOf(id)
         carsArray.splice(deletionIndex, 1)
-        await User.findByIdAndUpdate(req.user._id, {cars: carsArray})
+        await User.findByIdAndUpdate(req.user._id, { cars: carsArray })
         let car = await deleteACar(id)
-        if(car.imageId){
+        if (car.imageId) {
             await cloudinary.v2.uploader.destroy(car.imageId)
         }
         res.status(200).json('Deleted!')
-    }else {
-        res.status(400).json({error: 'You are not the owner of the car!'})
+    } else {
+        res.status(400).json({ error: 'You are not the owner of the car!' })
     }
 })
 

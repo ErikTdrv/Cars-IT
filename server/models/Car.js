@@ -17,13 +17,17 @@ const carSchema = new mongoose.Schema({
         required: true,
         type: Number,
     },
-    imageUrl: {
+    carImages: {
         required: true,
-        type: String,
+        type: Array,
     },
-    imageId: {
-        type: String,
-    },
+    // imageUrl: {
+    //     required: true,
+    //     type: String,
+    // },
+    // imageId: {
+    //     type: String,
+    // },
     year: {
         required: true,
         type: String,
