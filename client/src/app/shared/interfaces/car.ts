@@ -5,6 +5,7 @@ export interface ICar {
     model: string,
     hp: number,
     imageUrl: string,
+    carImages: Array<IObject | any>,
     year: string,
     description: string,
     price: number,
@@ -12,4 +13,8 @@ export interface ICar {
     owner: IUser,
     addedBy: IUser[],
     isUrl: boolean,
+}
+interface IObject {
+    imageUrl: string, 
+    imageId: string
 }
