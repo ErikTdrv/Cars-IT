@@ -21,8 +21,8 @@
             <article>
                 <p>{{car.price}}$</p>
                 <div class="image">
-                    <img *ngIf="car.imageUrl.includes('res.cloudinary.com')" src={{car.imageUrl}} class="uploadedImage" alt="no-img">
-                    <img *ngIf="!car.imageUrl.includes('res.cloudinary.com')" src={{car.imageUrl}} alt="no-img">
+                    <img *ngIf="car.carImages[0].imageUrl.includes('res.cloudinary.com')" src={{car.carImages[0].imageUrl}} class="uploadedImage" alt="no-img">
+                    <img *ngIf="!car.carImages[0].imageUrl.includes('res.cloudinary.com')" src={{car.carImages[0].imageUrl}} alt="no-img">
                 </div>
                 <div class="info">
                     <h1>{{car.make}} {{car.model}}</h1>
