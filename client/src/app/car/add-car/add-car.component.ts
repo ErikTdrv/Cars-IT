@@ -34,10 +34,12 @@ export class AddCarComponent{
   }
   async addCar(form: NgForm, imageUrl: any){
     this.isLoading = true;
-    const file: File = imageUrl.files[0];
-    let base64: any
+    const file: any = imageUrl.files;
+    let base64: any = [];
     if(file){
-      base64 = await this.convertToBase64(file)
+      for(let el of file) {
+        base64.push(await this.convertToBase64(el))
+      }
       form.value.base64 = base64
     }
     this.carService.addCar(form.value).subscribe({
