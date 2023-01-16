@@ -6,9 +6,9 @@
     </div>
     <section *ngIf="cars">
         <ng-container *ngFor="let car of cars | paginate: { itemsPerPage: 10, currentPage: p }" >
-            <article [ngClass]="!car.imageUrl.includes('http') ? 'specialform' : ''">
+            <article [ngClass]="!car?.imageUrl?.includes('http') ? 'specialform' : ''">
                 <p>{{car.price}}$</p>
-                <div class="image" *ngIf="car.imageUrl.includes('http')">
+                <div class="image" *ngIf="car?.imageUrl?.includes('http')">
                     <img *ngIf="car.imageUrl.includes('res.cloudinary.com')" src={{car.imageUrl}} class="uploadedImage" alt="no-img">
                     <img *ngIf="!car.imageUrl.includes('res.cloudinary.com')" src={{car.imageUrl}} alt="no-img">
                 </div>
