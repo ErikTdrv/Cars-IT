@@ -41,6 +41,7 @@ router.delete('/logout', async (req, res) => {
 router.get('/user', async (req, res) => {
     const { token } = req.user;
     let user = await User.findOne({token})
+    console.log(token)
     let isBlacklisted = await blacklisted.findOne({token})
     if(isBlacklisted){
         res.status(400).json({error: 'User is not valid!'})

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { map, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { IUser } from '../shared/interfaces/user';
 import { ICar } from '../shared/interfaces/car';
 
