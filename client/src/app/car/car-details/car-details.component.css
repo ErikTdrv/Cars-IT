@@ -215,6 +215,36 @@ input:disabled {
 .specialform .price {
     top: 18%;
 }
+.image {
+    z-index: -1;
+    position: relative;
+}
+.pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    background-color: gray;
+    text-align: center;
+    width: 45px;
+    height: 281.25px;
+    position: absolute;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.pages:hover {
+    opacity: 0.9;
+    transition: 0.3s;
+}
+.left {
+    top: 0%;
+    border-top-left-radius: 1.2rem;
+}
+.right {
+border-top-right-radius: 1.2rem;
+   right: 0%; 
+   top: 0%;
+}
 @media only screen and (max-width: 740px) {
     .car {
         font-size: 1rem;

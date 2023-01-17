@@ -6,7 +6,9 @@
         <article class="car" [ngClass]="!car.carImages[0].imageUrl.includes('http') ? 'specialform' : ''">
             <p class="price">{{car.price}}$</p>
             <div class="image">
+                <a class="pages left">&#8249;</a>
                 <img src={{car.carImages[0].imageUrl}} alt="no-img" *ngIf="car.carImages[0].imageUrl.includes('http')">
+                <a class="pages right">&#8250;</a>
             </div>
             <div class="info">
                 <span *ngIf="alreadyFavourite" class="added">&hearts;</span>
