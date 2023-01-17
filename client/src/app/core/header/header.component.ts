@@ -22,7 +22,7 @@ export class HeaderComponent {
     const token = localStorage.getItem('token')
     if(token){
       this.userService.logout()
-      this.router.navigate(['/'])
+      // this.router.navigate(['/'])
     }
   }
   menuClick(){

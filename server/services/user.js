@@ -63,8 +63,7 @@ const updateCarsOnUser = async (_id, carId) => {
         throw new Error(error)
     }
 }
-const logout = async () => {
-    let token = localStorage.getItem('token')
+const logout = async (token) => {
     await blacklisted.create({token})
 }
 const getUnknownUser = async (username) => {

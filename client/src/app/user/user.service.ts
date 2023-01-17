@@ -45,7 +45,9 @@ export class UserService {
   }
   logout(){
     this.user = null;
-    return localStorage.removeItem('token')
+    return this.http.delete(`${API_URL}/logout`).subscribe({
+      next: () => localStorage.removeItem('token')
+    })
   }
   getProfileData(){
     return this.http.get<IUser>(`${API_URL}/user`).pipe(

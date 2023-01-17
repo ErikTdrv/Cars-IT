@@ -1,6 +1,5 @@
 const { register, login, getUnknownUser, logout } = require('../services/user');
 const cloudinary = require('cloudinary');
-const uploader = require("../services/multer");
 const User = require('../models/User');
 const router = require('express').Router();
 
@@ -33,8 +32,9 @@ router.post('/login', async (req, res) => {
     }
     res.end()
 })
-router.get('/logout', async (req, res) => {
-    await logout()
+router.delete('/logout', async (req, res) => {
+    let token = req.user.token;
+    await logout(token)
     res.status(204).end();
 });
 router.get('/user', async (req, res) => {

@@ -6,8 +6,8 @@ const specialcontroller = require('./controllers/special');
 router.get('/', (req, res) => {
     res.json('Working...')
 })
+router.use(authcontroller)
 router.use(specialcontroller)
 router.use('/cars', carcontroller)
-router.use(authcontroller)
     
 module.exports = router;
