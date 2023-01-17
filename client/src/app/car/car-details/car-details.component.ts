@@ -18,6 +18,7 @@ export class CarDetailsComponent {
   isAuthor: boolean = false;
   errors: Object | undefined;
   alreadyFavourite: boolean = false;
+  index: any = 0;
 
   constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getCar()
@@ -91,6 +92,14 @@ export class CarDetailsComponent {
           this.alreadyFavourite = false;
         }
       })
+    }
+  }
+  changeImage(how: string){
+    let length: any = this.car?.carImages.length
+    if(how == 'previous' && this.index > 0){
+      how == 'previous' ? this.index-- : this.index++
+    }else if(how == 'next' && this.index < length - 1){
+      how == 'next' ? this.index++ : this.index--
     }
   }
 }

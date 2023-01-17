@@ -48,6 +48,7 @@
     font-size: 1.7rem;
 }
 img {
+    
     border-top-left-radius: 1.2rem;
     border-top-right-radius: 1.2rem;
     width: 500px;
@@ -235,6 +236,9 @@ input:disabled {
 .pages:hover {
     opacity: 0.9;
     transition: 0.3s;
+}
+.disabledpage:hover {
+    opacity: 0.5;
 }
 .left {
     top: 0%;
