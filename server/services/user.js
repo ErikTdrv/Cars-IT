@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs');
 const server = require('../environment')
-const User = require('../models/User')
+const User = require('../models/User');
+const blacklisted = require('../models/Blacklisted');
 
 const validateToken = (token) => {
     try {
@@ -62,13 +63,15 @@ const updateCarsOnUser = async (_id, carId) => {
         throw new Error(error)
     }
 }
-const logout = (token) => {
-    blacklist.add(token)
+const logout = async () => {
+    let token = localStorage.getItem('token')
+    await blacklisted.create({token})
 }
 const getUnknownUser = async (username) => {
     return await User.findOne({username}).populate('cars');
 }
 module.exports = {
+    logout,
     getUnknownUser,
     updateCarsOnUser,
     login,
