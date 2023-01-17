@@ -1,6 +1,7 @@
 const { register, login, getUnknownUser, logout } = require('../services/user');
 const cloudinary = require('cloudinary');
 const User = require('../models/User');
+const blacklisted = require('../models/Blacklisted');
 const router = require('express').Router();
 
 
@@ -40,17 +41,22 @@ router.delete('/logout', async (req, res) => {
 router.get('/user', async (req, res) => {
     const { token } = req.user;
     let user = await User.findOne({token})
-    let userToReturn = {
-        _id: user._id,
-        username: user.username, 
-        email: user.email,
-        cars: user.cars,
-        favouriteCars: user.favouriteCars,
-        avatarImg: user.avatarImg,
-        imageId: user.imageId,
-    }
-    if(user){
-        res.status(200).json(userToReturn)
+    let isBlacklisted = await blacklisted.findOne({token})
+    if(isBlacklisted){
+        res.status(400).json({error: 'User is not valid!'})
+    }else {
+        let userToReturn = {
+            _id: user._id,
+            username: user.username, 
+            email: user.email,
+            cars: user.cars,
+            favouriteCars: user.favouriteCars,
+            avatarImg: user.avatarImg,
+            imageId: user.imageId,
+        }
+        if(user){
+            res.status(200).json(userToReturn)
+        }
     }
 })
 router.get('/user/:owner', async (req, res) => {
