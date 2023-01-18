@@ -279,3 +279,23 @@ border-top-right-radius: 1.2rem;
         top: 48.5%;
     }
 }
+@media only screen and (max-height: 750px) {
+    .info h3, span, p, button {
+        font-size: 0.7rem;
+    }
+    .info h1 {
+        padding: 10px;
+    }
+    .car {
+        width: 500px;
+        min-height: 500px;
+    }
+    .buttons button {
+        margin-top: 0px;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    .price {
+        top: 54%
+    }
+}
