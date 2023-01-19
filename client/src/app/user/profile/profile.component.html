@@ -8,9 +8,9 @@
         <ng-container *ngFor="let car of cars | paginate: { itemsPerPage: 10, currentPage: p }">
             <article [ngClass]="!car.carImages[0].imageUrl.includes('http') ? 'specialform' : ''">
                 <p>{{car.price}}$</p>
-                <div class="image" *ngIf="car.carImages[0].imageUrl.includes('http')">
-                    <img *ngIf="car.carImages[0].imageUrl.includes('res.cloudinary.com')" src={{car.carImages[0].imageUrl}} class="uploadedImage" alt="no-img">
-                    <img *ngIf="!car.carImages[0].imageUrl.includes('res.cloudinary.com')" src={{car.carImages[0].imageUrl}} alt="no-img">
+                <div class="image" *ngIf="car?.carImages[0]?.imageUrl?.includes('http')">
+                    <img *ngIf="car?.carImages[0]?.imageUrl?.includes('res.cloudinary.com')" src={{car.carImages[0].imageUrl}} class="uploadedImage" alt="no-img">
+                    <img *ngIf="!car?.carImages[0]?.imageUrl?.includes('res.cloudinary.com')" src={{car.carImages[0].imageUrl}} alt="no-img">
                 </div>
                 <div class="info">
                     <h1>{{car.make}} {{car.model}}</h1>
@@ -25,7 +25,7 @@
         <div></div>
         <div></div>
     </div>
-    <div class="pagination" *ngIf="!isLoading">
+    <div class="pagination" *ngIf="cars?.length > 0">
         <pagination-controls class="paginator" (pageChange)="p = $event"></pagination-controls>
     </div>
 </div>
