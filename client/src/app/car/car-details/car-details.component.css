@@ -47,8 +47,28 @@
     color: #e20404;
     font-size: 1.7rem;
 }
+.imageurl {
+    font-size: 1.1rem;
+    padding-left: 12px;
+    margin-top: 10px;
+    margin-bottom: 2.5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#upload {
+    margin-left: 20px;
+}
+.hidden {
+    display: none;
+}
+#file {
+    display: none;
+    font-size: 1rem;
+    padding-left: 12px;
+    font-weight: bold;
+}
 img {
-    
     border-top-left-radius: 1.2rem;
     border-top-right-radius: 1.2rem;
     width: 500px;
@@ -121,6 +141,10 @@ span {
     font-weight: bold;
     font-style: italic;
     
+}
+input[type="radio"] {
+    height: 15px;
+    margin-left: 10px;
 }
 .added {
     position: absolute;

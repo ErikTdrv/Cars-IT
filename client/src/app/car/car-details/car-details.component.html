@@ -49,7 +49,7 @@
         </div>
         <div class="form">
             <h1 class="h1">Edit Car</h1>
-            <form #form="ngForm" (ngSubmit)="addCar(form, imageUrl)">
+            <form #form="ngForm" (ngSubmit)="editCar(form, imageUrl)">
                 <label class="formTitle">Make</label>
                 <input class="formInput" #make="ngModel" ngModel type="text" name="make" required minlength="3" maxlength="15">
                 <ng-container *ngIf="make.touched">
