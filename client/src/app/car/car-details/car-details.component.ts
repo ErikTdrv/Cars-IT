@@ -19,7 +19,7 @@ export class CarDetailsComponent {
   errors: Object | undefined;
   alreadyFavourite: boolean = false;
   index: any = 0;
-
+  isLoading: boolean = true;
   constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getCar()
   }
@@ -43,21 +43,7 @@ export class CarDetailsComponent {
       }
     })
   }
-  editCar(form: NgForm) {
-    if(this.userService.user?._id != this.car?.owner._id || !this.token){
-      this.router.navigate(['**'])
-    }
-    const id = this.car?._id;
-    this.carService.editCar(id, form.value).subscribe({
-      next: (car) => {
-        this.car = car
-        this.inEditMode = false;
-      },
-      error: (err) => {
-        this.errors = handleError(err.error?.error)
-      }
-    })
-  }
+  
   delete(){
     if(this.userService.user?._id != this.car?.owner._id || !this.token){
       this.router.navigate(['**'])
@@ -100,6 +86,77 @@ export class CarDetailsComponent {
       how == 'previous' ? this.index-- : this.index++
     }else if(how == 'next' && this.index < length - 1){
       how == 'next' ? this.index++ : this.index--
+    }
+  }
+  convertToBase64(file: any){
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result)
+      }
+
+      fileReader.onerror = (error) => {
+        reject(error)
+      }
+    })
+  }
+  // editCar(form: NgForm) {
+  //   if(this.userService.user?._id != this.car?.owner._id || !this.token){
+  //     this.router.navigate(['**'])
+  //   }
+  //   const id = this.car?._id;
+  //   this.carService.editCar(id, form.value).subscribe({
+  //     next: (car) => {
+  //       this.car = car
+  //       this.inEditMode = false;
+  //     },
+  //     error: (err) => {
+  //       this.errors = handleError(err.error?.error)
+  //     }
+  //   })
+  // }
+  async editCar(form: NgForm, imageUrl: any){
+    if(this.userService.user?._id != this.car?.owner._id || !this.token){
+      this.router.navigate(['**'])
+    }
+    const id = this.car?._id;
+    this.isLoading = true;
+    const file: any = imageUrl.files;
+    let base64: any = [];
+    if(file){
+      for(let el of file) {
+        base64.push(await this.convertToBase64(el))
+      }
+      form.value.base64 = base64
+    }
+    this.carService.editCar(id, form.value).subscribe({
+      next: (car) => {
+        this.isLoading = false
+        this.car = car
+        this.inEditMode = false;
+      },
+      error: (err) => {
+        this.errors = handleError(err.error?.error)
+      }
+    })
+    
+  }
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+  }
+  onChange(input: any){
+    if(input.value == 'ImageURL'){
+      let imageInput: any = document.getElementById('url');
+      imageInput.style.display = 'block'
+      let fileInput: any = document.getElementById('file');
+      fileInput.style.display = 'none'
+    }else if(input.value == 'UploadFile') {
+      let imageInput: any = document.getElementById('url');
+      imageInput.style.display = 'none'
+      let fileInput: any = document.getElementById('file');
+      fileInput.style.display = 'block'
     }
   }
 }
