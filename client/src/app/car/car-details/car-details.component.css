@@ -202,10 +202,14 @@ input[type="submit"] {
     height: 2rem;
     margin-top: 40px;
     border: none;
-    background-color: #fd0000;
+    background-color: #e20404;
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
+}
+input[type="submit"]:hover:enabled {
+    background-color: #fd0000;
+    opacity: 0.5;
 }
 /* .error { 
     color: red;
