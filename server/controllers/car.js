@@ -92,18 +92,36 @@ router.get('/:id', async (req, res) => {
         res.status(400).json({ error: error.message })
     }
 })
-router.put('/:id', async (req, res) => {
+router.put('/:id', uploader.array('carPhotos'), async (req, res) => {
+    console.log('here')
     const id = req.params.id;
+    console.log(req.body)
+    const base64 = req.body.base64;
     const data = req.body;
+
     const car = await getOneCar(id)
     try {
+        data.carImages = []
         if (req?.user._id == car.owner._id) {
+            if (base64) {
+                for (let el of base64) {
+                    const uploaded = await cloudinary.v2.uploader.upload(el, { fetch_format: "auto" });
+                    let objectToPush =  {
+                        imageUrl: uploaded.url,
+                        imageId: uploaded.public_id,
+                    }
+                    data.carImages.push(objectToPush)
+                }
+            }else {
+                data.carImages.push(data.imageUrl)
+            }
             await editCar(id, data)
             const updatedCar = await getOneCar(id)
             res.status(200).json(updatedCar)
         } else {
             throw new Error('You are not the owner!')
         }
+       
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
