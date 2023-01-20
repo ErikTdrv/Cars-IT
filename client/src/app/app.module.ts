@@ -25,7 +25,6 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     CoreModule,
     CarModule,
     BrowserAnimationsModule,
-
   ],
   providers: [appInterceptorProvider, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
