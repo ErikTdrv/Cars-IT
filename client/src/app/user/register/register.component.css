@@ -1,7 +1,7 @@
 .container{
     /* background-color: #474E68; */
     position: relative;
-    background-image: url('../../../assets/register.jpg');
+    background-image: url('../../../assets/registeranimation.svg');
     background-size: cover;
     background-position: center;
     width: 100%;
