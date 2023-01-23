@@ -164,3 +164,36 @@ p {
         font-size: 1rem;
     }
   }
+
+  @media only screen and (max-height: 750px) {
+    .container button {
+        position: relative;
+        margin: 10px;
+        margin-bottom: 70px;
+        font-size: 0.7rem;
+        width: 100px;
+    }
+    .container {
+        font-size: 0.9rem;
+    }
+    .title {
+        height: 1.5rem;
+        font-size: 1rem;
+    }
+  }
+  @media only screen and (max-height: 470px) {
+    .container button {
+        position: relative;
+        margin: 10px;
+        margin-bottom: 40px;
+        font-size: 0.7rem;
+        width: 100px;
+    }
+    .container {
+        font-size: 0.9rem;
+    }
+    .title {
+        height: 1.5rem;
+        font-size: 1rem;
+    }
+  }
