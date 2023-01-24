@@ -11,7 +11,7 @@ router.post('/', uploader.array('carPhotos'), async (req, res) => {
     const data = req.body.data;
     try {
         data.carImages = []
-        if (base64) {
+        if (base64?.length > 0) {
             for (let el of base64) {
                 const uploaded = await cloudinary.v2.uploader.upload(el, { fetch_format: "auto" });
                 let objectToPush =  {
