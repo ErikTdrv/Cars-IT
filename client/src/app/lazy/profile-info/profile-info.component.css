@@ -83,10 +83,10 @@ span {
     border-radius: 50%;
     margin-top: 10px;
 }
-@media only screen and (max-width: 840px) {
+@media only screen and (max-width: 961px) {
     section {
         flex-direction: column;
-        margin: 5px;
+        padding: 10px;
     }
     section h3 {
         font-size: 1rem;
