@@ -40,7 +40,7 @@ input {
     border: none;
     border: 1px solid gray;
     border-radius: 8px;
-    margin-left: 0.5rem;
+    margin-left: 0.7rem;
 }
 input[type="submit"] {
     margin-left: 50%;
