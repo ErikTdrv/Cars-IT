@@ -20,8 +20,6 @@ router.post('/', uploader.array('carPhotos'), async (req, res) => {
                 }
                 data.carImages.push(objectToPush)
             }
-        }else {
-            data.carImages.push(data.imageUrl)
         }
         console.log(data)
         const userId = req?.user?._id;
