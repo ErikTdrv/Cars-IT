@@ -25,6 +25,7 @@
 }
 .title h1 {
     padding: 10px;
+
 }
 
 .car {
@@ -307,16 +308,16 @@ border-top-right-radius: 1.2rem;
         top: 48.5%;
     }
 }
-@media only screen and (max-height: 750px) {
+@media only screen and (max-height: 770px) {
     .info h3, span, p, button {
-        font-size: 0.7rem;
+        font-size: 1.2rem;
     }
     .info h1 {
-        padding: 10px;
+        padding: 7px;
     }
     .car {
         width: 500px;
-        min-height: 500px;
+        min-height: 530px;
     }
     .buttons button {
         margin-top: 0px;
@@ -325,5 +326,29 @@ border-top-right-radius: 1.2rem;
     }
     .price {
         top: 54%
+    }
+}
+@media only screen and (max-height: 650px) {
+    .info h3, span, p, button {
+        font-size: 0.8rem;
+    }
+    .pages {
+        height: 200px;
+    }
+    .car {
+        width: 500px;
+        min-height: 410px;
+    }
+    .buttons button {
+        margin-top: 0px;
+        padding: 7px 15px;
+        font-size: 0.8rem;
+    }
+    .price {
+        top: 46%
+    }
+    img {
+        width: 500px;
+        height: 200px;
     }
 }
