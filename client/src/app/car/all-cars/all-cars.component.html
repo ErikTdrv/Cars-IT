@@ -6,12 +6,21 @@
     </div>
     <section *ngIf="cars">
         <ng-container *ngFor="let car of cars | paginate: { itemsPerPage: 10, currentPage: p }" >
-            <article [ngClass]="!car.carImages[0].imageUrl.includes('http') ? 'specialform' : ''">
+            <article>
                 <p>{{car.price}}$</p>
-                <div class="image" *ngIf="car.carImages[0].imageUrl.includes('http')">
-                    <img *ngIf="car.carImages[0].imageUrl.includes('res.cloudinary.com')" src={{car.carImages[0].imageUrl}} class="uploadedImage" alt="no-img">
-                    <img *ngIf="!car.carImages[0].imageUrl.includes('res.cloudinary.com')" src={{car.carImages[0].imageUrl}} alt="no-img">
-                </div>
+                
+                <ng-container *ngIf="car?.imageUrl?.includes('http')">
+                    <div class="image" *ngIf="car.imageUrl.includes('http')"> 
+                        <img *ngIf="car.imageUrl.includes('res.cloudinary.com')" src={{car.imageUrl}} class="uploadedImage" alt="no-img">
+                        <img *ngIf="!car.imageUrl.includes('res.cloudinary.com')" src={{car.imageUrl}} alt="no-img">
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="!car?.imageUrl?.includes('http')">
+                    <div class="image" *ngIf="car.carImages[0].imageUrl.includes('http')"> 
+                        <img *ngIf="car.carImages[0]?.imageUrl.includes('res.cloudinary.com')" src={{car.carImages[0].imageUrl}} class="uploadedImage" alt="no-img">
+                        <img *ngIf="!car.carImages[0].imageUrl.includes('res.cloudinary.com')" src={{car.carImages[0]}} alt="no-img">
+                    </div>
+                </ng-container>
                 <div class="info">
                     <h1>{{car.make}} {{car.model}}</h1>
                     <button [routerLink]="['/cars', car._id]">Details</button>

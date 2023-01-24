@@ -3,13 +3,16 @@
         <div class="title">
             <h1>Details Page</h1>
         </div>
-        <article class="car" [ngClass]="!car.carImages[0].imageUrl.includes('http') ? 'specialform' : ''">
+        <article class="car">
             <p class="price">{{car.price}}$</p>
-            <div class="image">
+            <div class="image" *ngIf="!car?.imageUrl?.includes('http')">
                 <!-- <input type="submit" value="&#8249;" class="pages left" [disabled]="index == 0" (click)="changeImage('previous')"> -->
                 <a class="pages left" [ngClass]="index == 0 ? 'disabledpage' : ''" (click)="changeImage('previous')">&#8249;</a>
-                <img src={{car.carImages[index].imageUrl}} alt="no-img" *ngIf="car.carImages[0].imageUrl.includes('http')">
+                <img src={{car.carImages[index]?.imageUrl}} alt="no-img" *ngIf="car.carImages[0].imageUrl?.includes('http')">
                 <a class="pages right" [ngClass]="index == car.carImages.length - 1? 'disabledpage' : ''" (click)="changeImage('next')">&#8250;</a>
+            </div>
+            <div class="image" *ngIf="car?.imageUrl?.includes('http')">
+                <img src={{car.imageUrl}} alt="no-img" *ngIf="car.imageUrl?.includes('http')">
             </div>
             <div class="info">
                 <span *ngIf="alreadyFavourite" class="added">&hearts;</span>
