@@ -54,21 +54,21 @@
             <h1 class="h1">Edit Car</h1>
             <form #form="ngForm" (ngSubmit)="editCar(form, imageUrl)">
                 <label class="formTitle">Make</label>
-                <input class="formInput" #make="ngModel" ngModel type="text" name="make" required minlength="3" maxlength="15">
+                <input class="formInput" #make="ngModel" ngModel type="text" name="make" required minlength="3" maxlength="15" [ngModel]="car?.make">
                 <ng-container *ngIf="make.touched">
                     <p class="error" *ngIf="make.errors?.['required']">Make is required!</p>
                     <p class="error" *ngIf="make.errors?.['maxlength']">You cannot add more than 15 characters!</p>
                     <p class="error" *ngIf="make.errors?.['minlength']">You should have at least 3 characters!</p>
                 </ng-container>
                 <label class="formTitle">Model</label>
-                <input class="formInput" #model="ngModel" ngModel type="text" name="model" required minlength="2" maxlength="10">
+                <input class="formInput" #model="ngModel" ngModel type="text" name="model" required minlength="2" maxlength="10" [ngModel]="car?.model">
                 <ng-container *ngIf="model.touched">
                     <p class="error" *ngIf="model.errors?.['required']">Model is required!</p>
                     <p class="error" *ngIf="model.errors?.['minlength']">You should have at least 2 characters!</p>
                     <p class="error" *ngIf="model.errors?.['maxlength']">You cannot add more than 10 characters!</p>
                 </ng-container>
                 <label class="formTitle">Horsepower</label>
-                <input class="formInput" #hp="ngModel" ngModel type="text" name="hp" required pattern="^[0-9]+$">
+                <input class="formInput" #hp="ngModel" ngModel type="text" name="hp" required pattern="^[0-9]+$" [ngModel]="car?.hp">
                 <ng-container *ngIf="hp.touched">
                     <p class="error" *ngIf="hp.errors?.['required']">Horsepower are required!</p>
                     <p class="error" *ngIf="hp.errors?.['pattern']">Horsepower cannot contain any spaces or characters!</p>
@@ -93,7 +93,7 @@
                     </ng-container> -->
                 </ng-container>
                 <label class="formTitle">Year</label>
-                <input class="formInput" #year="ngModel" ngModel type="text" name="year" required min="1950" max="2022" pattern="^[0-9]+$">
+                <input class="formInput" #year="ngModel" ngModel type="text" name="year" required min="1950" max="2022" pattern="^[0-9]+$" [ngModel]="car?.year">
                 <ng-container *ngIf="year.touched">
                     <p class="error" *ngIf="year.errors?.['required']">Year is required!</p>
                     <p class="error" *ngIf="year.errors?.['min']">Car year should be newer than 1950's!</p>
@@ -101,7 +101,7 @@
                     <p class="error" *ngIf="year.errors?.['pattern']">Years cannot contain any spaces or characters!</p>
                 </ng-container>
                 <label class="formTitle">Description</label>
-                <input class="formInput" #description="ngModel" ngModel type="text" name="description" required minlength="10" maxlength="50">
+                <input class="formInput" #description="ngModel" ngModel type="text" name="description" required minlength="10" maxlength="50" [ngModel]="car?.description">
                 <ng-container *ngIf="description.touched">
                     <p class="error" *ngIf="description.errors?.['required']">Description is required!</p>
                     <p class="error" *ngIf="description.errors?.['minlength']">Description should have at least 10
@@ -110,7 +110,7 @@
                         characters!</p>
                 </ng-container>
                 <label class="formTitle">Price</label>
-                <input class="formInput" #price="ngModel" ngModel type="text" name="price" required pattern="^[0-9]+$">
+                <input class="formInput" #price="ngModel" ngModel type="text" name="price" required pattern="^[0-9]+$" [ngModel]="car?.price">
                 <ng-container *ngIf="price.touched">
                     <p class="error" *ngIf="price.errors?.['required']">Price is required!</p>
                     <p class="error" *ngIf="price.errors?.['pattern']">Price cannot contain any spaces or characters!</p>
