@@ -8,7 +8,6 @@
         <ng-container *ngFor="let car of cars | paginate: { itemsPerPage: 10, currentPage: p }" >
             <article>
                 <p>{{car.price}}$</p>
-                
                 <ng-container *ngIf="car?.imageUrl?.includes('http')">
                     <div class="image" *ngIf="car.imageUrl.includes('http')"> 
                         <img *ngIf="car.imageUrl.includes('res.cloudinary.com')" src={{car.imageUrl}} class="uploadedImage" alt="no-img">
