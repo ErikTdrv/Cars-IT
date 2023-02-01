@@ -10,6 +10,7 @@ import { CarService } from '../car.service';
 export class AllCarsComponent {
   p: Number | any = 1;
   cars: ICar[] | undefined
+  carsLength: any 
   isEmpty: boolean = false;
   constructor(private carService: CarService){
     this.getAllCars()
@@ -20,6 +21,7 @@ export class AllCarsComponent {
     this.carService.getAllCars().subscribe({
       next: (cars) => {
         this.cars = cars
+        this.carsLength = cars.length || 0
         if(cars.length == 0){
           this.isEmpty = true;
         }
