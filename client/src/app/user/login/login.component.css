@@ -100,5 +100,13 @@ input:disabled {
     }
     input {
         width: 90%;
+        position: relative;
+        left: 5%;
+        margin: 0px;
+        padding: 0px;
+    }
+    label {
+        margin-left: 20px;
+
     }
 }
