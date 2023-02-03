@@ -33,7 +33,7 @@
         <div></div>
         <div></div>
     </div>
-    <div class="pagination" *ngIf="cars?.length > 0">
+    <div class="pagination" *ngIf="cars?.length > 10">
         <pagination-controls class="paginator" (pageChange)="p = $event"></pagination-controls>
     </div>
 </div>
