@@ -45,8 +45,8 @@
 .ownerSpan:hover {
     cursor: pointer;
     transition: 0.2s;
-    color: #e20404;
-    font-size: 1.7rem;
+    color: #fc5555;
+    /* font-size: 1.7rem; */
 }
 .imageurl {
     font-size: 1.1rem;
@@ -114,7 +114,7 @@ h3 {
     /* justify-content: space-evenly; */
     min-width: max-content;
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     left: 50%;
     transform: translate(-50%);
     /* margin: 10px; */
