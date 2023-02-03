@@ -84,9 +84,12 @@ p.text {
     font-weight: bold;
 
 }
+.text a:hover {
+    color: #00aeff;
+}
 p>a {
     font-weight:lighter ;
-    color: #49c1a2;
+    color: #0a5ba7;
 }
 input:disabled {
     border: 1px solid #999999;
