@@ -7,12 +7,13 @@ import { Token } from "@angular/compiler";
 export class AppInterceptor implements HttpInterceptor {
     token: string | null = null
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        this.token = localStorage.getItem('token')
-        if(this.token && !req.url.includes('api.ipify.org')){
-            return next.handle(req.clone({ setHeaders: { 'X-Authorization': this.token}, withCredentials: true}));
-        }else{
-            return next.handle(req.clone({withCredentials: true}))
-        }
+        // --- If storing a token in local storage
+        // this.token = localStorage.getItem('token')
+        // if(this.token && !req.url.includes('api.ipify.org')){
+        //     return next.handle(req.clone({ setHeaders: { 'X-Authorization': this.token}, withCredentials: true}));
+        // }else{
+        // } 
+        return next.handle(req.clone({withCredentials: true}))
     }
 
 }
