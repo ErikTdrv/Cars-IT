@@ -37,22 +37,19 @@ router.post('/login', async (req, res) => {
 router.delete('/logout', async (req, res) => {
     res.clearCookie("auth");
     res.status(204).end();
-    
+
     // -- Clearing token from local storage
     // let token = req.user.token;
     // await logout(token)
 });
 router.get('/user', async (req, res) => {
-    let token;
-    if(req?.user?.token){
-        token = req.user.token
+    let cookie;
+    if(req.cookies?.auth){
+        cookie = req.user.cookie
     }
-    if (token) {
-        let user = await User.findOne({ token })
-        let isBlacklisted = await blacklisted.findOne({ token })
-        if (isBlacklisted) {
-            res.status(400).json({ error: 'User is not valid!' })
-        } else if (user) {
+    if (cookie) {
+        let user = await User.findOne({ token: cookie })
+        if(user) {
             let userToReturn = {
                 _id: user._id,
                 username: user.username,
