@@ -13,7 +13,11 @@ export class AppInterceptor implements HttpInterceptor {
         //     return next.handle(req.clone({ setHeaders: { 'X-Authorization': this.token}, withCredentials: true}));
         // }else{
         // } 
-        return next.handle(req.clone({withCredentials: true}))
+        if(req.url.includes('api.ipify.org')){
+            return next.handle(req.clone())
+        }else {
+            return next.handle(req.clone({withCredentials: true}))
+        }
     }
 
 }
