@@ -31,7 +31,7 @@ export class UserService {
     return this.http.post<IUser>(`${API_URL}/register`, data).pipe(
       tap((user) => {
         this.user = user
-        localStorage.setItem('token', this.user.accessToken)
+        // localStorage.setItem('token', this.user.accessToken)
       })
     )
   }
@@ -39,15 +39,13 @@ export class UserService {
     return this.http.post<IUser>(`${API_URL}/login`, data, ).pipe(
       tap((user) => {
         this.user = user
-        localStorage.setItem('token', this.user.accessToken)
+        // localStorage.setItem('token', this.user.accessToken)
       })
     )
   }
   logout(){
     this.user = null;
-    return this.http.delete(`${API_URL}/logout`).subscribe({
-      next: () => localStorage.removeItem('token')
-    })
+    return this.http.delete(`${API_URL}/logout`).subscribe()
   }
   getProfileData(){
     return this.http.get<IUser>(`${API_URL}/user`).pipe(
