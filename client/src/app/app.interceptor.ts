@@ -9,9 +9,9 @@ export class AppInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.token = localStorage.getItem('token')
         if(this.token && !req.url.includes('api.ipify.org')){
-            return next.handle(req.clone({ setHeaders: { 'X-Authorization': this.token}}));
+            return next.handle(req.clone({ setHeaders: { 'X-Authorization': this.token}, withCredentials: true}));
         }else{
-            return next.handle(req.clone())
+            return next.handle(req.clone({withCredentials: true}))
         }
     }
 
