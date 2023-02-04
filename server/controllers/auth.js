@@ -16,6 +16,7 @@ router.post('/register', async (req, res) => {
             data.imageId = upload.public_id
         }
         const user = await register(data);
+        res.cookie("auth", user.accessToken, { httpOnly: true, secure: true, });
         res.status(201).json(user)
     } catch (error) {
         console.log(error)
@@ -27,11 +28,11 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await login(email, password)
+        res.cookie("auth", user.accessToken, { httpOnly: true, secure: true, });
         res.status(201).json(user)
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
-    res.end()
 })
 router.delete('/logout', async (req, res) => {
     let token = req.user.token;
