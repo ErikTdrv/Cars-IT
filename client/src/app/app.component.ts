@@ -10,12 +10,10 @@ import { UserService } from './user/user.service';
 })
 export class AppComponent{
   constructor(private userService: UserService){
-    if(localStorage.getItem('token')){
       userService.getProfileData().subscribe({
         error: () => {
           userService.logout()
         }
       })
-    }
   }
 }
