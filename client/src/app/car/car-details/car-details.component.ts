@@ -23,7 +23,6 @@ export class CarDetailsComponent {
   constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getCar()
   }
-  
   getCar(): void {
     this.car = undefined;
     const id = this.activatedRoute.snapshot.params['id'];
