@@ -12,10 +12,10 @@ export class AuthGuard implements CanActivate {
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     const { guest } = route.data;
-    const token = localStorage.getItem('token')
-    if(!token && guest == true){
+    const isLogged = this.userService.isLogged
+    if(!isLogged && guest == true){
       return true
-    }else if(token && guest == false){
+    }else if(isLogged && guest == false){
       return true
     }
     return this.router.parseUrl('/error');
