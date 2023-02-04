@@ -9,7 +9,7 @@ const validateToken = (token) => {
         const data = jwt.verify(token, server.SECRET_KEY)
         return data
     } catch (error) {
-        throw new Error('Invalid access token!')
+        throw new Error('Invalid cookie token!')
     }
 }
 const createAccessToken = (user) => {
