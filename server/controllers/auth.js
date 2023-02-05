@@ -35,12 +35,9 @@ router.post('/login', async (req, res) => {
     }
 })
 router.delete('/logout', async (req, res) => {
-    if(req.cookies?.auth){
-        res.clearCookie("auth");
-        res.status(204).end();
-    }else {
-        res.end()
-    }
+    res.clearCookie("auth");
+    res.status(204).end();  
+
 
     // -- Clearing token from local storage
     // let token = req.user.token;
