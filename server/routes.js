@@ -4,7 +4,7 @@ const carcontroller = require('./controllers/car');
 const specialcontroller = require('./controllers/special');
 
 router.get('/', (req, res) => {
-    res.json('Working...')
+    res.json('Working pro0perly...')
 })
 router.use(authcontroller)
 router.use(specialcontroller)
