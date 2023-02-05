@@ -19,17 +19,19 @@ export class CarDetailsComponent {
   errors: Object | undefined;
   alreadyFavourite: boolean = false;
   index: any = 0;
-  isLoading: boolean = true;
+  isLoading: boolean = false;
   constructor(private carService: CarService, private activatedRoute: ActivatedRoute, private userService: UserService, private router: Router) {
     this.getCar()
   }
   getCar(): void {
+    this.isLoading = true;
     this.car = undefined;
     const id = this.activatedRoute.snapshot.params['id'];
     this.carService.getOneCar(id).subscribe({
       next: (car) => {
         this.car = car
         this.alreadyFavourite = car.addedBy.some((user) => user.username == this.userService.user?.username)
+        this.isLoading = false
         if(this.userService.user?._id == car.owner._id){
           this.isAuthor = true
         }else {
@@ -116,12 +118,14 @@ export class CarDetailsComponent {
   //     }
   //   })
   // }
-  async editCar(form: NgForm, imageUrl: any){
-    if(this.userService.user?._id != this.car?.owner._id || !this.token){
-      this.router.navigate(['**'])
+  async editCar(form: NgForm, imageUrl: any): Promise<any>{
+
+    this.isLoading = true;
+    console.log('here')
+    if(this.userService.user?._id != this.car?.owner._id){
+      return this.router.navigate(['**'])
     }
     const id = this.car?._id;
-    this.isLoading = true;
     const file: any = imageUrl.files;
     let base64: any = [];
     if(file){

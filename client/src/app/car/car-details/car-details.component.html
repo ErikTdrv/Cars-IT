@@ -39,12 +39,7 @@
             </div>
         </article>
     </ng-container>
-    <div class="lds-ellipsis" *ngIf="!car">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+    
 
     <ng-container *ngIf="inEditMode">
         <div class="title">
@@ -120,4 +115,10 @@
             </form>
         </div>
     </ng-container>
+    <div class="lds-ellipsis" *ngIf="isLoading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </div>
