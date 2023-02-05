@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
             data.imageId = upload.public_id
         }
         const user = await register(data);
-        res.cookie("auth", user.accessToken, { httpOnly: true, secure: true, });
+        res.cookie("auth", user.accessToken, { httpOnly: true, secure: true,sameSite: 'none'});
         res.status(201).json(user)
     } catch (error) {
         console.log(error)
@@ -28,15 +28,19 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await login(email, password)
-        res.cookie("auth", user.accessToken, { httpOnly: true, secure: true, });
+        res.cookie("auth", user.accessToken, { httpOnly: true, sameSite: 'none' , secure: true});
         res.status(201).json(user)
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
 })
 router.delete('/logout', async (req, res) => {
-    res.clearCookie("auth");
-    res.status(204).end();
+    if(req.cookies?.auth){
+        res.clearCookie("auth");
+        res.status(204).end();
+    }else {
+        res.end()
+    }
 
     // -- Clearing token from local storage
     // let token = req.user.token;
@@ -66,7 +70,7 @@ router.get('/user', async (req, res) => {
             res.status(400).json({ error: 'User is not valid!' })
         }
     } else {
-        res.status(400).json({ error: 'User is not valid!' })
+        res.end()
     }
 })
 router.get('/user/:owner', async (req, res) => {
