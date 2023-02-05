@@ -19,11 +19,9 @@ export class HeaderComponent {
   constructor(private userService: UserService, private router: Router){}
 
   logout(){
-    const token = localStorage.getItem('token')
-    if(token){
       this.userService.logout()
       this.router.navigate(['/'])
-    }
+
   }
   menuClick(){
     this.view = !this.view
