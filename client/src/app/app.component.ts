@@ -11,7 +11,8 @@ import { UserService } from './user/user.service';
 export class AppComponent{
   constructor(private userService: UserService){
       userService.getProfileData().subscribe({
-        error: () => {
+        error: (err) => {
+          console.log(err)
           userService.logout()
         }
       })
