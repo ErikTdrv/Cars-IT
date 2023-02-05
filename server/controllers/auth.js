@@ -3,7 +3,7 @@ const cloudinary = require('cloudinary');
 const User = require('../models/User');
 const blacklisted = require('../models/Blacklisted');
 const router = require('express').Router();
-
+const cookieParser = require('cookie-parser');
 
 //Authentification routes
 router.post('/register', async (req, res) => {
@@ -35,8 +35,8 @@ router.post('/login', async (req, res) => {
     }
 })
 router.delete('/logout', async (req, res) => {
-    res.clearCookie("auth");
-    res.status(204).end();  
+    res.clearCookie('auth');
+    res.send({ message: 'Cookie cleared successfully' }) 
 
 
     // -- Clearing token from local storage
