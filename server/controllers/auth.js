@@ -35,7 +35,8 @@ router.post('/login', async (req, res) => {
     }
 })
 router.delete('/logout', async (req, res) => {
-    res.clearCookie('auth');
+    // res.clearCookie('auth');
+    res.cookie("auth", 'none', { httpOnly: true, sameSite: 'none' , secure: true});
     res.send({ message: 'Cookie cleared successfully' }) 
 
 
@@ -44,11 +45,8 @@ router.delete('/logout', async (req, res) => {
     // await logout(token)
 });
 router.get('/user', async (req, res) => {
-    let cookie;
-    if(req.cookies?.auth){
-        cookie = req.user.cookie
-    }
-    if (cookie) {
+    let cookie = req.user.cookie;
+    if (cookie != 'none') {
         let user = await User.findOne({ token: cookie })
         if(user) {
             let userToReturn = {
