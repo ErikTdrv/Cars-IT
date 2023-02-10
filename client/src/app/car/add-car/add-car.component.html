@@ -38,7 +38,11 @@
                 <input id="file" #imageUrl ngModel type="file" accept="image/*" multiple name="imageUrl" required>
             </ng-container>
             <ng-container class="imageUrlContainer">
-                <input #imageUrl="ngModel" class="formInput" ngModel id="url" type="text" name="imageUrl">
+                <input #imageUrl="ngModel" class="formInput" ngModel id="url" type="text" required name="imageUrl">
+                <ng-container *ngIf="image.checked">
+                    <p class="error" *ngIf="form.value.imageUrl.length < 5">ImageUrl is required!</p>
+                    <p class="error" *ngIf="!form.value.imageUrl.includes('http') && form.value.imageUrl.length >= 5">You must give a URL!</p>
+                </ng-container>
                 <!-- pattern="https?:\/\/.+" -->
                 <!-- <ng-container *ngIf="form.value.imageUrl.length > 0">
                     <p class="error" *ngIf="form.value.imageUrl.length == 0">ImageUrl is required!</p>

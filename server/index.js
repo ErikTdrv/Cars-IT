@@ -14,7 +14,7 @@ async function startServer() {
         // app.use(manualCors())
         app.use(cors({
             origin: 'https://carsit-fe.ew.r.appspot.com',
-            // origin: 'http://localhost:4200',
+            origin: 'http://localhost:4200',
             methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'Origin', 'X-Requested-With', 'Accept', 'Cookie'],
             credentials: true,
             allowedHeaders: ['Content-Type, X-Authorization, X-RapidAPI-Key, X-RapidAPI-Host'],
