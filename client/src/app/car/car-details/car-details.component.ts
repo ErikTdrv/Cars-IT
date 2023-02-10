@@ -59,7 +59,8 @@ export class CarDetailsComponent {
   }
   addToFavourite(){
     let id = this.car?._id
-    if(!this.token){
+    let isLogged = this.userService.isLogged
+    if(!isLogged){
       this.router.navigate(['login'])
     }else {
       this.carService.addToFavourite(id).subscribe({
@@ -71,7 +72,8 @@ export class CarDetailsComponent {
   }
   removeFromFavourites(){
     let id = this.car?._id;
-    if(!this.token){
+    let isLogged = this.userService.isLogged
+    if(!isLogged){
       this.router.navigate(['login'])
     }else {
       this.carService.removeFromFavourites(id).subscribe({
