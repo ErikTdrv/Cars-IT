@@ -15,7 +15,7 @@
                 <img src={{car.imageUrl}} alt="no-img" *ngIf="car.imageUrl?.includes('http')">
             </div>
             <div class="info">
-                <span *ngIf="alreadyFavourite" class="added">&hearts;</span>
+                <span *ngIf="alreadyFavourite" class="added">&check;</span>
                 <h1>{{car.make}} <span>{{car.model}}</span></h1>
                 <hr>
                 <h3>Horsepower: <span>{{car.hp}}</span></h3>

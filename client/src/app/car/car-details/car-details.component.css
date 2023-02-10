@@ -162,10 +162,11 @@ input[type="radio"] {
     width: 30px;
     border-radius: 15px;
     padding: 6px;
+    padding-right: 9px;
     color: white;
     text-align: center;
     font-size: 25px;
-    background-color: red;
+    background-color: rgb(108, 177, 5);
 }
 
 
