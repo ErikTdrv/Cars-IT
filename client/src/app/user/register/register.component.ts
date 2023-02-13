@@ -14,6 +14,7 @@ export class RegisterComponent {
   file: any;
   form!: FormGroup;
   errors: string | undefined = undefined;
+  isLoading: boolean = false;
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.form = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(10)]],
@@ -37,14 +38,19 @@ export class RegisterComponent {
     })
   }
   async register(avatarImg: any){
+    this.isLoading = true;
     const file: File = avatarImg.files[0];
     if(file){
       let base64 = await this.convertToBase64(file)
       this.form.value.avatarImg = base64;
     }
     this.userService.register(this.form.value).subscribe({
-      next: () => this.router.navigate(['/']),
+      next: () => {
+        this.isLoading = false;
+        this.router.navigate(['/']);
+      },
       error: (err) => {
+        this.isLoading = false;
         this.errors = handleError(err.error?.error)
       }
     })

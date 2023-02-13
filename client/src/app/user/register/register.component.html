@@ -34,8 +34,14 @@
             <ng-container *ngIf="errors">
                 <p class="mainerror">{{errors}}</p>
             </ng-container>
-            <input [disabled]="form.invalid" type="submit" value="Register" class="btn">
+            <input [disabled]="form.invalid || isLoading" type="submit" value="Register" class="btn">
         </form>
         <p class="text">Already have an account? <a routerLink="/login">Login here</a></p>
+        <div class="lds-ellipsis" *ngIf="isLoading">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 </div>

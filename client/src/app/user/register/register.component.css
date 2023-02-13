@@ -108,6 +108,12 @@ input:disabled {
   background-color: #cccccc;
   /* color: #666666; */
 }
+.lds-ellipsis {
+    position: absolute;
+    top: -10%;
+    left: 54%;
+
+}
 @media only screen and (max-width: 740px) {
     .form {
         width: 85%;
