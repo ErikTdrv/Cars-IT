@@ -55,6 +55,10 @@ export class ProfileInfoComponent {
   showingInfo(){
     if(this.ip){
       this.geolocationLoaded = true;
+    }else {
+      this.isLoading = false;
+      this.currUser = this.userService.user
+      return;
     }
     this.userService.getIPaddress(this.ip).subscribe((value) => {
       this.info = value

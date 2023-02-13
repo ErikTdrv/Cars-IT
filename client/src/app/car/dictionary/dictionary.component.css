@@ -124,3 +124,119 @@ span {
         margin-left: 10px;
     }
 }
+@media only screen and (max-height: 770px) {
+    .carTitle {
+        font-size: 23px;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        margin: 20px;
+    }
+    h3 {
+        margin-top: 25px;
+        padding-left: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        font-style: italic;
+        margin-bottom: 30px;
+    }
+    span {
+        color: rgb(216, 47, 47);
+        font-weight: bold;
+        font-style: italic;
+    }
+}
+@media only screen and (max-height: 660px) {
+    input {
+        width: 300px;
+        height: 17px;
+        font-size: 1.2rem;
+        /* padding: 5px; */
+    }
+    .flex {
+        height: 50px;
+    }
+    button {
+        /* width: 70px; */
+        /* height: 34px; */
+        margin-left: 20px;
+        padding: 10px;
+        font-size: 0.7rem;
+        
+    }
+    .title {
+        height: 30px;
+    }
+    .title h1 {
+        padding: 0px;
+        padding-top: 5px;
+        font-size: 16px;
+    }
+    .carTitle {
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        margin: 30px;
+    }
+    h3 {
+        margin-top: 10px;
+        padding-left: 5px;
+        font-size: 0.7rem;
+        font-weight: bold;
+        font-style: italic;
+        margin-bottom: 10px;
+    }
+    span {
+        color: rgb(216, 47, 47);
+        font-weight: bold;
+        font-style: italic;
+    }
+}
+@media only screen and (max-height: 500px) {
+    input {
+        width: 200px;
+        height: 10px;
+        font-size: 1rem;
+        /* padding: 5px; */
+    }
+    .flex {
+        height: 40px;
+    }
+    button {
+        /* width: 70px; */
+        /* height: 34px; */
+        margin-left: 20px;
+        padding: 10px;
+        font-size: 0.5rem;
+        
+    }
+    .title {
+        height: 20px;
+    }
+    .title h1 {
+        padding: 0px;
+        padding-top: 5px;
+        font-size: 10px;
+    }
+    .carTitle {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+        margin: 15px;
+    }
+    h3 {
+        margin-top: 4px;
+        padding-left: 5px;
+        font-size: 0.6rem;
+        font-weight: bold;
+        font-style: italic;
+        margin-bottom: 4px;
+    }
+    span {
+        color: rgb(216, 47, 47);
+        font-weight: bold;
+        font-style: italic;
+    }
+}
