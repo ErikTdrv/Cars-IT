@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent{
-
+  isLoading: boolean = false;
   // IF AUTH GUARD IS NOT WORKING, USE THIS ---
   // isAuthenticating: boolean = false;
   // ngOnInit(): void {
@@ -25,8 +25,10 @@ export class LoginComponent{
   }
   errors: string | undefined = undefined;
   login(form: NgForm): void{
+    this.isLoading = true;
     this.userService.login(form.value).subscribe({
       next: () => {
+        this.isLoading = false;
         this.router.navigate(['/'])
       },
       error: (err) => {

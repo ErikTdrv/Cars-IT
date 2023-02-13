@@ -22,5 +22,11 @@
             <input [disabled]="form.invalid" type="submit" value="Login" class="btn">
         </form>
         <p class="text">Don't have an account yet? <a routerLink="/register">Register here</a></p>
+        <div class="lds-ellipsis" *ngIf="isLoading">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 </div>
