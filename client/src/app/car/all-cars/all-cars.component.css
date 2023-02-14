@@ -59,6 +59,7 @@ img {
 article h1 {
     font-size: 1rem;
     padding: 20px;
+    text-align: center;
 }
 p {
     position: absolute;
